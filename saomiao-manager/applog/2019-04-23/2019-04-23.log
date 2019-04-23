@@ -1,0 +1,1247 @@
+2019-04-23 16:42:28 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 988 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 16:42:28 -The following profiles are active: dev
+2019-04-23 16:42:29 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 16:42:29 CST 2019]; root of context hierarchy
+2019-04-23 16:42:29 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 16:42:31 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 16:42:32 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$35a933e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 16:42:33 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilterFactoryBean' defined in class path resource [com/saomiao/system/config/ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+2019-04-23 16:42:33 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 16:42:33 -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilterFactoryBean' defined in class path resource [com/saomiao/system/config/ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:479)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:237)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:703)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:479)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:92)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:102)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:88)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:103)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:248)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1037)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:473)
+	... 14 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:92)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:102)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:88)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:103)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:248)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1037)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:473)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:217)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:190)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:169)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:220)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:279)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:311)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:119)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:89)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:70)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:346)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:298)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:423)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	... 57 common frames omitted
+2019-04-23 17:01:04 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 10384 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:01:04 -The following profiles are active: dev
+2019-04-23 17:01:05 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:01:05 CST 2019]; root of context hierarchy
+2019-04-23 17:01:05 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:01:07 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:01:08 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$898fe086] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:01:08 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilterFactoryBean' defined in class path resource [com/saomiao/system/config/ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+2019-04-23 17:01:08 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 17:01:08 -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilterFactoryBean' defined in class path resource [com/saomiao/system/config/ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:479)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:237)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:703)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroConfig' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\system\config\ShiroConfig.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:479)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:92)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:102)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:88)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:103)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:248)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1037)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:473)
+	... 14 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:92)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:102)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:88)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:103)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:248)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1037)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1011)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:473)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$zhenjiu$common$annotation$Log
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:319)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:217)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:190)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:169)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:220)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:279)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:311)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:119)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:89)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:70)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:346)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:298)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:423)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	... 57 common frames omitted
+2019-04-23 17:15:48 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 9308 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:15:48 -The following profiles are active: dev
+2019-04-23 17:15:49 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:15:49 CST 2019]; root of context hierarchy
+2019-04-23 17:15:49 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:15:51 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:15:52 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$35a933e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:52 -Bean 'shiroConfig' of type [com.saomiao.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$c5380ec3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:53 -Bean 'userRealm' of type [com.saomiao.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:53 -Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:53 -Cache with name 'com.saomiao.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2019-04-23 17:15:53 -Added EhCache named [com.saomiao.system.shiro.UserRealm.authorizationCache]
+2019-04-23 17:15:53 -Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:53 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:53 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:54 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:15:54 -Tomcat initialized with port(s): 8066 (http)
+2019-04-23 17:15:54 -Starting service [Tomcat]
+2019-04-23 17:15:54 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-04-23 17:15:54 -Initializing Spring embedded WebApplicationContext
+2019-04-23 17:15:54 -Root WebApplicationContext: initialization completed in 5728 ms
+2019-04-23 17:15:55 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 17:15:55 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 17:15:55 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 17:15:55 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 17:15:55 -Mapping filter: 'springSecurityFilterChain' to: [/*]
+2019-04-23 17:15:55 -Filter xssFilter was not registered (disabled)
+2019-04-23 17:15:55 -Mapping filter: 'webStatFilter' to urls: [/*]
+2019-04-23 17:15:55 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-04-23 17:15:55 -Mapping servlet: 'statViewServlet' to [/druid/*]
+2019-04-23 17:15:55 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 17:15:56 -{dataSource-1} inited
+2019-04-23 17:15:58 -ProcessEngine default created
+2019-04-23 17:15:59 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+2019-04-23 17:15:59 -{dataSource-1} closed
+2019-04-23 17:15:59 -Stopping service [Tomcat]
+2019-04-23 17:15:59 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 17:15:59 -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 55 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\activiti\SalaryMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$687d8518.CGLIB$sqlSessionFactory$0(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$687d8518$$FastClassBySpringCGLIB$$ae3d9de1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$687d8518.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 56 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 69 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:74)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 71 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.activiti.domain.SalaryDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.activiti.domain.SalaryDO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 77 common frames omitted
+2019-04-23 17:26:17 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 12984 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:26:17 -The following profiles are active: dev
+2019-04-23 17:26:18 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:26:18 CST 2019]; root of context hierarchy
+2019-04-23 17:26:18 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:26:21 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:26:22 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c7495381] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:22 -Bean 'shiroConfig' of type [com.saomiao.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$56d82e5c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Bean 'userRealm' of type [com.saomiao.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Cache with name 'com.saomiao.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2019-04-23 17:26:23 -Added EhCache named [com.saomiao.system.shiro.UserRealm.authorizationCache]
+2019-04-23 17:26:23 -Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:23 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:26:24 -Tomcat initialized with port(s): 8066 (http)
+2019-04-23 17:26:24 -Starting service [Tomcat]
+2019-04-23 17:26:24 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-04-23 17:26:25 -Initializing Spring embedded WebApplicationContext
+2019-04-23 17:26:25 -Root WebApplicationContext: initialization completed in 6728 ms
+2019-04-23 17:26:25 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 17:26:25 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 17:26:25 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 17:26:25 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 17:26:25 -Mapping filter: 'springSecurityFilterChain' to: [/*]
+2019-04-23 17:26:25 -Filter xssFilter was not registered (disabled)
+2019-04-23 17:26:25 -Mapping filter: 'webStatFilter' to urls: [/*]
+2019-04-23 17:26:25 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-04-23 17:26:25 -Mapping servlet: 'statViewServlet' to [/druid/*]
+2019-04-23 17:26:25 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 17:26:26 -{dataSource-1} inited
+2019-04-23 17:26:28 -ProcessEngine default created
+2019-04-23 17:26:29 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+2019-04-23 17:26:29 -{dataSource-1} closed
+2019-04-23 17:26:29 -Stopping service [Tomcat]
+2019-04-23 17:26:29 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 17:26:29 -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 55 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$fa1da4b1.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$fa1da4b1$$FastClassBySpringCGLIB$$972b16be.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$fa1da4b1.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 56 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 69 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:74)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 71 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 77 common frames omitted
+2019-04-23 17:30:46 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 1348 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:30:46 -The following profiles are active: dev
+2019-04-23 17:30:47 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6253c26: startup date [Tue Apr 23 17:30:47 CST 2019]; root of context hierarchy
+2019-04-23 17:30:47 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:30:50 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:30:51 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f1ae4c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:51 -Bean 'shiroConfig' of type [com.saomiao.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$9ea9bf9b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Bean 'userRealm' of type [com.saomiao.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Cache with name 'com.saomiao.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2019-04-23 17:30:57 -Added EhCache named [com.saomiao.system.shiro.UserRealm.authorizationCache]
+2019-04-23 17:30:57 -Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:57 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:30:58 -Tomcat initialized with port(s): 8066 (http)
+2019-04-23 17:30:58 -Starting service [Tomcat]
+2019-04-23 17:30:58 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-04-23 17:30:59 -Initializing Spring embedded WebApplicationContext
+2019-04-23 17:30:59 -Root WebApplicationContext: initialization completed in 11743 ms
+2019-04-23 17:30:59 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 17:30:59 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 17:30:59 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 17:30:59 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 17:30:59 -Mapping filter: 'springSecurityFilterChain' to: [/*]
+2019-04-23 17:30:59 -Filter xssFilter was not registered (disabled)
+2019-04-23 17:30:59 -Mapping filter: 'webStatFilter' to urls: [/*]
+2019-04-23 17:30:59 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-04-23 17:30:59 -Mapping servlet: 'statViewServlet' to [/druid/*]
+2019-04-23 17:30:59 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 17:31:00 -{dataSource-1} inited
+2019-04-23 17:31:03 -ProcessEngine default created
+2019-04-23 17:31:03 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+2019-04-23 17:31:03 -{dataSource-1} closed
+2019-04-23 17:31:03 -Stopping service [Tomcat]
+2019-04-23 17:31:04 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 17:31:04 -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 55 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$41ef35f0.CGLIB$sqlSessionFactory$0(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$41ef35f0$$FastClassBySpringCGLIB$$bac88178.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$41ef35f0.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 56 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 69 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:74)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 71 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 77 common frames omitted
+2019-04-23 17:34:40 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 11268 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:34:40 -The following profiles are active: dev
+2019-04-23 17:34:40 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6253c26: startup date [Tue Apr 23 17:34:40 CST 2019]; root of context hierarchy
+2019-04-23 17:34:40 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:34:42 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:34:44 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a47c71c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:44 -Bean 'shiroConfig' of type [com.saomiao.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$340b4c9b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Bean 'userRealm' of type [com.saomiao.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Cache with name 'com.saomiao.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2019-04-23 17:34:50 -Added EhCache named [com.saomiao.system.shiro.UserRealm.authorizationCache]
+2019-04-23 17:34:50 -Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:50 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:34:51 -Tomcat initialized with port(s): 8066 (http)
+2019-04-23 17:34:51 -Starting service [Tomcat]
+2019-04-23 17:34:51 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-04-23 17:34:51 -Initializing Spring embedded WebApplicationContext
+2019-04-23 17:34:51 -Root WebApplicationContext: initialization completed in 11002 ms
+2019-04-23 17:34:52 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 17:34:52 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 17:34:52 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 17:34:52 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 17:34:52 -Mapping filter: 'springSecurityFilterChain' to: [/*]
+2019-04-23 17:34:52 -Filter xssFilter was not registered (disabled)
+2019-04-23 17:34:52 -Mapping filter: 'webStatFilter' to urls: [/*]
+2019-04-23 17:34:52 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-04-23 17:34:52 -Mapping servlet: 'statViewServlet' to [/druid/*]
+2019-04-23 17:34:52 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 17:34:53 -{dataSource-1} inited
+2019-04-23 17:34:55 -ProcessEngine default created
+2019-04-23 17:34:56 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+2019-04-23 17:34:56 -{dataSource-1} closed
+2019-04-23 17:34:56 -Stopping service [Tomcat]
+2019-04-23 17:34:56 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-04-23 17:34:56 -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.saomiao.BootdoApplication.main(BootdoApplication.java:21)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\com\saomiao\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 55 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes\mybatis\common\DictMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$d750c2f0.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$d750c2f0$$FastClassBySpringCGLIB$$1d9a8255.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$d750c2f0.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 56 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 69 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:74)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 71 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zhenjiu.common.domain.DictDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.zhenjiu.common.domain.DictDO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 77 common frames omitted
+2019-04-23 17:47:02 -Starting BootdoApplication on DESKTOP-JL3IS8B with PID 9368 (E:\bjjt\saomiaowork\saomiao\saomiao-manager\target\classes started by jingtu in E:\bjjt\saomiaowork\saomiao\saomiao-manager)
+2019-04-23 17:47:02 -The following profiles are active: dev
+2019-04-23 17:47:03 -HV000001: Hibernate Validator 5.3.6.Final
+2019-04-23 17:47:03 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:47:03 CST 2019]; root of context hierarchy
+2019-04-23 17:47:05 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 17:47:06 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$465f6cc8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:06 -Bean 'shiroConfig' of type [com.saomiao.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$d5ee47a3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Bean 'userRealm' of type [com.saomiao.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Bean 'ehCacheManager' of type [org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Cache with name 'com.saomiao.system.shiro.UserRealm.authorizationCache' does not yet exist.  Creating now.
+2019-04-23 17:47:07 -Added EhCache named [com.saomiao.system.shiro.UserRealm.authorizationCache]
+2019-04-23 17:47:07 -Bean 'sessionDAO' of type [org.apache.shiro.session.mgt.eis.MemorySessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:07 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 17:47:08 -Tomcat initialized with port(s): 8066 (http)
+2019-04-23 17:47:08 -Starting service [Tomcat]
+2019-04-23 17:47:08 -Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-04-23 17:47:08 -Initializing Spring embedded WebApplicationContext
+2019-04-23 17:47:08 -Root WebApplicationContext: initialization completed in 5523 ms
+2019-04-23 17:47:09 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 17:47:09 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 17:47:09 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 17:47:09 -Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 17:47:09 -Mapping filter: 'springSecurityFilterChain' to: [/*]
+2019-04-23 17:47:09 -Filter xssFilter was not registered (disabled)
+2019-04-23 17:47:09 -Mapping filter: 'webStatFilter' to urls: [/*]
+2019-04-23 17:47:09 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2019-04-23 17:47:09 -Mapping servlet: 'statViewServlet' to [/druid/*]
+2019-04-23 17:47:09 -Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 17:47:10 -{dataSource-1} inited
+2019-04-23 17:47:12 -ProcessEngine default created
+2019-04-23 17:47:13 -Using default implementation for ThreadExecutor
+2019-04-23 17:47:13 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-04-23 17:47:13 -Quartz Scheduler v.2.2.1 created.
+2019-04-23 17:47:13 -RAMJobStore initialized.
+2019-04-23 17:47:13 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-04-23 17:47:13 -Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+2019-04-23 17:47:13 -Quartz scheduler version: 2.2.1
+2019-04-23 17:47:13 -JobFactory set to: com.saomiao.common.quartz.factory.JobFactory@73385d3f
+2019-04-23 17:47:14 -Initializing ExecutorService  'clientInboundChannelExecutor'
+2019-04-23 17:47:14 -Initializing ExecutorService  'clientOutboundChannelExecutor'
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/{id}],methods=[DELETE]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ModelController.remove(java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/list],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.activiti.controller.ModelController.list(int,int)
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ModelController.batchRemove(java.lang.String[])
+2019-04-23 17:47:16 -Mapped "{[/activiti/model],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.saomiao.activiti.controller.ModelController.model()
+2019-04-23 17:47:16 -Mapped "{[/activiti/editor/stencilset],methods=[GET],produces=[application/json;charset=utf-8]}" onto public java.lang.String com.saomiao.activiti.controller.ModelController.getStencilset()
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/{modelId}/save],methods=[PUT]}" onto public void com.saomiao.activiti.controller.ModelController.saveModel(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/{modelId}/json],methods=[GET]}" onto public com.fasterxml.jackson.databind.node.ObjectNode com.saomiao.activiti.controller.ModelController.getEditorJson(java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/add]}" onto public void com.saomiao.activiti.controller.ModelController.newModel(javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/edit/{id}],methods=[GET]}" onto public void com.saomiao.activiti.controller.ModelController.edit(javax.servlet.http.HttpServletResponse,java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/deploy/{id}],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ModelController.deploy(java.lang.String) throws java.lang.Exception
+2019-04-23 17:47:16 -Mapped "{[/activiti/model/export/{id}],methods=[GET]}" onto public void com.saomiao.activiti.controller.ModelController.exportToXml(java.lang.String,javax.servlet.http.HttpServletResponse)
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.saomiao.activiti.controller.ProcessController.add()
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ProcessController.remove(java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/list],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.activiti.controller.ProcessController.list(int,int)
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ProcessController.batchRemove(java.lang.String[])
+2019-04-23 17:47:16 -Mapped "{[/activiti/process],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.saomiao.activiti.controller.ProcessController.process()
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ProcessController.deploy(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile)
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/resource/read/{xml}/{id}]}" onto public void com.saomiao.activiti.controller.ProcessController.resourceRead(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2019-04-23 17:47:16 -Mapped "{[/activiti/process/convertToModel/{procDefId}]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.ProcessController.convertToModel(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes) throws java.io.UnsupportedEncodingException,javax.xml.stream.XMLStreamException
+2019-04-23 17:47:16 -Mapped "{[/act/salary/form],methods=[GET]}" onto java.lang.String com.saomiao.activiti.controller.SalaryController.add()
+2019-04-23 17:47:16 -Mapped "{[/act/salary/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.SalaryController.remove(java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/act/salary/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.SalaryController.remove(java.lang.String[])
+2019-04-23 17:47:16 -Mapped "{[/act/salary/update]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.SalaryController.update(com.saomiao.activiti.domain.SalaryDO)
+2019-04-23 17:47:16 -Mapped "{[/act/salary/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.activiti.controller.SalaryController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/act/salary/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.activiti.controller.SalaryController.saveOrUpdate(com.saomiao.activiti.domain.SalaryDO)
+2019-04-23 17:47:16 -Mapped "{[/act/salary/form/{taskId}],methods=[GET]}" onto java.lang.String com.saomiao.activiti.controller.SalaryController.edit(java.lang.String,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/act/salary],methods=[GET]}" onto java.lang.String com.saomiao.activiti.controller.SalaryController.Salary()
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/form/{procDefId}/{taskId}],methods=[GET]}" onto public void com.saomiao.activiti.controller.TaskController.form(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/gotoList],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.activiti.controller.TaskController.list(int,int)
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/form/{procDefId}],methods=[GET]}" onto public void com.saomiao.activiti.controller.TaskController.startForm(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/goto],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.saomiao.activiti.controller.TaskController.gotoTask()
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/todo],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.saomiao.activiti.controller.TaskController.todo()
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/trace/photo/{procDefId}/{execId}]}" onto public void com.saomiao.activiti.controller.TaskController.tracePhoto(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2019-04-23 17:47:16 -Mapped "{[/activiti/task/todoList],methods=[GET]}" onto java.util.List<com.saomiao.activiti.vo.TaskVO> com.saomiao.activiti.controller.TaskController.todoList()
+2019-04-23 17:47:16 -Mapped "{[/blog/open/post/{cid}],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.BlogController.post(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/blog],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.BlogController.blog()
+2019-04-23 17:47:16 -Mapped "{[/blog/open/page/{categories}],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.BlogController.about(java.lang.String,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/blog/open/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.blog.controller.BlogController.opentList(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/add],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.ContentController.add()
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.blog.controller.ContentController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.blog.controller.ContentController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/update]}" onto public com.saomiao.common.utils.R com.saomiao.blog.controller.ContentController.update(com.saomiao.blog.domain.ContentDO)
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.blog.controller.ContentController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.blog.controller.ContentController.save(com.saomiao.blog.domain.ContentDO)
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.ContentController.bContent()
+2019-04-23 17:47:16 -Mapped "{[/blog/bContent/edit/{cid}],methods=[GET]}" onto java.lang.String com.saomiao.blog.controller.ContentController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/add],methods=[GET]}" onto java.lang.String com.saomiao.carousel.controller.BannerController.add()
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.remove(java.lang.Long,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/update]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.update(com.saomiao.carousel.domain.BannerDO)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.carousel.controller.BannerController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.save(com.saomiao.carousel.domain.BannerDO)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/info/{id}]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.info(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner],methods=[GET]}" onto java.lang.String com.saomiao.carousel.controller.BannerController.sysFile(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/rocket/{id}],methods=[GET]}" onto java.lang.String com.saomiao.carousel.controller.BannerController.rocket(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/updateEnable]}" onto public com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.updateEnable(java.lang.Long,java.lang.Integer)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/upload],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.carousel.controller.BannerController.upload(org.springframework.web.multipart.MultipartFile,com.saomiao.carousel.domain.BannerDO,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/carousel/banner/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.carousel.controller.BannerController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/add],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.DictController.add()
+2019-04-23 17:47:16 -Mapped "{[/common/dict/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.DictController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.DictController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/common/dict/update]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.DictController.update(com.saomiao.common.domain.DictDO)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.common.controller.DictController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.DictController.save(com.saomiao.common.domain.DictDO)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/type],methods=[GET]}" onto public java.util.List<com.saomiao.common.domain.DictDO> com.saomiao.common.controller.DictController.listType()
+2019-04-23 17:47:16 -Mapped "{[/common/dict],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.DictController.dict()
+2019-04-23 17:47:16 -Mapped "{[/common/dict/add/{type}/{description}],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.DictController.addD(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/list/{type}],methods=[GET]}" onto public java.util.List<com.saomiao.common.domain.DictDO> com.saomiao.common.controller.DictController.listByType(java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/common/dict/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.DictController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/add],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.FileController.add()
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.FileController.remove(java.lang.Long,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.FileController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/update]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.FileController.update(com.saomiao.common.domain.FileDO)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.common.controller.FileController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.FileController.save(com.saomiao.common.domain.FileDO)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/info/{id}]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.FileController.info(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.FileController.sysFile(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/upload],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.common.controller.FileController.upload(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/common/sysFile/edit],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.FileController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.common.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.saomiao.common.controller.GeneratorController.list()
+2019-04-23 17:47:16 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.saomiao.common.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2019-04-23 17:47:16 -Mapped "{[/common/generator],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.GeneratorController.generator()
+2019-04-23 17:47:16 -Mapped "{[/common/generator/batchCode]}" onto public void com.saomiao.common.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2019-04-23 17:47:16 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.saomiao.common.controller.GeneratorController.edit(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/job/add],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.JobController.add()
+2019-04-23 17:47:16 -Mapped "{[/common/job/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/common/job/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/common/job/update],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.update(com.saomiao.common.domain.TaskDO)
+2019-04-23 17:47:16 -Mapped "{[/common/job/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.common.controller.JobController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/common/job/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.save(com.saomiao.common.domain.TaskDO)
+2019-04-23 17:47:16 -Mapped "{[/common/job/info/{id}]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.info(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/common/job],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.JobController.taskScheduleJob()
+2019-04-23 17:47:16 -Mapped "{[/common/job/changeJobStatus],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.common.controller.JobController.changeJobStatus(java.lang.Long,java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/common/job/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.JobController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/common/log/remove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.common.controller.LogController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/common/log],methods=[GET]}" onto java.lang.String com.saomiao.common.controller.LogController.log()
+2019-04-23 17:47:16 -Mapped "{[/common/log/list],methods=[GET]}" onto com.saomiao.common.domain.PageDO<com.saomiao.common.domain.LogDO> com.saomiao.common.controller.LogController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/common/log/batchRemove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.common.controller.LogController.batchRemove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/error]}" onto public com.saomiao.common.utils.R com.saomiao.common.exception.MainsiteErrorController.handleError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-23 17:47:16 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.saomiao.common.exception.MainsiteErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-23 17:47:16 -Mapped "{[/test/validate/repeat]}" onto public com.saomiao.common.utils.R com.saomiao.common.utils.UploadUtils.test(java.lang.String,java.lang.String) throws java.lang.Exception,java.lang.Exception,java.lang.Exception
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/add],methods=[GET]}" onto java.lang.String com.saomiao.oa.controller.NotifyController.add()
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.oa.controller.NotifyController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.oa.controller.NotifyController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/update]}" onto public com.saomiao.common.utils.R com.saomiao.oa.controller.NotifyController.update(com.saomiao.oa.domain.NotifyDO)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/read/{id}],methods=[GET]}" onto java.lang.String com.saomiao.oa.controller.NotifyController.read(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/list],methods=[GET]}" onto public com.saomiao.common.utils.PageUtils com.saomiao.oa.controller.NotifyController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.oa.controller.NotifyController.save(com.saomiao.oa.domain.NotifyDO)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/message],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.oa.controller.NotifyController.message()
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/selfList],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.oa.controller.NotifyController.selfList(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/oa/notify],methods=[GET]}" onto java.lang.String com.saomiao.oa.controller.NotifyController.oaNotify()
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/selfNotify],methods=[GET]}" onto java.lang.String com.saomiao.oa.controller.NotifyController.selefNotify()
+2019-04-23 17:47:16 -Mapped "{[/oa/notify/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.oa.controller.NotifyController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/add/{pId}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.DeptController.add(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/remove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.DeptController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/batchRemove],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.DeptController.remove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/update]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.DeptController.update(com.saomiao.system.domain.DeptDO)
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/list],methods=[GET]}" onto public java.util.List<com.saomiao.system.domain.DeptDO> com.saomiao.system.controller.DeptController.list()
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/save],methods=[POST]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.DeptController.save(com.saomiao.system.domain.DeptDO)
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/tree],methods=[GET]}" onto public com.saomiao.common.domain.Tree<com.saomiao.system.domain.DeptDO> com.saomiao.system.controller.DeptController.tree()
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.DeptController.dept()
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/treeView],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.DeptController.treeView()
+2019-04-23 17:47:16 -Mapped "{[/system/sysDept/edit/{deptId}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.DeptController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/index],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.LoginController.index(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/main],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.LoginController.main()
+2019-04-23 17:47:16 -Mapped "{[/login],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.LoginController.login()
+2019-04-23 17:47:16 -Mapped "{[/logout],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.LoginController.logout()
+2019-04-23 17:47:16 -Mapped "{[/login],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.LoginController.ajaxLogin(java.lang.String,java.lang.String)
+2019-04-23 17:47:16 -Mapped "{[/ || ],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.LoginController.welcome(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/add/{pId}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.MenuController.add(org.springframework.ui.Model,java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/remove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.MenuController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/update],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.MenuController.update(com.saomiao.system.domain.MenuDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/list]}" onto java.util.List<com.saomiao.system.domain.MenuDO> com.saomiao.system.controller.MenuController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/save],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.MenuController.save(com.saomiao.system.domain.MenuDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/tree/{roleId}],methods=[GET]}" onto com.saomiao.common.domain.Tree<com.saomiao.system.domain.MenuDO> com.saomiao.system.controller.MenuController.tree(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/tree],methods=[GET]}" onto com.saomiao.common.domain.Tree<com.saomiao.system.domain.MenuDO> com.saomiao.system.controller.MenuController.tree()
+2019-04-23 17:47:16 -Mapped "{[/sys/menu],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.MenuController.menu(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/menu/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.MenuController.edit(org.springframework.ui.Model,java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/role/add],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.RoleController.add()
+2019-04-23 17:47:16 -Mapped "{[/sys/role/update],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.RoleController.update(com.saomiao.system.domain.RoleDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/role/list],methods=[GET]}" onto java.util.List<com.saomiao.system.domain.RoleDO> com.saomiao.system.controller.RoleController.list()
+2019-04-23 17:47:16 -Mapped "{[/sys/role/remove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.RoleController.save(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/role/save],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.RoleController.save(com.saomiao.system.domain.RoleDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/role/batchRemove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.RoleController.batchRemove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/sys/role],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.RoleController.role()
+2019-04-23 17:47:16 -Mapped "{[/sys/role/updateEnable]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.RoleController.updateEnable(java.lang.Long,java.lang.Integer)
+2019-04-23 17:47:16 -Mapped "{[/sys/role/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.RoleController.edit(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/online/list]}" onto public java.util.List<com.saomiao.system.domain.UserOnline> com.saomiao.system.controller.SessionController.list()
+2019-04-23 17:47:16 -Mapped "{[/sys/online/forceLogout/{sessionId}]}" onto public com.saomiao.common.utils.R com.saomiao.system.controller.SessionController.forceLogout(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2019-04-23 17:47:16 -Mapped "{[/sys/online/sessionList]}" onto public java.util.Collection<org.apache.shiro.session.Session> com.saomiao.system.controller.SessionController.sessionList()
+2019-04-23 17:47:16 -Mapped "{[/sys/online],methods=[GET]}" onto public java.lang.String com.saomiao.system.controller.SessionController.online()
+2019-04-23 17:47:16 -Mapped "{[/sys/user/exit],methods=[POST]}" onto boolean com.saomiao.system.controller.UserController.exit(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/add],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.add(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/remove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.remove(java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/update],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.update(com.saomiao.system.domain.UserDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/list],methods=[GET]}" onto com.saomiao.common.utils.PageUtils com.saomiao.system.controller.UserController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/save],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.save(com.saomiao.system.domain.UserDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/batchRemove],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.batchRemove(java.lang.Long[])
+2019-04-23 17:47:16 -Mapped "{[/sys/user/tree],methods=[GET]}" onto public com.saomiao.common.domain.Tree<com.saomiao.system.domain.DeptDO> com.saomiao.system.controller.UserController.tree()
+2019-04-23 17:47:16 -Mapped "{[/sys/user],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.user(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/updatePeronal],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.updatePeronal(com.saomiao.system.domain.UserDO)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/adminResetPwd],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.adminResetPwd(com.saomiao.system.vo.UserVO)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/personal],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.personal(org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/resetPwd],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.resetPwd(com.saomiao.system.vo.UserVO)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/resetPwd/{id}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.resetPwd(java.lang.Long,org.springframework.ui.Model)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/uploadImg],methods=[POST]}" onto com.saomiao.common.utils.R com.saomiao.system.controller.UserController.uploadImg(org.springframework.web.multipart.MultipartFile,java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/sys/user/treeView],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.treeView()
+2019-04-23 17:47:16 -Mapped "{[/sys/user/edit/{id}],methods=[GET]}" onto java.lang.String com.saomiao.system.controller.UserController.edit(org.springframework.ui.Model,java.lang.Long)
+2019-04-23 17:47:16 -Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-04-23 17:47:16 -Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-04-23 17:47:16 -Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-04-23 17:47:16 -Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-04-23 17:47:17 -Initializing ExecutorService  'messageBrokerTaskScheduler'
+2019-04-23 17:47:17 -Mapped URL path [/endpointChat/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2019-04-23 17:47:17 -Initializing ExecutorService  'brokerChannelExecutor'
+2019-04-23 17:47:17 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:47:03 CST 2019]; root of context hierarchy
+2019-04-23 17:47:17 -Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 17:47:17 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 17:47:17 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 17:47:18 -Detected @ExceptionHandler methods in BDExceptionHandler
+2019-04-23 17:47:18 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 17:47:19 -
+
+Using default security password: d5d5e125-4f26-4e1f-8e16-f5dc2c973678
+
+2019-04-23 17:47:19 -Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+2019-04-23 17:47:20 -Creating filter chain: org.springframework.boot.autoconfigure.security.SpringBootWebSecurityConfiguration$ApplicationNoWebSecurityConfigurerAdapter$1@5a9baba8, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72240290, org.springframework.security.web.context.SecurityContextPersistenceFilter@52b30dcd, org.springframework.security.web.header.HeaderWriterFilter@1ee6434, org.springframework.security.web.csrf.CsrfFilter@2a0ce342, org.springframework.security.web.authentication.logout.LogoutFilter@6e12f38c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bbc1b90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29431f61, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b5311cb, org.springframework.security.web.session.SessionManagementFilter@125124ea, org.springframework.security.web.access.ExceptionTranslationFilter@5c459194]
+2019-04-23 17:47:20 -Registering beans for JMX exposure on startup
+2019-04-23 17:47:20 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-04-23 17:47:20 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-04-23 17:47:20 -Starting beans in phase 2147483647
+2019-04-23 17:47:20 -Context refreshed
+2019-04-23 17:47:20 -Found 1 custom documentation plugin(s)
+2019-04-23 17:47:20 -Scanning for api listing references
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_1
+2019-04-23 17:47:21 -Generating unique operation named: addUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: editUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: listUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_2
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_3
+2019-04-23 17:47:21 -Generating unique operation named: saveUsingPOST_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingHEAD_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPOST_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPUT_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPATCH_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingDELETE_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingOPTIONS_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingTRACE_1
+2019-04-23 17:47:21 -Generating unique operation named: addUsingGET_2
+2019-04-23 17:47:21 -Generating unique operation named: editUsingGET_2
+2019-04-23 17:47:21 -Generating unique operation named: listUsingGET_2
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_4
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_5
+2019-04-23 17:47:21 -Generating unique operation named: saveUsingPOST_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingGET_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingHEAD_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPOST_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPUT_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPATCH_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingDELETE_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingOPTIONS_2
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingTRACE_2
+2019-04-23 17:47:21 -Generating unique operation named: addUsingGET_3
+2019-04-23 17:47:21 -Generating unique operation named: editUsingGET_3
+2019-04-23 17:47:21 -Generating unique operation named: listUsingGET_3
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_6
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_7
+2019-04-23 17:47:21 -Generating unique operation named: saveUsingPOST_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingGET_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingHEAD_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPOST_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPUT_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPATCH_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingDELETE_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingOPTIONS_3
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingTRACE_3
+2019-04-23 17:47:21 -Generating unique operation named: addUsingGET_4
+2019-04-23 17:47:21 -Generating unique operation named: editUsingGET_4
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingHEAD_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingPOST_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingPUT_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingPATCH_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingDELETE_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingOPTIONS_1
+2019-04-23 17:47:21 -Generating unique operation named: infoUsingTRACE_1
+2019-04-23 17:47:21 -Generating unique operation named: listUsingGET_4
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_8
+2019-04-23 17:47:21 -Generating unique operation named: removeUsingPOST_9
+2019-04-23 17:47:21 -Generating unique operation named: saveUsingPOST_4
+2019-04-23 17:47:21 -Generating unique operation named: sysFileUsingGET_1
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingGET_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingHEAD_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPOST_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPUT_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingPATCH_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingDELETE_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingOPTIONS_4
+2019-04-23 17:47:21 -Generating unique operation named: updateUsingTRACE_4
+2019-04-23 17:47:21 -Generating unique operation named: uploadUsingPOST_1
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_5
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPOST_5
+2019-04-23 17:47:22 -Generating unique operation named: addUsingGET_5
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_6
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingGET_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingHEAD_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingPOST_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingPUT_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingPATCH_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingDELETE_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingOPTIONS_2
+2019-04-23 17:47:22 -Generating unique operation named: infoUsingTRACE_2
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_6
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_10
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_11
+2019-04-23 17:47:22 -Generating unique operation named: saveUsingPOST_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPOST_6
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_7
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_12
+2019-04-23 17:47:22 -Generating unique operation named: welcomeUsingGET_1
+2019-04-23 17:47:22 -Generating unique operation named: addUsingGET_6
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_7
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_8
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_13
+2019-04-23 17:47:22 -Generating unique operation named: saveUsingPOST_6
+2019-04-23 17:47:22 -Generating unique operation named: treeUsingGET_1
+2019-04-23 17:47:22 -Generating unique operation named: treeUsingGET_2
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPOST_7
+2019-04-23 17:47:22 -Generating unique operation named: batchRemoveUsingPOST_1
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_8
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_9
+2019-04-23 17:47:22 -Generating unique operation named: addUsingGET_7
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_9
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_10
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_14
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_15
+2019-04-23 17:47:22 -Generating unique operation named: saveUsingPOST_7
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingGET_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingHEAD_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPOST_8
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPUT_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPATCH_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingDELETE_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingOPTIONS_5
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingTRACE_5
+2019-04-23 17:47:22 -Generating unique operation named: addUsingGET_8
+2019-04-23 17:47:22 -Generating unique operation named: batchRemoveUsingPOST_2
+2019-04-23 17:47:22 -Generating unique operation named: deployUsingPOST_1
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_11
+2019-04-23 17:47:22 -Generating unique operation named: removeUsingPOST_16
+2019-04-23 17:47:22 -Generating unique operation named: addUsingGET_9
+2019-04-23 17:47:22 -Generating unique operation named: batchRemoveUsingPOST_3
+2019-04-23 17:47:22 -Generating unique operation named: editUsingGET_10
+2019-04-23 17:47:22 -Generating unique operation named: listUsingGET_12
+2019-04-23 17:47:22 -Generating unique operation named: saveUsingPOST_8
+2019-04-23 17:47:22 -Generating unique operation named: saveUsingPOST_9
+2019-04-23 17:47:22 -Generating unique operation named: updateUsingPOST_9
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingGET_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingHEAD_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingPOST_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingPUT_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingPATCH_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingDELETE_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingOPTIONS_1
+2019-04-23 17:47:23 -Generating unique operation named: updateEnableUsingTRACE_1
+2019-04-23 17:47:23 -Generating unique operation named: addUsingGET_10
+2019-04-23 17:47:23 -Generating unique operation named: editUsingGET_11
+2019-04-23 17:47:23 -Generating unique operation named: listUsingGET_13
+2019-04-23 17:47:23 -Generating unique operation named: removeUsingPOST_17
+2019-04-23 17:47:23 -Generating unique operation named: removeUsingPOST_18
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingGET_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingHEAD_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingPOST_10
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingPUT_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingPATCH_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingDELETE_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingOPTIONS_6
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingTRACE_6
+2019-04-23 17:47:23 -Generating unique operation named: listUsingGET_14
+2019-04-23 17:47:23 -Generating unique operation named: listUsingHEAD_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingPOST_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingPUT_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingPATCH_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingDELETE_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingOPTIONS_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingTRACE_1
+2019-04-23 17:47:23 -Generating unique operation named: listUsingGET_15
+2019-04-23 17:47:23 -Generating unique operation named: addUsingGET_11
+2019-04-23 17:47:23 -Generating unique operation named: batchRemoveUsingPOST_4
+2019-04-23 17:47:23 -Generating unique operation named: editUsingGET_12
+2019-04-23 17:47:23 -Generating unique operation named: listUsingGET_16
+2019-04-23 17:47:23 -Generating unique operation named: removeUsingPOST_19
+2019-04-23 17:47:23 -Generating unique operation named: saveUsingPOST_10
+2019-04-23 17:47:23 -Generating unique operation named: treeUsingGET_3
+2019-04-23 17:47:23 -Generating unique operation named: treeViewUsingGET_1
+2019-04-23 17:47:23 -Generating unique operation named: updateUsingPOST_11
+2019-04-23 17:47:23 -Starting Quartz Scheduler now
+2019-04-23 17:47:23 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+2019-04-23 17:47:23 -Starting...
+2019-04-23 17:47:23 -BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2019-04-23 17:47:23 -Started.
+2019-04-23 17:47:23 -Initializing ProtocolHandler ["http-nio-8066"]
+2019-04-23 17:47:23 -Starting ProtocolHandler ["http-nio-8066"]
+2019-04-23 17:47:23 -Using a shared selector for servlet write/read
+2019-04-23 17:47:23 -Tomcat started on port(s): 8066 (http)
+2019-04-23 17:47:23 -Started BootdoApplication in 21.799 seconds (JVM running for 28.107)
+2019-04-23 17:47:31 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-04-23 17:47:31 -FrameworkServlet 'dispatcherServlet': initialization started
+2019-04-23 17:47:31 -FrameworkServlet 'dispatcherServlet': initialization completed in 75 ms
+2019-04-23 17:47:31 -Enabling session validation scheduler...
+2019-04-23 17:47:31 -[THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2019-04-23 17:47:32 -[THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2019-04-23 17:47:32 -[THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2019-04-23 17:47:32 -[THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2019-04-23 17:47:32 -[THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2019-04-23 17:47:32 -[THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 3]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 3]: at.pollux.thymeleaf.shiro.dialect.ShiroDialect
+[THYMELEAF]     * Prefix: "shiro"
+[THYMELEAF] * Dialect [3 of 3]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2019-04-23 17:47:32 -[THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2019-04-23 17:47:57 -More than one TaskExecutor bean found within the context, and none is named 'taskExecutor'. Mark one of them as primary or name it 'taskExecutor' (possibly as an alias) in order to use it for async processing: [clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor, messageBrokerTaskScheduler]
+2019-04-23 17:48:17 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 8, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 2, completed tasks = 4]
+2019-04-23 17:56:11 -Application shutdown requested.
+2019-04-23 17:56:11 -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@183ec003: startup date [Tue Apr 23 17:47:03 CST 2019]; root of context hierarchy
+2019-04-23 17:56:11 -Stopping beans in phase 2147483647
+2019-04-23 17:56:11 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+2019-04-23 17:56:11 -Stopping...
+2019-04-23 17:56:11 -BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[1 sessions]]]]
+2019-04-23 17:56:11 -Stopped.
+2019-04-23 17:56:11 -Unregistering JMX-exposed beans on shutdown
+2019-04-23 17:56:11 -Unregistering JMX-exposed beans
+2019-04-23 17:56:11 -Shutting down ExecutorService 'brokerChannelExecutor'
+2019-04-23 17:56:11 -Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2019-04-23 17:56:12 -Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2019-04-23 17:56:12 -Shutting down ExecutorService 'clientInboundChannelExecutor'
+2019-04-23 17:56:12 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutting down.
+2019-04-23 17:56:12 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED paused.
+2019-04-23 17:56:12 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED shutdown complete.
+2019-04-23 17:56:12 -Shutting down Quartz Scheduler
+2019-04-23 17:56:12 -{dataSource-1} closed
+2019-04-23 17:56:12 -Disabled session validation scheduler.
