@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.saomiao.information.dao.ManagersDao">
+
+	<select id="get" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers where m_Id = #{value}
+	</select>
+
+	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+        <where>  
+		  		  <if test="mId != null and mId != ''"> and m_Id = #{mId} </if>
+		  		  <if test="mName != null and mName != ''"> and m_name = #{mName} </if>
+		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{mOrganization} </if>
+		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mDuty} </if>
+		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mPhone} </if>
+		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mLevel} </if>
+		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mUpdatedate} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by m_Id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_managers
+		 <where>  
+		  		  <if test="mId != null and mId != ''"> and m_Id = #{mId} </if>
+		  		  <if test="mName != null and mName != ''"> and m_name = #{mName} </if>
+		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{mOrganization} </if>
+		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mDuty} </if>
+		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mPhone} </if>
+		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mLevel} </if>
+		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mUpdatedate} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.saomiao.information.domain.ManagersDO" useGeneratedKeys="true" keyProperty="mId">
+		insert into t_managers
+		(
+			`m_name`, 
+			`m_organization`, 
+			`m_duty`, 
+			`m_phone`, 
+			`m_level`, 
+			`m_updateDate`
+		)
+		values
+		(
+			#{mName}, 
+			#{mOrganization}, 
+			#{mDuty}, 
+			#{mPhone}, 
+			#{mLevel}, 
+			#{mUpdatedate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.saomiao.information.domain.ManagersDO">
+		update t_managers 
+		<set>
+			<if test="mName != null">`m_name` = #{mName}, </if>
+			<if test="mOrganization != null">`m_organization` = #{mOrganization}, </if>
+			<if test="mDuty != null">`m_duty` = #{mDuty}, </if>
+			<if test="mPhone != null">`m_phone` = #{mPhone}, </if>
+			<if test="mLevel != null">`m_level` = #{mLevel}, </if>
+			<if test="mUpdatedate != null">`m_updateDate` = #{mUpdatedate}</if>
+		</set>
+		where m_Id = #{mId}
+	</update>
+	
+	<delete id="remove">
+		delete from t_managers where m_Id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_managers where m_Id in 
+		<foreach item="mId" collection="array" open="(" separator="," close=")">
+			#{mId}
+		</foreach>
+	</delete>
+
+</mapper>

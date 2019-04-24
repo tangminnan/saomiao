@@ -53,7 +53,7 @@ public class GeneratorController {
 		byte[] data = generatorService.generatorCode(tableNames);
 		
 		response.reset();
-		response.setHeader("Content-Disposition", "attachment; filename=\"zhenjiu.zip\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"saomiao.zip\"");
 		response.addHeader("Content-Length", "" + data.length);
 		response.setContentType("application/octet-stream; charset=UTF-8");
 
@@ -66,7 +66,7 @@ public class GeneratorController {
 		tableNames = JSON.parseArray(tables).toArray(tableNames);
 		byte[] data = generatorService.generatorCode(tableNames);
 		response.reset();
-		response.setHeader("Content-Disposition", "attachment; filename=\"zhenjiu.zip\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"saomiao.zip\"");
 		response.addHeader("Content-Length", "" + data.length);
 		response.setContentType("application/octet-stream; charset=UTF-8");
 
