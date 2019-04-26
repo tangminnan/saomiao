@@ -9,8 +9,11 @@
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
 						<div class="columns pull-left">
-							<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add()">
-								<i class="fa fa-plus" aria-hidden="true"></i>添加
+							<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add(1)">
+								<i class="fa fa-plus" aria-hidden="true"></i>手动添加
+							</button>
+							<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add(2)">
+								<i class="fa fa-plus" aria-hidden="true"></i>批量添加
 							</button>
 							<button shiro:hasPermission="information:user:batchRemove" type="button" class="btn  btn-danger"
 								onclick="batchRemove()">

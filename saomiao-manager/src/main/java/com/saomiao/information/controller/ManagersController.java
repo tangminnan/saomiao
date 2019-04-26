@@ -47,7 +47,6 @@ public class ManagersController {
 		//查询列表数据
         Query query = new Query(params);
 		List<ManagersDO> managersList = managersService.list(query);
-		System.out.println(managersList);
 		int total = managersService.count(query);
 		PageUtils pageUtils = new PageUtils(managersList, total);
 		return pageUtils;
@@ -59,10 +58,10 @@ public class ManagersController {
 	    return "information/managers/add";
 	}
 
-	@GetMapping("/edit/{mId}")
+	@GetMapping("/edit/{mid}")
 	@RequiresPermissions("information:managers:edit")
-	String edit(@PathVariable("mId") Long mId,Model model){
-		ManagersDO managers = managersService.get(mId);
+	String edit(@PathVariable("mid") Long mid,Model model){
+		ManagersDO managers = managersService.get(mid);
 		model.addAttribute("managers", managers);
 	    return "information/managers/edit";
 	}
@@ -96,8 +95,8 @@ public class ManagersController {
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("information:managers:remove")
-	public R remove( Long mId){
-		if(managersService.remove(mId)>0){
+	public R remove( Long mid){
+		if(managersService.remove(mid)>0){
 		return R.ok();
 		}
 		return R.error();
@@ -110,6 +109,8 @@ public class ManagersController {
 	@ResponseBody
 	@RequiresPermissions("information:managers:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] mIds){
+		System.out.println(mIds);
+		
 		managersService.batchRemove(mIds);
 		return R.ok();
 	}

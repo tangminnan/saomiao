@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.saomiao.information.dao.UsersDao">
+
+	<select id="get" resultType="com.saomiao.information.domain.UsersDO">
+		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate` from t_user where u_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.saomiao.information.domain.UsersDO">
+		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate` from t_user
+        <where>  
+		  		  <if test="uid != null and uid != ''"> and u_id = #{uid} </if>
+		  		  <if test="uname != null and uname != ''"> and u_name = #{uname} </if>
+		  		  <if test="uorganization != null and uorganization != ''"> and u_organization = #{uorganization} </if>
+		  		  <if test="ugender != null and ugender != ''"> and u_gender = #{ugender} </if>
+		  		  <if test="ugrand != null and ugrand != ''"> and u_grand = #{ugrand} </if>
+		  		  <if test="uage != null and uage != ''"> and u_age = #{uage} </if>
+		  		  <if test="ubirthday != null and ubirthday != ''"> and u_birthday = #{ubirthday} </if>
+		  		  <if test="uidcard != null and uidcard != ''"> and u_idcard = #{uidcard} </if>
+		  		  <if test="uphone != null and uphone != ''"> and u_phone = #{uphone} </if>
+		  		  <if test="uheight != null and uheight != ''"> and u_height = #{uheight} </if>
+		  		  <if test="uweight != null and uweight != ''"> and u_weight = #{uweight} </if>
+		  		  <if test="ufolder != null and ufolder != ''"> and u_folder = #{ufolder} </if>
+		  		  <if test="mname != null and mname != ''"> and m_name = #{mname} </if>
+		  		  <if test="uupdatedate != null and uupdatedate != ''"> and u_updateDate = #{uupdatedate} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by u_id ASC
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_user
+		 <where>  
+		  		  <if test="uid != null and uid != ''"> and u_id = #{uid} </if>
+		  		  <if test="uname != null and uname != ''"> and u_name = #{uname} </if>
+		  		  <if test="uorganization != null and uorganization != ''"> and u_organization = #{uorganization} </if>
+		  		  <if test="ugender != null and ugender != ''"> and u_gender = #{ugender} </if>
+		  		  <if test="ugrand != null and ugrand != ''"> and u_grand = #{ugrand} </if>
+		  		  <if test="uage != null and uage != ''"> and u_age = #{uage} </if>
+		  		  <if test="ubirthday != null and ubirthday != ''"> and u_birthday = #{ubirthday} </if>
+		  		  <if test="uidcard != null and uidcard != ''"> and u_idcard = #{uidcard} </if>
+		  		  <if test="uphone != null and uphone != ''"> and u_phone = #{uphone} </if>
+		  		  <if test="uheight != null and uheight != ''"> and u_height = #{uheight} </if>
+		  		  <if test="uweight != null and uweight != ''"> and u_weight = #{uweight} </if>
+		  		  <if test="ufolder != null and ufolder != ''"> and u_folder = #{ufolder} </if>
+		  		  <if test="mname != null and mname != ''"> and m_name = #{mname} </if>
+		  		  <if test="uupdatedate != null and uupdatedate != ''"> and u_updateDate = #{uupdatedate} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.saomiao.information.domain.UsersDO" useGeneratedKeys="true" keyProperty="uid">
+		insert into t_user
+		(
+			`u_name`, 
+			`u_organization`, 
+			`u_gender`, 
+			`u_grand`, 
+			`u_age`, 
+			`u_birthday`, 
+			`u_idcard`, 
+			`u_phone`, 
+			`u_height`, 
+			`u_weight`, 
+			`u_folder`, 
+			`m_name`, 
+			`u_updateDate`
+		)
+		values
+		(
+			#{uname}, 
+			#{uorganization}, 
+			#{ugender}, 
+			#{ugrand}, 
+			#{uage}, 
+			#{ubirthday}, 
+			#{uidcard}, 
+			#{uphone}, 
+			#{uheight}, 
+			#{uweight}, 
+			#{ufolder}, 
+			#{mname}, 
+			#{uupdatedate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.saomiao.information.domain.UsersDO">
+		update t_user 
+		<set>
+			<if test="uname != null">`u_name` = #{uname}, </if>
+			<if test="uorganization != null">`u_organization` = #{uorganization}, </if>
+			<if test="ugender != null">`u_gender` = #{ugender}, </if>
+			<if test="ugrand != null">`u_grand` = #{ugrand}, </if>
+			<if test="uage != null">`u_age` = #{uage}, </if>
+			<if test="ubirthday != null">`u_birthday` = #{ubirthday}, </if>
+			<if test="uidcard != null">`u_idcard` = #{uidcard}, </if>
+			<if test="uphone != null">`u_phone` = #{uphone}, </if>
+			<if test="uheight != null">`u_height` = #{uheight}, </if>
+			<if test="uweight != null">`u_weight` = #{uweight}, </if>
+			<if test="ufolder != null">`u_folder` = #{ufolder}, </if>
+			<if test="mname != null">`m_name` = #{mname}, </if>
+			<if test="uupdatedate != null">`u_updateDate` = #{uupdatedate}</if>
+		</set>
+		where u_id = #{uid}
+	</update>
+	
+	<delete id="remove">
+		delete from t_user where u_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_user where u_id in 
+		<foreach item="uid" collection="array" open="(" separator="," close=")">
+			#{uid}
+		</foreach>
+	</delete>
+
+</mapper>

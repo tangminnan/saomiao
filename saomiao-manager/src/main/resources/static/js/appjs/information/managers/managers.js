@@ -10,9 +10,9 @@ function load() {
 					{
 						method : 'get', // 服务器数据的请求方式 get or post
 						url : prefix + "/list", // 服务器数据的加载地址
-					//	showRefresh : true,
-					//	showToggle : true,
-					//	showColumns : true,
+						/*showRefresh : true,
+						showToggle : true,
+						showColumns : true,*/
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
 						striped : true, // 设置为true会有隔行变色效果
@@ -21,7 +21,7 @@ function load() {
 						// queryParamsType : "limit",
 						// //设置为limit则会发送符合RESTFull格式的参数
 						singleSelect : false, // 设置为true将禁止多选
-						// contentType : "application/x-www-form-urlencoded",
+						contentType : "application/x-www-form-urlencoded",
 						// //发送到服务器的数据编码类型
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
@@ -48,31 +48,31 @@ function load() {
 									checkbox : true
 								},
 																{
-									field : 'mId', 
-									title : '主键' 
+									field : 'mid', 
+									title : 'id'
 								},
 																{
-									field : 'mName', 
+									field : 'mname', 
 									title : '姓名' 
 								},
 																{
-									field : 'mOrganization', 
+									field : 'morganization', 
 									title : '单位' 
 								},
 																{
-									field : 'mDuty', 
+									field : 'mduty', 
 									title : '职务' 
 								},
 																{
-									field : 'mPhone', 
+									field : 'mphone', 
 									title : '联系电话' 
 								},
 																{
-									field : 'mLevel', 
+									field : 'mlevel', 
 									title : '身份 0管理员 1普通' 
 								},
 																{
-									field : 'mUpdatedate', 
+									field : 'mupdatedate', 
 									title : '创建时间' 
 								},
 																{
@@ -81,13 +81,13 @@ function load() {
 									align : 'center',
 									formatter : function(value, row, index) {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.mId
+												+ row.mid
 												+ '\')"><i class="fa fa-edit"></i></a> ';
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-												+ row.mId
+												+ row.mid
 												+ '\')"><i class="fa fa-remove"></i></a> ';
 										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
-												+ row.mId
+												+ row.mid
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
 									}
@@ -125,7 +125,7 @@ function remove(id) {
 			url : prefix+"/remove",
 			type : "post",
 			data : {
-				'mId' : id
+				'mid' : id
 			},
 			success : function(r) {
 				if (r.code==0) {
@@ -152,9 +152,9 @@ function batchRemove() {
 	// 按钮
 	}, function() {
 		var ids = new Array();
-		// 遍历所有选择的行数据，取每条数据对应的ID
+		// 遍历所有选择的行数据，取每条数据对应的id
 		$.each(rows, function(i, row) {
-			ids[i] = row['mId'];
+			ids[i] = row['mid'];
 		});
 		$.ajax({
 			type : 'POST',

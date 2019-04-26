@@ -3,6 +3,7 @@ var prefix = "/information/user"
 $(function() {
 	load();
 });
+
 function load() {
 	$('#exampleTable')
 			.bootstrapTable(
@@ -42,66 +43,64 @@ function load() {
 						// pageSize, pageNumber, searchText, sortName,
 						// sortOrder.
 						// 返回false将会终止请求
-						
 						columns : [
 								{
 									checkbox : true
 								},
 																{
-									
-									field : 'uId', 
+									field : 'uid', 
 									title : 'id' 
 								},
 																{
-									field : 'uName', 
+									field : 'uname', 
 									title : '姓名' 
 								},
 																{
-									field : 'uOrganization', 
+									field : 'uorganization', 
 									title : '单位或学校' 
 								},
 																{
-									field : 'uGender', 
+									field : 'ugender', 
 									title : '性别  0男  1女' 
 								},
 																{
-									field : 'uGrand', 
+									field : 'ugrand', 
 									title : '年级或职业' 
 								},
 																{
-									field : 'uAge', 
+									field : 'uage', 
 									title : '年龄' 
 								},
 																{
-									field : 'uBirthday', 
+									field : 'ubirthday', 
 									title : '出生日期' 
 								},
 																{
-									field : 'uIdcard', 
+									field : 'uidcard', 
 									title : '身份证号' 
 								},
 																{
-									field : 'uPhone', 
+									field : 'uphone', 
 									title : '联系电话' 
 								},
 																{
-									field : 'uHeight', 
+									field : 'uheight', 
 									title : '身高 单位cm' 
 								},
 																{
-									field : 'uWeight', 
+									field : 'uweight', 
 									title : '体重 单位kg' 
 								},
 																{
-									field : 'uFolder', 
+									field : 'ufolder', 
 									title : '3D扫描数据存放目录' 
 								},
 																{
-									field : 'mName', 
+									field : 'mname', 
 									title : '负责人（医生）' 
 								},
 																{
-									field : 'uUpdatedate', 
+									field : 'uupdatedate', 
 									title : '创建时间' 
 								},
 																{
@@ -110,13 +109,13 @@ function load() {
 									align : 'center',
 									formatter : function(value, row, index) {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.uId
+												+ row.uid
 												+ '\')"><i class="fa fa-edit"></i></a> ';
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-												+ row.uId
+												+ row.uid
 												+ '\')"><i class="fa fa-remove"></i></a> ';
 										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
-												+ row.uId
+												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
 									}
@@ -126,16 +125,33 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
-function add() {
-	layer.open({
-		type : 2,
-		title : '增加',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/add' // iframe的url
-	});
+
+
+function add(type) {
+	if(type == 1){
+		layer.open({
+			type : 2,
+			title : '手动添加',
+			maxmin : true,
+			shadeClose : false, // 点击遮罩关闭层
+			area : [ '800px', '520px' ],
+			content : prefix + '/add' // iframe的url
+		});
+	}else if(type == 2){
+		layer.open({
+			type : 2,
+			title : '批量添加',
+			maxmin : true,
+			shadeClose : false, // 点击遮罩关闭层
+			area : [ '800px', '520px' ],
+			content : prefix + '/batchAdd' // iframe的url
+		});
+	}else{
+		alert("请输入type1或2")
+	}
+	
 }
+
 function edit(id) {
 	layer.open({
 		type : 2,
@@ -154,7 +170,7 @@ function remove(id) {
 			url : prefix+"/remove",
 			type : "post",
 			data : {
-				'uId' : id
+				'uid' : id
 			},
 			success : function(r) {
 				if (r.code==0) {
@@ -183,7 +199,7 @@ function batchRemove() {
 		var ids = new Array();
 		// 遍历所有选择的行数据，取每条数据对应的ID
 		$.each(rows, function(i, row) {
-			ids[i] = row['uId'];
+			ids[i] = row['uid'];
 		});
 		$.ajax({
 			type : 'POST',

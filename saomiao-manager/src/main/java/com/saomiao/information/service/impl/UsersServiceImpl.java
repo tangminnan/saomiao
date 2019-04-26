@@ -1,29 +1,29 @@
 package com.saomiao.information.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 
-import com.saomiao.information.dao.UserDao1;
-import com.saomiao.information.domain.UserDO1;
-import com.saomiao.information.service.UserService1;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.saomiao.information.dao.UsersDao;
+import com.saomiao.information.domain.UsersDO;
+import com.saomiao.information.service.UsersService;
 
 
 
 @Service
-public class UserServiceImpl1 implements UserService1 {
+public class UsersServiceImpl implements UsersService {
 	@Autowired
-	private UserDao1 userDao;
+	private UsersDao userDao;
 	
 	@Override
-	public UserDO1 get(Long uId){
+	public UsersDO get(Long uId){
 		return userDao.get(uId);
 	}
 	
 	@Override
-	public List<UserDO1> list(Map<String, Object> map){
+	public List<UsersDO> list(Map<String, Object> map){
 		return userDao.list(map);
 	}
 	
@@ -33,12 +33,12 @@ public class UserServiceImpl1 implements UserService1 {
 	}
 	
 	@Override
-	public int save(UserDO1 user){
+	public int save(UsersDO user){
 		return userDao.save(user);
 	}
 	
 	@Override
-	public int update(UserDO1 user){
+	public int update(UsersDO user){
 		return userDao.update(user);
 	}
 	

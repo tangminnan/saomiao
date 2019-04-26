@@ -3,8 +3,6 @@ package com.saomiao.information.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-
-
 /**
  * 
  * 
@@ -14,104 +12,86 @@ import java.util.Date;
  */
 public class ManagersDO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	//主键
-	private Long mId;
-	//姓名
-	private String mName;
-	//单位
-	private String mOrganization;
-	//职务
-	private String mDuty;
-	//联系电话
-	private String mPhone;
-	//身份 0管理员 1普通
-	private Integer mLevel;
-	//创建时间
-	private Date mUpdatedate;
 
-	/**
-	 * 设置：主键
-	 */
-	public void setMId(Long mId) {
-		this.mId = mId;
+	// 主键
+	private Long mid;
+	// 姓名
+	private String mname;
+	// 单位
+	private String morganization;
+	// 职务
+	private String mduty;
+	// 联系电话
+	private String mphone;
+	// 身份 0管理员 1普通
+	private Integer mlevel;
+	// 创建时间
+	private Date mupdatedate;
+
+	public Long getMid() {
+		return mid;
 	}
-	/**
-	 * 获取：主键
-	 */
-	public Long getMId() {
-		return mId;
+
+	public void setMid(Long mid) {
+		this.mid = mid;
 	}
-	/**
-	 * 设置：姓名
-	 */
-	public void setMName(String mName) {
-		this.mName = mName;
+
+	public String getMname() {
+		return mname;
 	}
-	/**
-	 * 获取：姓名
-	 */
-	public String getMName() {
-		return mName;
+
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
-	/**
-	 * 设置：单位
-	 */
-	public void setMOrganization(String mOrganization) {
-		this.mOrganization = mOrganization;
+
+	public String getMorganization() {
+		return morganization;
 	}
-	/**
-	 * 获取：单位
-	 */
-	public String getMOrganization() {
-		return mOrganization;
+
+	public void setMorganization(String morganization) {
+		this.morganization = morganization;
 	}
-	/**
-	 * 设置：职务
-	 */
-	public void setMDuty(String mDuty) {
-		this.mDuty = mDuty;
+
+	public String getMduty() {
+		return mduty;
 	}
-	/**
-	 * 获取：职务
-	 */
-	public String getMDuty() {
-		return mDuty;
+
+	public void setMduty(String mduty) {
+		this.mduty = mduty;
 	}
-	/**
-	 * 设置：联系电话
-	 */
-	public void setMPhone(String mPhone) {
-		this.mPhone = mPhone;
+
+	public String getMphone() {
+		return mphone;
 	}
-	/**
-	 * 获取：联系电话
-	 */
-	public String getMPhone() {
-		return mPhone;
+
+	public void setMphone(String mphone) {
+		this.mphone = mphone;
 	}
-	/**
-	 * 设置：身份 0管理员 1普通
-	 */
-	public void setMLevel(Integer mLevel) {
-		this.mLevel = mLevel;
+
+	public Integer getMlevel() {
+		return mlevel;
 	}
-	/**
-	 * 获取：身份 0管理员 1普通
-	 */
-	public Integer getMLevel() {
-		return mLevel;
+
+	public void setMlevel(Integer mlevel) {
+		this.mlevel = mlevel;
 	}
-	/**
-	 * 设置：创建时间
-	 */
-	public void setMUpdatedate(Date mUpdatedate) {
-		this.mUpdatedate = mUpdatedate;
+
+	public Date getMupdatedate() {
+		return mupdatedate;
 	}
-	/**
-	 * 获取：创建时间
-	 */
-	public Date getMUpdatedate() {
-		return mUpdatedate;
+
+	public void setMupdatedate(Date mupdatedate) {
+		this.mupdatedate = mupdatedate;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "ManagersDO [mid=" + mid + ", mname=" + mname + ", morganization=" + morganization + ", mduty=" + mduty
+				+ ", mphone=" + mphone + ", mlevel=" + mlevel + ", mupdatedate=" + mupdatedate + "]";
+	}
+
 }
