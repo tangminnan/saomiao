@@ -31,6 +31,10 @@
 		</if>
 	</select>
 	
+	<select id="selectUserById"  resultType="com.saomiao.information.domain.UsersDO">
+		SELECT u.u_name from t_user u,t_managers m where u.m_name = m.m_name and m.m_Id = #{mid} 
+	</select>
+	
  	<select id="count" resultType="int">
 		select count(*) from t_managers
 		 <where>  
@@ -64,6 +68,14 @@
 			#{mupdatedate}
 		)
 	</insert>
+	 
+	<!-- 
+	<update id="updateMname" parameterType="com.saomiao.information.domain.ManagersDO">
+		update t_user u,t_managers m set 
+		<if test="mname != null and mname != ''"> u.m_name = #{mname} </if>
+		 where u.m_name = m.m_name 
+		<if test="mid != null and mid != ''"> and m.m_Id = #{mid} </if>
+	</update>  -->
 	 
 	<update id="update" parameterType="com.saomiao.information.domain.ManagersDO">
 		update t_managers 

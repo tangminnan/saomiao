@@ -1,6 +1,7 @@
 package com.saomiao.information.service;
 
 import com.saomiao.information.domain.ManagersDO;
+import com.saomiao.information.domain.UsersDO;
 
 import java.util.List;
 import java.util.Map;
@@ -27,4 +28,8 @@ public interface ManagersService {
 	int remove(Long mId);
 	
 	int batchRemove(Long[] mIds);
+
+	List<UsersDO> selectUserById(Long mid);
+
+	void updateMname(ManagersDO managers);
 }

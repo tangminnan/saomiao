@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.saomiao.information.dao.ManagersDao;
 import com.saomiao.information.domain.ManagersDO;
+import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagersService;
 
 
@@ -50,6 +51,16 @@ public class ManagersServiceImpl implements ManagersService {
 	@Override
 	public int batchRemove(Long[] mIds){
 		return managersDao.batchRemove(mIds);
+	}
+
+	@Override
+	public List<UsersDO> selectUserById(Long mid) {
+		return managersDao.selectUserById(mid);
+	}
+
+	@Override
+	public void updateMname(ManagersDO managers) {
+		managersDao.updateMname(managers);
 	}
 	
 }

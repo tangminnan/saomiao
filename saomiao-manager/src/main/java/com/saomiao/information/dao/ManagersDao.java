@@ -1,6 +1,7 @@
 package com.saomiao.information.dao;
 
 import com.saomiao.information.domain.ManagersDO;
+import com.saomiao.information.domain.UsersDO;
 
 import java.util.List;
 import java.util.Map;
@@ -29,4 +30,8 @@ public interface ManagersDao {
 	int remove(Long m_Id);
 	
 	int batchRemove(Long[] mIds);
+
+	List<UsersDO> selectUserById(Long mid);
+
+	void updateMname(ManagersDO managers);
 }

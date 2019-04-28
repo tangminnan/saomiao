@@ -1,5 +1,6 @@
 package com.saomiao.information.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
 import com.saomiao.information.domain.ManagersDO;
+import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagersService;
 
 /**
@@ -66,6 +68,13 @@ public class ManagersController {
 	    return "information/managers/edit";
 	}
 	
+	@GetMapping("/transfer/{mid}")
+	String transfer(@PathVariable("mid") Long mid,Model model){
+		ManagersDO managers = managersService.get(mid);
+		model.addAttribute("managers", managers);
+	    return "information/managers/transfer";
+	}
+	
 	/**
 	 * 保存
 	 */
@@ -95,11 +104,25 @@ public class ManagersController {
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("information:managers:remove")
-	public R remove( Long mid){
-		if(managersService.remove(mid)>0){
-		return R.ok();
+	public R remove(Long mid){
+		
+		List<UsersDO> userList = managersService.selectUserById(mid);	//根据id查询属下user
+		if(userList != null && !userList.isEmpty()){
+			/*Query query = new Query(params);
+			String managerNames  = managersService.list(query).get(0).getMname();		//查询所有管理的名字
+			
+			managersService.updateMname(managers);	*/			//根据传过来的id和选中的mname修改用户上级
+			
+			Map<String,Object> map = new HashMap<String,Object>();
+			/*map.put(managerNames, "managerNames");*/
+			map.put("userList", userList);
+			R r = new R();
+			r.put("code", 2);
+			return r; 
+		}else{
+			managersService.remove(mid);
+			return R.ok();
 		}
-		return R.error();
 	}
 	
 	/**
@@ -109,7 +132,6 @@ public class ManagersController {
 	@ResponseBody
 	@RequiresPermissions("information:managers:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] mIds){
-		System.out.println(mIds);
 		
 		managersService.batchRemove(mIds);
 		return R.ok();

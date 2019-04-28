@@ -120,7 +120,7 @@ function edit(id) {
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]
-	}, function() {
+	}, function(index) {
 		$.ajax({
 			url : prefix+"/remove",
 			type : "post",
@@ -128,15 +128,26 @@ function remove(id) {
 				'mid' : id
 			},
 			success : function(r) {
-				if (r.code==0) {
+				if (r.code === 0) {
 					layer.msg(r.msg);
 					reLoad();
-				}else{
-					layer.msg(r.msg);
+				}else if(r.code === 2){
+					layer.open({
+						type : 2,
+						title : '请转移您的用户',
+						maxmin : true,
+						shadeClose : false, // 点击遮罩关闭层
+						area : [ '800px', '520px' ],
+						content :prefix + '/transfer/' + id // iframe的url
+					});
+					reLoad();
 				}
 			}
 		});
-	})
+		layer.close(index);
+	}, function() {
+
+	});
 }
 
 function resetPwd(id) {
