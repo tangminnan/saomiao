@@ -83,10 +83,14 @@ public class ManagersController {
 	@ResponseBody
 	@RequestMapping("/updateMname")
 	public R updateMname(ManagersDO managersDO){
-			managersService.updateMname(managersDO);
-			managersService.remove(managersDO.getMid());
-			return R.ok();
-		
+			if(managersService.Manlist(managersDO.getMid()) != null && !managersService.Manlist(managersDO.getMid()).isEmpty()){
+				managersService.updateMname(managersDO);
+				managersService.remove(managersDO.getMid());
+				return R.ok();
+			}else{
+				return R.error("无其他管理，不可转移，请勿删除");
+			}
+			
 	}
 	
 	

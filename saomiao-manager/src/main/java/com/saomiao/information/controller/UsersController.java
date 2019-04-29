@@ -110,7 +110,6 @@ public class UsersController {
 			XSSFSheet sheet=null;
 			
 			if(user.getExcelUser()!=null &&user.getExcelUser().getSize()>0){
-				System.out.println(user.getExcelUser());
 				wb= new XSSFWorkbook(user.getExcelUser().getInputStream());
 			    sheet=wb.getSheetAt(0);
 			    
@@ -154,9 +153,8 @@ public class UsersController {
 			    	
 			    	Map<String,Object> params = new HashMap<String,Object>();
 			    	List<UsersDO> list = usersService.list(params);
+			    	System.out.println(list);
 			    	if(list.size()>0) continue;
-			    	
-			    	
 			    }
 			}
 			return R.ok();
@@ -185,7 +183,6 @@ public class UsersController {
 	@ResponseBody
 	@RequiresPermissions("information:user:remove")
 	public R remove( Long uid){
-		System.out.println(uid);
 		if(usersService.remove(uid)>0){
 		return R.ok();
 		}
