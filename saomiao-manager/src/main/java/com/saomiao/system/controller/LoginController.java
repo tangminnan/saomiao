@@ -72,6 +72,7 @@ public class LoginController extends BaseController {
 
 		password = MD5Utils.encrypt(username, password);
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+		System.out.println(token);
 		Subject subject = SecurityUtils.getSubject();
 		try {
 			subject.login(token);

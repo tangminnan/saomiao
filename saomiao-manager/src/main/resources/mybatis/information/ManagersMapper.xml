@@ -10,13 +10,13 @@
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
         <where>  
-		  		  <if test="mid != null and mid != ''"> and m_Id = #{mid} </if>
-		  		  <if test="mname != null and mname != ''"> and m_name = #{mname} </if>
-		  		  <if test="morganization != null and morganization != ''"> and m_organization = #{morganization} </if>
-		  		  <if test="mduty != null and mduty != ''"> and m_duty = #{mduty} </if>
-		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
-		  		  <if test="mlevel != null and mlevel != ''"> and m_level = #{mlevel} </if>
-		  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
+		  		  <if test="mId != null and mId != ''"> and m_Id = #{mId} </if>
+		  		  <if test="mName != null and mName != ''"> and m_name = #{mName} </if>
+		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{mOrganization} </if>
+		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mDuty} </if>
+		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mPhone} </if>
+		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mLevel} </if>
+		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mUpdatedate} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
@@ -29,6 +29,12 @@
 		<if test="offset != null and limit != null">
 			limit #{offset}, #{limit}
 		</if>
+	</select>
+	
+	<select id="Manlist" parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+       	where m_Id not like #{mid}
+        
 	</select>
 	
 	<select id="selectUserById"  resultType="com.saomiao.information.domain.UsersDO">
@@ -69,13 +75,10 @@
 		)
 	</insert>
 	 
-	<!-- 
+	
 	<update id="updateMname" parameterType="com.saomiao.information.domain.ManagersDO">
-		update t_user u,t_managers m set 
-		<if test="mname != null and mname != ''"> u.m_name = #{mname} </if>
-		 where u.m_name = m.m_name 
-		<if test="mid != null and mid != ''"> and m.m_Id = #{mid} </if>
-	</update>  -->
+		update t_user u,t_managers m set  u.m_name = #{mname} where u.m_name = m.m_name and m.m_Id = #{mid}
+	</update> 
 	 
 	<update id="update" parameterType="com.saomiao.information.domain.ManagersDO">
 		update t_managers 

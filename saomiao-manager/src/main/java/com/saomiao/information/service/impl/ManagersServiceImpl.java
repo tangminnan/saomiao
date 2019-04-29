@@ -59,8 +59,14 @@ public class ManagersServiceImpl implements ManagersService {
 	}
 
 	@Override
-	public void updateMname(ManagersDO managers) {
-		managersDao.updateMname(managers);
+	public List<ManagersDO> Manlist(Long mid) {
+		return managersDao.Manlist(mid);
+	}
+
+	@Override
+	public void updateMname(ManagersDO managersDO) {
+		
+		managersDao.updateMname(managersDO);
 	}
 	
 }

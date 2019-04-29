@@ -1,6 +1,6 @@
 package com.saomiao.information.controller;
 
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -70,10 +70,25 @@ public class ManagersController {
 	
 	@GetMapping("/transfer/{mid}")
 	String transfer(@PathVariable("mid") Long mid,Model model){
-		ManagersDO managers = managersService.get(mid);
-		model.addAttribute("managers", managers);
+		List<ManagersDO> managersList = managersService.Manlist(mid);		//查询所有管理的名字
+		
+		model.addAttribute("mid", mid);		
+		model.addAttribute("managersList", managersList);		
 	    return "information/managers/transfer";
 	}
+	
+	/**
+	 * 修改
+	 */
+	@ResponseBody
+	@RequestMapping("/updateMname")
+	public R updateMname(ManagersDO managersDO){
+			managersService.updateMname(managersDO);
+			managersService.remove(managersDO.getMid());
+			return R.ok();
+		
+	}
+	
 	
 	/**
 	 * 保存
@@ -82,6 +97,7 @@ public class ManagersController {
 	@PostMapping("/save")
 	@RequiresPermissions("information:managers:add")
 	public R save( ManagersDO managers){
+		managers.setMupdatedate(new Date());
 		if(managersService.save(managers)>0){
 			return R.ok();
 		}
@@ -108,14 +124,7 @@ public class ManagersController {
 		
 		List<UsersDO> userList = managersService.selectUserById(mid);	//根据id查询属下user
 		if(userList != null && !userList.isEmpty()){
-			/*Query query = new Query(params);
-			String managerNames  = managersService.list(query).get(0).getMname();		//查询所有管理的名字
 			
-			managersService.updateMname(managers);	*/			//根据传过来的id和选中的mname修改用户上级
-			
-			Map<String,Object> map = new HashMap<String,Object>();
-			/*map.put(managerNames, "managerNames");*/
-			map.put("userList", userList);
 			R r = new R();
 			r.put("code", 2);
 			return r; 

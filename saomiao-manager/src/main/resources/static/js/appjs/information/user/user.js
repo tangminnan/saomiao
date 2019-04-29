@@ -103,7 +103,7 @@ function load() {
 									field : 'uupdatedate', 
 									title : '创建时间' 
 								},
-																{
+									/*							{
 									title : '操作',
 									field : 'id',
 									align : 'center',
@@ -119,7 +119,7 @@ function load() {
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
 									}
-								} ]
+								} */]
 					});
 }
 function reLoad() {
