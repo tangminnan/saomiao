@@ -1,9 +1,14 @@
 package com.saomiao.information.controller;
 
+import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,7 +78,7 @@ public class ManagersController {
 		List<ManagersDO> managersList = managersService.Manlist(mid);		//查询所有管理的名字
 		
 		model.addAttribute("mid", mid);		
-		model.addAttribute("managersList", managersList);		
+		model.addAttribute("managersList", managersList);
 	    return "information/managers/transfer";
 	}
 	
@@ -107,6 +112,8 @@ public class ManagersController {
 		}
 		return R.error();
 	}
+	
+	
 	/**
 	 * 修改
 	 */
@@ -128,7 +135,6 @@ public class ManagersController {
 		
 		List<UsersDO> userList = managersService.selectUserById(mid);	//根据id查询属下user
 		if(userList != null && !userList.isEmpty()){
-			
 			R r = new R();
 			r.put("code", 2);
 			return r; 

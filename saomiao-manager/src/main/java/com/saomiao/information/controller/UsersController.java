@@ -105,11 +105,12 @@ public class UsersController {
 	@PostMapping("/batchSave")
 	@RequiresPermissions("information:user:batchAdd")
 	public R batchSave(UsersDO user){
+		System.out.println(user);
 		try {
 			XSSFWorkbook wb=null;
 			XSSFSheet sheet=null;
 			
-			if(user.getExcelUser()!=null &&user.getExcelUser().getSize()>0){
+			if(user.getExcelUser()!=null && user.getExcelUser().getSize()>0){
 				wb= new XSSFWorkbook(user.getExcelUser().getInputStream());
 			    sheet=wb.getSheetAt(0);
 			    
@@ -153,7 +154,6 @@ public class UsersController {
 			    	
 			    	Map<String,Object> params = new HashMap<String,Object>();
 			    	List<UsersDO> list = usersService.list(params);
-			    	System.out.println(list);
 			    	if(list.size()>0) continue;
 			    }
 			}

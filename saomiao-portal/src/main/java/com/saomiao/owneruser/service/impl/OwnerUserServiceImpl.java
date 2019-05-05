@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.saomiao.common.config.BootdoConfig;
 import com.saomiao.common.service.FileService;
 import com.saomiao.owneruser.dao.OwnerUserDao;
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 import com.saomiao.owneruser.service.OwnerUserService;
 
@@ -27,25 +28,25 @@ public class OwnerUserServiceImpl implements OwnerUserService {
 /*	private static final Logger logger = LoggerFactory.getLogger(UserService.class);*/
 
 	@Override
-	public OwnerUserDO get(Long id) {
-		OwnerUserDO user = ownerUserMapper.get(id);
+	public ManagersDO get(Long id) {
+		ManagersDO user = ownerUserMapper.get(id);
 		return user;
 	}
 	
 	@Override
-	public OwnerUserDO getbyname(String username){
+	public ManagersDO getbyname(String username){
 		
-		OwnerUserDO user = ownerUserMapper.getbyname(username);
+		ManagersDO user = ownerUserMapper.getbyname(username);
 		return user;
 	}
 
 	@Override
-	public List<OwnerUserDO> list(Map<String, Object> map) {
+	public List<ManagersDO> list(Map<String, Object> map) {
 		return ownerUserMapper.list(map);
 	}
 
 	@Override
-	public int save(OwnerUserDO user){
+	public int save(ManagersDO user){
 		return ownerUserMapper.save(user);
 	}
 	
@@ -56,16 +57,16 @@ public class OwnerUserServiceImpl implements OwnerUserService {
 
 
 	@Override
-	public int update(OwnerUserDO user) {
+	public int update(ManagersDO user) {
 		int r = ownerUserMapper.update(user);
 		
 		return r;
 	}
 
 	@Override
-	public int remove(Long userId) {
+	public int remove(Long mid) {
 		/*userRoleMapper.removeByUserId(userId);*/
-		return ownerUserMapper.remove(userId);
+		return ownerUserMapper.remove(mid);
 	}
 
 	@Override

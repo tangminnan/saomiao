@@ -44,8 +44,8 @@ public class ManagersServiceImpl implements ManagersService {
 	}
 	
 	@Override
-	public int remove(Long mId){
-		return managersDao.remove(mId);
+	public int remove(Long mid){
+		return managersDao.remove(mid);
 	}
 	
 	@Override

@@ -52,7 +52,7 @@ function load() {
 									title : 'id'
 								},
 																{
-									field : 'mname', 
+									field : 'username', 
 									title : '姓名' 
 								},
 																{

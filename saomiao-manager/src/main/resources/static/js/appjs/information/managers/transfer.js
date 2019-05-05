@@ -4,25 +4,22 @@ $().ready(function() {
 
 $.validator.setDefaults({
 	submitHandler : function() {
-		save();
+		update();
 	}
 });
-function save() {
-	var formData = new FormData(document.getElementById("signupForm"));
+function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/information/user/batchSave",
-		data : formData,// 你的formid
-		processData:false,
-		contentType:false,
+		url : "/information/managers/updateMname",
+		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
-			parent.layer.alert("网络超时");
+			parent.layer.alert("Connection error");
 		},
 		success : function(data) {
 			if (data.code == 0) {
-				parent.layer.msg("用户数据导入成功");
+				parent.layer.msg("操作成功");
 				parent.reLoad();
 				var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
 				parent.layer.close(index);
@@ -45,7 +42,7 @@ function validateRule() {
 		},
 		messages : {
 			name : {
-				required : icon + "请输入姓名"
+				required : icon + "请输入名字"
 			}
 		}
 	})

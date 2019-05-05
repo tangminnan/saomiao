@@ -4,19 +4,19 @@
 <mapper namespace="com.saomiao.information.dao.ManagersDao">
 
 	<select id="get" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers where m_Id = #{value}
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers where m_Id = #{value}
 	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
         <where>  
-		  		  <if test="mId != null and mId != ''"> and m_Id = #{mId} </if>
-		  		  <if test="mName != null and mName != ''"> and m_name = #{mName} </if>
-		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{mOrganization} </if>
-		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mDuty} </if>
-		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mPhone} </if>
-		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mLevel} </if>
-		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mUpdatedate} </if>
+		  		  <if test="mId != null and mId != ''"> and m_Id = #{mid} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{morganization} </if>
+		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mduty} </if>
+		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mphone} </if>
+		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mlevel} </if>
+		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
@@ -32,20 +32,20 @@
 	</select>
 	
 	<select id="Manlist" parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`m_name`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
        	where m_Id not like #{mid}
         
 	</select>
 	
 	<select id="selectUserById"  resultType="com.saomiao.information.domain.UsersDO">
-		SELECT u.u_name from t_user u,t_managers m where u.m_name = m.m_name and m.m_Id = #{mid} 
+		SELECT u.u_name from t_user u,t_managers m where u.u_name = m.username and m.m_Id = #{mid} 
 	</select>
 	
  	<select id="count" resultType="int">
 		select count(*) from t_managers
 		 <where>  
 		  		  <if test="mid != null and mid != ''"> and m_Id = #{mid} </if>
-		  		  <if test="mname != null and mname != ''"> and m_name = #{mname} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
 		  		  <if test="morganization != null and morganization != ''"> and m_organization = #{morganization} </if>
 		  		  <if test="mduty != null and mduty != ''"> and m_duty = #{mduty} </if>
 		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
@@ -57,7 +57,7 @@
 	<insert id="save" parameterType="com.saomiao.information.domain.ManagersDO" useGeneratedKeys="true" keyProperty="mid">
 		insert into t_managers
 		(
-			`m_name`, 
+			`username`, 
 			`m_organization`, 
 			`m_duty`, 
 			`m_phone`, 
@@ -66,7 +66,7 @@
 		)
 		values
 		(
-			#{mname}, 
+			#{username}, 
 			#{morganization}, 
 			#{mduty}, 
 			#{mphone}, 
@@ -76,14 +76,14 @@
 	</insert>
 	 
 	
-	<update id="updateMname" parameterType="com.saomiao.information.domain.ManagersDO">
-		update t_user u,t_managers m set  u.m_name = #{mname} where u.m_name = m.m_name and m.m_Id = #{mid}
+	<update id="updateusername" parameterType="com.saomiao.information.domain.ManagersDO">
+		update t_user u,t_managers m set  u.username = #{username} where u.username = m.username and m.m_Id = #{mid}
 	</update> 
 	 
 	<update id="update" parameterType="com.saomiao.information.domain.ManagersDO">
 		update t_managers 
 		<set>
-			<if test="mname != null">`m_name` = #{mname}, </if>
+			<if test="username != null">`username` = #{username}, </if>
 			<if test="morganization != null">`m_organization` = #{morganization}, </if>
 			<if test="mduty != null">`m_duty` = #{mduty}, </if>
 			<if test="mphone != null">`m_phone` = #{mphone}, </if>

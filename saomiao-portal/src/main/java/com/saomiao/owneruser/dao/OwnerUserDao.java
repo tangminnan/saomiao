@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 
 /**
@@ -14,20 +15,20 @@ import com.saomiao.owneruser.domain.OwnerUserDO;
 @Mapper
 public interface OwnerUserDao {
 
-	OwnerUserDO get(Long userId);
+	ManagersDO get(Long userId);
 	
-	OwnerUserDO getbyname(String username);
+	ManagersDO getbyname(String username);
 	
-	List<OwnerUserDO> list(Map<String,Object> map);
+	List<ManagersDO> list(Map<String,Object> map);
 	
-	int save(OwnerUserDO user);
+	int save(ManagersDO user);
 	
 	int count(Map<String,Object> map);
 	
-	int update(OwnerUserDO user);
+	int update(ManagersDO user);
 	
 	int remove(Long userId);
-	int updateFlag(OwnerUserDO user);
+	int updateFlag(ManagersDO user);
 
 
 }

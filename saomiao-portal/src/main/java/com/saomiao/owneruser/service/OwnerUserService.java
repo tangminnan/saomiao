@@ -3,21 +3,22 @@ package com.saomiao.owneruser.service;
 import java.util.List;
 import java.util.Map;
 
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 
 
 public interface OwnerUserService {
-	OwnerUserDO get(Long id);
+	ManagersDO get(Long id);
 	
-	OwnerUserDO getbyname(String username);
+	ManagersDO getbyname(String username);
 
-	List<OwnerUserDO> list(Map<String, Object> map);
+	List<ManagersDO> list(Map<String, Object> map);
 
 	int count(Map<String, Object> map);
 	
-	int save(OwnerUserDO user);
+	int save(ManagersDO user);
 
-	int update(OwnerUserDO user);
+	int update(ManagersDO user);
 
 	int remove(Long userId);
 
