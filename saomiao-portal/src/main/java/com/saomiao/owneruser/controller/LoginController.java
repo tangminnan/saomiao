@@ -1,5 +1,6 @@
 package com.saomiao.owneruser.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,14 +26,17 @@ import com.saomiao.smsservice.service.ISMSService;
 
 @RestController
 public class LoginController extends BaseController {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	   
     @Autowired
     OwnerUserService userService;
+    @Autowired
+    private ISMSService sMSService;
 	
    
     @Log("密码登录")  
-	@GetMapping("/login")
+	@PostMapping("/login")
     Map<String, Object> login(String username, String password) {
  	    Map<String, Object> message = new HashMap<>();
 	   	UsernamePasswordToken token = new UsernamePasswordToken(username, password);
@@ -41,24 +45,32 @@ public class LoginController extends BaseController {
 	   			Map<String, Object> mapP = new HashMap<String, Object>();
 	   			mapP.put("username", username);
 	   			boolean flag = userService.exit(mapP);
-	   			if (!flag) {
-	   				message.put("msg","该手机号码未注册");
-	   			}
 	   			ManagersDO udo= userService.getbyname(username);
-	   			if(udo.getDeleteFlag()==0){
-	   				message.put("msg","禁止登录，请联系客服");
-	   			}
-	   			subject.login(token);
-	   			userService.update(udo);
 	   			
-               
-	   			message.put("msg","登录成功");
+	   			if (!flag) {
+	   				message.put("msg","该用户未注册");
+	   			}else if(udo.getDeleteFlag()==0){
+	   				message.put("msg","禁止登录，请联系客服");
+	   			}else{
+	   				subject.login(token);
+		   			userService.update(udo);
+		   			
+		   			message.put("id", udo.getMid());
+		   			message.put("username", udo.getUsername());
+		   			message.put("organization", udo.getMorganization());
+		   			message.put("duty", udo.getMduty());
+		   			message.put("phone", udo.getMphone());
+		   			message.put("level", udo.getMlevel());
+		   			message.put("updateDate", udo.getMupdatedate());
+		   			
+		   			//message.put("msg","登录成功");
+	   			}
+	   			
 	   		} catch (AuthenticationException e) {
 	   			message.put("msg","用户或密码错误");
 	   		}
 	    	return message;
     }
- 
     
     @Log("登出")
     @GetMapping("/logout")

@@ -14,6 +14,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 import com.saomiao.common.config.ApplicationContextRegister;
+import com.saomiao.owneruser.dao.OwnerUserDao;
 import com.saomiao.owneruser.domain.ManagersDO;
 
 public class UserRealm extends AuthorizingRealm {
@@ -39,9 +40,9 @@ public class UserRealm extends AuthorizingRealm {
 		map.put("username", username);
 		String password = new String((char[]) token.getCredentials());
 
-		ManagersDO userMapper = ApplicationContextRegister.getBean(ManagersDO.class);
+		OwnerUserDao userMapper = ApplicationContextRegister.getBean(OwnerUserDao.class);
 		// 查询用户信息
-		ManagersDO user = (ManagersDO) userMapper.list(map).get(0);
+		ManagersDO user = userMapper.list(map).get(0);
 
 		// 账号不存在
 		if (user == null) {

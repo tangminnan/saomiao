@@ -91,10 +91,5 @@ public class ManagersDO implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Map<String, Object> list(Map<String, Object> map) {
-		return null;
-	}
-
 	
-
 }

@@ -3,7 +3,7 @@ zhenjiu:
 logging:
   level:
     root: info
-    com.zhenjiu: debug
+    com.saomiao: debug
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

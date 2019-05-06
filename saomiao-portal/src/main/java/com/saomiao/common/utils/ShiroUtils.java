@@ -10,6 +10,7 @@ import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 
 public class ShiroUtils {
@@ -19,12 +20,12 @@ public class ShiroUtils {
     public static Subject getSubjct() {
         return SecurityUtils.getSubject();
     }
-    public static OwnerUserDO getUser() {
+    public static ManagersDO getUser() {
         Object object = getSubjct().getPrincipal();
-        return (OwnerUserDO)object;
+        return (ManagersDO)object;
     }
     public static Long getUserId() {
-        return getUser().getId();
+        return getUser().getMid();
     }
     public static void logout() {
         getSubjct().logout();

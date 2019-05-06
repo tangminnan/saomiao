@@ -22,6 +22,7 @@ import com.saomiao.common.utils.HttpContextUtils;
 import com.saomiao.common.utils.IPUtils;
 import com.saomiao.common.utils.JSONUtils;
 import com.saomiao.common.utils.ShiroUtils;
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 
 
@@ -77,7 +78,7 @@ public class LogAspect {
         // 设置IP地址
         sysLog.setIp(IPUtils.getIpAddr(request));
         // 用户名
-        OwnerUserDO currUser = ShiroUtils.getUser();
+        ManagersDO currUser = ShiroUtils.getUser();
         if (null == currUser) {
             if (null != sysLog.getParams()) {
                 sysLog.setUserId(-1L);

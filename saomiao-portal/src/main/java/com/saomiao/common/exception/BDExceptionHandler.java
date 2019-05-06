@@ -18,6 +18,7 @@ import com.saomiao.common.service.LogService;
 import com.saomiao.common.utils.HttpServletUtils;
 import com.saomiao.common.utils.R;
 import com.saomiao.common.utils.ShiroUtils;
+import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.domain.OwnerUserDO;
 
 /**
@@ -70,9 +71,9 @@ public class BDExceptionHandler {
         logDO.setOperation(Constant.LOG_ERROR);
         logDO.setMethod(request.getRequestURL().toString());
         logDO.setParams(e.toString());
-        OwnerUserDO current = ShiroUtils.getUser();
+        ManagersDO current = ShiroUtils.getUser();
         if(null!=current){
-            logDO.setUserId(current.getId());
+            logDO.setUserId(current.getMid());
             logDO.setUsername(current.getUsername());
         }
         logService.save(logDO);
