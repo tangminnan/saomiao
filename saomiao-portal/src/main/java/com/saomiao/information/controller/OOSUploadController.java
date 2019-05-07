@@ -23,7 +23,7 @@ public class OOSUploadController extends BaseController {
 	
 	@Log("oos数据上传")
 	@GetMapping("/information/oosUpload")
-	public R oosUpload(String url,Long mid){
+	public R oosUpload(String url,Long mid){   
 		UsersDO userdo = new UsersDO();
 		//根据医生id，查询医生姓名
 		ManagersDO managersDO = oosUploadService.selectNameByid(mid);
