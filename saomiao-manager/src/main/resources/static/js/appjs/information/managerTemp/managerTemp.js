@@ -1,5 +1,5 @@
 
-var prefix = "/information/managers"
+var prefix = "/information/managerTemp"
 $(function() {
 	load();
 });
@@ -10,9 +10,9 @@ function load() {
 					{
 						method : 'get', // 服务器数据的请求方式 get or post
 						url : prefix + "/list", // 服务器数据的加载地址
-						/*showRefresh : true,
-						showToggle : true,
-						showColumns : true,*/
+					//	showRefresh : true,
+					//	showToggle : true,
+					//	showColumns : true,
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
 						striped : true, // 设置为true会有隔行变色效果
@@ -21,7 +21,7 @@ function load() {
 						// queryParamsType : "limit",
 						// //设置为limit则会发送符合RESTFull格式的参数
 						singleSelect : false, // 设置为true将禁止多选
-						contentType : "application/x-www-form-urlencoded",
+						// contentType : "application/x-www-form-urlencoded",
 						// //发送到服务器的数据编码类型
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
@@ -49,35 +49,23 @@ function load() {
 								},*/
 																{
 									field : 'mid', 
-									title : 'id'
+									title : '管理员id' 
 								},
 																{
-									field : 'username', 
-									title : '姓名' 
+									field : 'url', 
+									title : '3D扫描数据存放目录' 
 								},
 																{
-									field : 'morganization', 
-									title : '单位' 
-								},
-																{
-									field : 'mduty', 
-									title : '职务' 
-								},
-																{
-									field : 'mphone', 
-									title : '联系电话' 
-								},
-																{
-									field : 'mlevel', 
-									title : '身份 0管理员 1普通' ,
-									formatter: function(value,row,index){
-										if( value == 0 )  return "管理员";
-										if( value == 1 )  return "普通";
+									field : 'img', 
+									title : '用户图像',
+									formatter : function(value, row, index) {
+										if(value!=null){
+											var e = '<div class="image"><img width="90" height="100" alt="image" class="img-responsive" src="' + value + '"></div>'
+											return e;
+										}
+										else
+											return "";
 									}
-								},
-																{
-									field : 'mupdatedate', 
-									title : '创建时间' 
 								},
 																{
 									title : '操作',
@@ -90,10 +78,10 @@ function load() {
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.mid
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
-												+ row.mid
-												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d ;
+										var f = '<a class="btn btn-warning btn-sm" href="#" title="指定用户"  mce_href="#" onclick="point(\''
+										+ row.mid
+										+ '\')"><i class="fa fa-key"></i></a> ';
+										return e + d + f ;
 									}
 								} ]
 					});
@@ -121,10 +109,20 @@ function edit(id) {
 		content : prefix + '/edit/' + id // iframe的url
 	});
 }
+function point(id) {
+	layer.open({
+		type : 2,
+		title : '指定3D文件给用户',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/point/' + id // iframe的url
+	});
+}
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]
-	}, function(index) {
+	}, function() {
 		$.ajax({
 			url : prefix+"/remove",
 			type : "post",
@@ -132,26 +130,15 @@ function remove(id) {
 				'mid' : id
 			},
 			success : function(r) {
-				if (r.code === 0) {
+				if (r.code==0) {
 					layer.msg(r.msg);
 					reLoad();
-				}else if(r.code === 2){
-					layer.open({
-						type : 2,
-						title : '请转移您的用户',
-						maxmin : true,
-						shadeClose : false, // 点击遮罩关闭层
-						area : [ '800px', '520px' ],
-						content :prefix + '/transfer/' + id // iframe的url
-					});
-					reLoad();
+				}else{
+					layer.msg(r.msg);
 				}
 			}
 		});
-		layer.close(index);
-	}, function() {
-
-	});
+	})
 }
 
 function resetPwd(id) {
@@ -167,7 +154,7 @@ function batchRemove() {
 	// 按钮
 	}, function() {
 		var ids = new Array();
-		// 遍历所有选择的行数据，取每条数据对应的id
+		// 遍历所有选择的行数据，取每条数据对应的ID
 		$.each(rows, function(i, row) {
 			ids[i] = row['mid'];
 		});

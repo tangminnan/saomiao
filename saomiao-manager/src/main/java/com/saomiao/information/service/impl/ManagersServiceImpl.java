@@ -68,5 +68,10 @@ public class ManagersServiceImpl implements ManagersService {
 		
 		managersDao.updateMname(managersDO);
 	}
+
+	@Override
+	public List<ManagersDO> lists() {
+		return managersDao.lists();
+	}
 	
 }

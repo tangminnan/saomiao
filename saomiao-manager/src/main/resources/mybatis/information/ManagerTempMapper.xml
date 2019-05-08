@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.saomiao.information.dao.ManagerTempDao">
+
+	<select id="get" resultType="com.saomiao.information.domain.ManagerTempDO">
+		select `mid`,`url`,`img` from t_manager_temp where mid = #{value}
+	</select>
+
+	<select id="selectNameByid" resultType="com.saomiao.information.domain.ManagersDO">
+		select m_Id,username from t_managers where m_Id =#{mid}
+	</select>
+
+	<select id="list" resultType="com.saomiao.information.domain.ManagerTempDO">
+		select `mid`,`url`,`img` from t_manager_temp
+        <where>  
+		  		  <if test="mid != null and mid != ''"> and mid = #{mid} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="img != null and img != ''"> and img = #{img} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by mid desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from t_manager_temp
+		 <where>  
+		  		  <if test="mid != null and mid != ''"> and mid = #{mid} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="img != null and img != ''"> and img = #{img} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.saomiao.information.domain.ManagerTempDO">
+		insert into t_manager_temp
+		(
+			`mid`, 
+			`url`, 
+			`img`
+		)
+		values
+		(
+			#{mid}, 
+			#{url}, 
+			#{img}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.saomiao.information.domain.ManagerTempDO">
+		update t_manager_temp 
+		<set>
+			<if test="url != null">`url` = #{url}, </if>
+			<if test="img != null">`img` = #{img}</if>
+		</set>
+		where mid = #{mid}
+	</update>
+	
+	<delete id="remove">
+		delete from t_manager_temp where mid = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_manager_temp where mid in 
+		<foreach item="mid" collection="array" open="(" separator="," close=")">
+			#{mid}
+		</foreach>
+	</delete>
+
+</mapper>

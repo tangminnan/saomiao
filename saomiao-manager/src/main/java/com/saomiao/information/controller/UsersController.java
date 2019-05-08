@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -26,7 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
+import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
+import com.saomiao.information.service.ManagersService;
 import com.saomiao.information.service.UsersService;
 
 /**
@@ -42,6 +42,9 @@ import com.saomiao.information.service.UsersService;
 public class UsersController {
 	@Autowired
 	private UsersService usersService;
+	
+	@Autowired
+	private ManagersService managersService;
 	
 	@GetMapping()
 	@RequiresPermissions("information:user:user")
@@ -61,6 +64,12 @@ public class UsersController {
 		return pageUtils;
 	}
 	
+	public List<UsersDO> lists(){
+		//查询列表数据
+		List<UsersDO> userList = usersService.lists();
+		return userList;
+	}
+	
 	@GetMapping("/add")
 	@RequiresPermissions("information:user:add")
 	String add(){
@@ -77,7 +86,9 @@ public class UsersController {
 	@RequiresPermissions("information:user:edit")
 	String edit(@PathVariable("uid") Long uid,Model model){
 		UsersDO user = usersService.get(uid);
+		List<ManagersDO> managersDO = managersService.lists();
 		model.addAttribute("user", user);
+		model.addAttribute("managersDO", managersDO);
 	    return "information/user/edit";
 	}
 	
@@ -87,7 +98,7 @@ public class UsersController {
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("information:user:add")
-	public R save( UsersDO user){
+	public R save(UsersDO user){
 		Date update = new Date();
 		user.setUupdatedate(update);
 		if(usersService.save(user)>0){
@@ -172,6 +183,7 @@ public class UsersController {
 	@RequestMapping("/update")
 	@RequiresPermissions("information:user:edit")
 	public R update( UsersDO user){
+		user.setUupdatedate(new Date());
 		usersService.update(user);
 		return R.ok();
 	}

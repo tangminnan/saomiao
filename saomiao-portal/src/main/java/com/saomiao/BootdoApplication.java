@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.saomiao.*.dao")
 @SpringBootApplication
 public class BootdoApplication extends  SpringBootServletInitializer{
-	@Override
-  protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+@Override
+protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
       return builder.sources(BootdoApplication.class);
 }
 	

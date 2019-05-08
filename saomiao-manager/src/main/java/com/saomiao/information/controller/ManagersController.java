@@ -59,6 +59,14 @@ public class ManagersController {
 		return pageUtils;
 	}
 	
+	@ResponseBody
+	@GetMapping("/lists")
+	public List<ManagersDO> lists(){
+		//查询列表数据
+		List<ManagersDO> managersList = managersService.lists();
+		return managersList;
+	}
+	
 	@GetMapping("/add")
 	@RequiresPermissions("information:managers:add")
 	String add(){

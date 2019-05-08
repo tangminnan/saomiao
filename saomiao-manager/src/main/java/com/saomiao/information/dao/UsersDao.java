@@ -29,4 +29,6 @@ public interface UsersDao {
 	int remove(Long u_id);
 	
 	int batchRemove(Long[] uIds);
+
+	List<UsersDO> lists();
 }

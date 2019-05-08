@@ -27,4 +27,6 @@ public interface UsersService {
 	int remove(Long uId);
 	
 	int batchRemove(Long[] uIds);
+
+	List<UsersDO> lists();
 }

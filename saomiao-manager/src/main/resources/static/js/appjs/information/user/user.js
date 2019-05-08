@@ -61,7 +61,11 @@ function load() {
 								},
 																{
 									field : 'ugender', 
-									title : '性别  0男  1女' 
+									title : '性别  0男  1女',
+									formatter: function(value,row,index ){
+										if(value == 0) return "男";
+										if(value == 1) return "女";
+									}
 								},
 																{
 									field : 'ugrand', 
@@ -103,7 +107,7 @@ function load() {
 									field : 'uupdatedate', 
 									title : '创建时间' 
 								},
-									/*							{
+																{
 									title : '操作',
 									field : 'id',
 									align : 'center',
@@ -119,7 +123,7 @@ function load() {
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
 									}
-								} */]
+								} ]
 					});
 }
 function reLoad() {

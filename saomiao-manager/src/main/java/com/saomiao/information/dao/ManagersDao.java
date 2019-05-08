@@ -36,4 +36,6 @@ public interface ManagersDao {
 	void updateMname(ManagersDO managersDO);
 
 	List<ManagersDO> Manlist(Long mid);
+
+	List<ManagersDO> lists();
 }

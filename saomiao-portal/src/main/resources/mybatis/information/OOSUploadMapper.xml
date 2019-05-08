@@ -3,43 +3,18 @@
 
 <mapper namespace="com.saomiao.information.dao.OOSUploadDao">
 
-	<select id="selectNameByid"  resultType="com.saomiao.owneruser.domain.ManagersDO">
-		select username from t_managers where m_Id = #{mid}
-	</select>
-
-	
-	<insert id="save" parameterType="com.saomiao.information.domain.UsersDO" useGeneratedKeys="true" keyProperty="uid">
-		insert into t_user
+	<insert id="save" parameterType="com.saomiao.information.domain.ManagerTempDO">
+		insert into t_manager_temp
 		(
-			`u_name`, 
-			`u_organization`, 
-			`u_gender`, 
-			`u_grand`, 
-			`u_age`, 
-			`u_birthday`, 
-			`u_idcard`, 
-			`u_phone`, 
-			`u_height`, 
-			`u_weight`, 
-			`u_folder`, 
-			`m_name`, 
-			`u_updateDate`
+			`mid`, 
+			`url`, 
+			`img`
 		)
 		values
 		(
-			#{uname}, 
-			#{uorganization}, 
-			#{ugender}, 
-			#{ugrand}, 
-			#{uage}, 
-			#{ubirthday}, 
-			#{uidcard}, 
-			#{uphone}, 
-			#{uheight}, 
-			#{uweight}, 
-			#{ufolder}, 
-			#{mname}, 
-			#{uupdatedate}
+			#{mid}, 
+			#{url}, 
+			#{img}
 		)
 	</insert>
 	<!-- <update id="update" parameterType="com.saomiao.owneruser.domain.ManagersDO">

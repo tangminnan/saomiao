@@ -34,4 +34,6 @@ public interface ManagersService {
 	void updateMname(ManagersDO managersDO);
 	
 	List<ManagersDO> Manlist(Long mid);
+
+	List<ManagersDO> lists();
 }

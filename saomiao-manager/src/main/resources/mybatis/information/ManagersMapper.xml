@@ -31,6 +31,10 @@
 		</if>
 	</select>
 	
+	<select id="lists" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+    </select>
+	
 	<select id="Manlist" parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
        	where m_Id not like #{mid}

@@ -51,5 +51,10 @@ public class UsersServiceImpl implements UsersService {
 	public int batchRemove(Long[] uIds){
 		return userDao.batchRemove(uIds);
 	}
+
+	@Override
+	public List<UsersDO> lists() {
+		return userDao.lists();
+	}
 	
 }

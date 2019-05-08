@@ -39,6 +39,10 @@
 	</select>
 	
 	
+	<select id="lists" resultType="com.saomiao.information.domain.UsersDO">
+		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate` from t_user
+    </select>
+	
  	<select id="count" resultType="int">
 		select count(*) from t_user
 		 <where>  
