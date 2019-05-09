@@ -46,6 +46,15 @@ public class UsersDO implements Serializable {
 	//创建时间
 	private Date uupdatedate;
 	
+	private String uimg;
+	
+	
+	public String getUimg() {
+		return uimg;
+	}
+	public void setUimg(String uimg) {
+		this.uimg = uimg;
+	}
 	//excel导入
 	private MultipartFile excelUser;
 	

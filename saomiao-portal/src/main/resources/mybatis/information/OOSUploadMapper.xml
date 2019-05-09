@@ -2,19 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.saomiao.information.dao.OOSUploadDao">
+	<select id="selectNameByid" resultType="com.saomiao.information.domain.ManagersDO">
+		SELECT username from t_managers where m_Id = #{mid}
+	</select>
 
-	<insert id="save" parameterType="com.saomiao.information.domain.ManagerTempDO">
-		insert into t_manager_temp
+
+	<insert id="save" parameterType="com.saomiao.information.domain.UsersDO">
+		insert into t_user
 		(
-			`mid`, 
-			`url`, 
-			`img`
+			`u_name`, 
+			`u_organization`, 
+			`u_gender`, 
+			`u_grand`, 
+			`u_age`, 
+			`u_birthday`, 
+			`u_idcard`, 
+			`u_phone`, 
+			`u_height`, 
+			`u_weight`, 
+			`u_folder`, 
+			`m_name`, 
+			`u_updateDate`,
+			`u_img`
 		)
 		values
 		(
-			#{mid}, 
-			#{url}, 
-			#{img}
+			#{uname}, 
+			#{uorganization}, 
+			#{ugender}, 
+			#{ugrand}, 
+			#{uage}, 
+			#{ubirthday}, 
+			#{uidcard}, 
+			#{uphone}, 
+			#{uheight}, 
+			#{uweight}, 
+			#{ufolder}, 
+			#{mname}, 
+			#{uupdatedate},
+			#{uimg}
 		)
 	</insert>
 	<!-- <update id="update" parameterType="com.saomiao.owneruser.domain.ManagersDO">

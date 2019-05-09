@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.UsersDO">
-		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate` from t_user
+		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate`,`u_img` from t_user
         <where>  
 		  		  <if test="uid != null and uid != ''"> and u_id = #{uid} </if>
 		  		  <if test="uname != null and uname != ''"> and u_name = #{uname} </if>
@@ -24,6 +24,7 @@
 		  		  <if test="ufolder != null and ufolder != ''"> and u_folder = #{ufolder} </if>
 		  		  <if test="mname != null and mname != ''"> and m_name = #{mname} </if>
 		  		  <if test="uupdatedate != null and uupdatedate != ''"> and u_updateDate = #{uupdatedate} </if>
+		  		  <if test="uimg != null and uimg != ''"> and u_img= #{uimg} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">

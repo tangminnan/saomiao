@@ -61,7 +61,7 @@ function load() {
 								},
 																{
 									field : 'ugender', 
-									title : '性别  0男  1女',
+									title : '性别',
 									formatter: function(value,row,index ){
 										if(value == 0) return "男";
 										if(value == 1) return "女";
@@ -98,6 +98,17 @@ function load() {
 																{
 									field : 'ufolder', 
 									title : '3D扫描数据存放目录' 
+								},								{
+									field : 'uimg', 
+									title : '用户头像',
+									formatter : function(value ,row , index){
+										if(value!=null){
+											var e = '<div class="image"><img width="90" height="100" alt="image" class="img-responsive" src="' + value + '"></div>'
+											return e;
+										}
+										else
+											return "";
+									}
 								},
 																{
 									field : 'mname', 
@@ -118,10 +129,10 @@ function load() {
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
+										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d ;
+										return e + d +f;
 									}
 								} ]
 					});
@@ -188,7 +199,16 @@ function remove(id) {
 	})
 }
 
-function resetPwd(id) {
+function resetfile(id) {
+	layer.open({
+		type : 2,
+		title : '编辑',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content :'/information/user/point/' + id // iframe的url
+	});
+	
 }
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组

@@ -73,14 +73,9 @@ public class ManagerTempController {
 	    return "information/managerTemp/edit";
 	}
 	
-	@GetMapping("/point/{mid}")
-	String point(@PathVariable("mid") Integer mid,Model model){
-		ManagersDO manager = managerTempService.selectNameByid(mid);
-		
-		List<UsersDO> usersDOs = usersService.lists();
-		
-		model.addAttribute("usersDOs", usersDOs);
-		model.addAttribute("manager", manager);
+	@GetMapping("/point/{id}")
+	String point(@PathVariable("id") Integer id,Model model){
+		System.out.println(id);
 		
 	    return "information/managerTemp/point";
 	}
@@ -110,8 +105,8 @@ public class ManagerTempController {
 	
 	@ResponseBody
 	@RequestMapping("/pointUpdate")
-	public R pointUpdate( ManagerTempDO managerTemp){
-		managerTempService.update(managerTemp);
+	public R pointUpdate(@RequestParam Map<String, Object> params){
+		managerTempService.pointUpdate(params);
 		return R.ok();
 	}
 	

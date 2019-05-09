@@ -8,8 +8,17 @@
 	</select>
 
 	<select id="selectNameByid" resultType="com.saomiao.information.domain.ManagersDO">
-		select m_Id,username from t_managers where m_Id =#{mid}
+		select m.m_Id,m.username,mt.url from t_managers m,t_manager_temp mt where m.m_Id = mt.mid and m.m_Id =#{mid}
 	</select>
+	
+	<select id="getidByname" parameterType="String" resultType="com.saomiao.information.domain.ManagersDO">
+		SELECT m_Id  from t_managers where username = #{name}
+	</select>
+	
+	<select id="getfile"  parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagerTempDO">
+		SELECT mt.url from t_managers m,t_manager_temp mt where m.m_Id = mt.mid and m.m_Id = #{mid}
+	</select>
+	
 
 	<select id="list" resultType="com.saomiao.information.domain.ManagerTempDO">
 		select `mid`,`url`,`img` from t_manager_temp
@@ -37,7 +46,7 @@
 		  		  <if test="mid != null and mid != ''"> and mid = #{mid} </if>
 		  		  <if test="url != null and url != ''"> and url = #{url} </if>
 		  		  <if test="img != null and img != ''"> and img = #{img} </if>
-		  		</where>
+		 </where>
 	</select>
 	 
 	<insert id="save" parameterType="com.saomiao.information.domain.ManagerTempDO">
@@ -62,6 +71,15 @@
 			<if test="img != null">`img` = #{img}</if>
 		</set>
 		where mid = #{mid}
+	</update>
+	
+	<update id="pointUpdate" parameterType="Map">
+		update t_user
+		<set>
+			<if test="username != null"> m_name = #{username}, </if>
+			<if test="url != null">u_folder= #{url}</if>
+		</set>
+		where u_name = #{uname}
 	</update>
 	
 	<delete id="remove">

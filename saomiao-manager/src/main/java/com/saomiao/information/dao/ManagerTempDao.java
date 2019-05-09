@@ -32,4 +32,10 @@ public interface ManagerTempDao {
 	int batchRemove(Integer[] mids);
 
 	ManagersDO selectNameByid(Integer mid);
+
+	int pointUpdate(Map<String, Object> params);
+
+	List<ManagerTempDO> getfile(Long mid);
+
+	ManagersDO getidByname(String name);
 }

@@ -57,5 +57,20 @@ public class ManagerTempServiceImpl implements ManagerTempService {
 	public ManagersDO selectNameByid(Integer mid) {
 		return managerTempDao.selectNameByid(mid);
 	}
+
+	@Override
+	public int pointUpdate(Map<String, Object> params) {
+		return managerTempDao.pointUpdate(params);
+	}
+
+	@Override
+	public List<ManagerTempDO> getfile(Long mid) {
+		return managerTempDao.getfile(mid);
+	}
+
+	@Override
+	public ManagersDO getidByname(String name) {
+		return managerTempDao.getidByname(name);
+	}
 	
 }

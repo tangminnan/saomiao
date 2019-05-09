@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
+import com.saomiao.information.domain.ManagerTempDO;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
+import com.saomiao.information.service.ManagerTempService;
 import com.saomiao.information.service.ManagersService;
 import com.saomiao.information.service.UsersService;
 
@@ -45,6 +47,9 @@ public class UsersController {
 	
 	@Autowired
 	private ManagersService managersService;
+	
+	@Autowired
+	private ManagerTempService managertemp;
 	
 	@GetMapping()
 	@RequiresPermissions("information:user:user")
@@ -71,7 +76,7 @@ public class UsersController {
 	}
 	
 	@GetMapping("/add")
-	@RequiresPermissions("information:user:add")
+	//@RequiresPermissions("information:user:add")
 	String add(){
 	    return "information/user/add";
 	}
@@ -92,12 +97,33 @@ public class UsersController {
 	    return "information/user/edit";
 	}
 	
+	@GetMapping("/point/{id}")
+	String point(@PathVariable("id") Long id,Model model){
+		
+		UsersDO user = usersService.get(id);
+		List<ManagersDO> managersDO = managersService.lists();
+		
+		model.addAttribute("user", user);
+		model.addAttribute("managersDO", managersDO); 
+		
+	    return "information/managerTemp/point";
+	}
+	
+	@GetMapping("/getfile/{name}")
+	List<ManagerTempDO> getfile(@PathVariable("name") String name){
+		
+		ManagersDO managersDO =  managertemp.getidByname(name);
+		List<ManagerTempDO> managerTempDOs = managertemp.getfile(managersDO.getMid());
+		
+	    return managerTempDOs;
+	}
+	
 	/**
 	 * 保存
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	@RequiresPermissions("information:user:add")
+	//@RequiresPermissions("information:user:add")
 	public R save(UsersDO user){
 		Date update = new Date();
 		user.setUupdatedate(update);
