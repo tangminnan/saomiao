@@ -9,7 +9,7 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="signupForm">
-							
+							<input id="uid" name="uid" th:value="${user.uid}" type="hidden">
 							
 							<div class="form-group">	
 								<label class="col-sm-3 control-label">用户名：</label>
@@ -18,27 +18,39 @@
 								</div>
 							</div>
 							
-							<div class="form-group" id="TeamSelect" >	
+							<div class="form-group" >	
 								<label class="col-sm-3 control-label">负责人：</label>
-								<div class="col-sm-8">
-									<select name="username" id="username" class="form-control">
+								<div class="col-sm-8"  >
+									<select name="mname" id="TeamSelect" class="form-control">
 							            <option th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
 							        </select>
 										
 								</div>
 							</div>
 						
-							<div class="form-group" id="ManagerSelect" >	
+							<!-- <div class="form-group"  >	
 								<label class="col-sm-3 control-label">3D扫描文件目录：</label>
-								<div class="col-sm-8">
-									<select name="uname" id="uname" class="form-control">
-							            <option th:each="usersList:${usersDOs}" th:value="${usersList.uname}" th:text="${usersList.uname}"></option>
+								<div class="col-sm-8" >
+									<select name="ufolder" id="ManagerSelect" class="form-control">
+							            <option></option>
 							        </select>
-										
 								</div>
-							</div>
+							</div> -->
 							<div class="form-group" id="user" >	
 								<label class="col-sm-3 control-label">用户头像：</label>
+								
+								<!-- <div class="col-sm-8"  >
+									<select name="mname" id="TeamSelect" class="form-control">
+							            <option th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
+							        </select>
+								</div> -->
+								
+								<div class="col-sm-8" >
+									<ul name='uimg'  id="ManagerSelect"  >
+										<li name='uimg' style="list-style: none; width: 60; height: 70;"></li>
+									</ul>
+										
+								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
@@ -59,27 +71,38 @@
 		$("#TeamSelect").change(function () {
 	
 	        var name = $("#TeamSelect option:selected").val();
+	        
+	        //var url = $("#ManagerSelect option:selected").val();
 	        $.ajax({
 	            url: "/information/user/getfile/"+name,
 	            type: "get",
 	            success: function (data) {
-	                /* var ddl = $("#ManagerSelect");
-	　　　　　　　　//删除节点
+	            	
+	                 var ddl = $("#ManagerSelect");
+	　　　　　　　　	//删除节点
 	                $("#ManagerSelect option").remove();
-	                //转成Json对象
-	                var result = eval(data);
+	　　　　　　　　	
+	                 //转成Json对象
+	               /*  var result = JSON.parse(data); */
 	                //循环遍历 下拉框绑定
-	                $(result).each(function (key) {
+	                $(data).each(function (key) {
 	　　　　　　　　　　 //添加option 对应Json对象名称
-	                    var opt = $("<option></option>").text(result[key].ManagerName).val(result[key].ManagerID);
+	                    var opt = $("<ul><li></li></ul>").html("<button type='button' name='uimg' class='btn'><img width='50' height='60' overflow:'hidden' float:'left'  src='"+data[key].img+"'/></button>");
 	                    ddl.append(opt);
-	                }); */
+	                    
+	                }); 
 	            },
 	            error: function () {
 	                alert("Error");
 	            }
 	        });
+	       
 	    });
+		
+		$('#btn').click(function(){//给id为btn的元素添加点击事件
+		    $(this).toggleClass('active');//每次点击的时候，将当前的元素切换active样式
+		    
+		});
 	</script>
 </body>
 </html>

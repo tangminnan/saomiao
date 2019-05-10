@@ -16,7 +16,7 @@
 	</select>
 	
 	<select id="getfile"  parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagerTempDO">
-		SELECT mt.url from t_managers m,t_manager_temp mt where m.m_Id = mt.mid and m.m_Id = #{mid}
+		SELECT mt.url,mt.img from t_managers m,t_manager_temp mt where m.m_Id = mt.mid and m.m_Id = #{mid}
 	</select>
 	
 

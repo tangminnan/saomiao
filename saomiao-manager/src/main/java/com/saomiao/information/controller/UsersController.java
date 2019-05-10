@@ -97,10 +97,11 @@ public class UsersController {
 	    return "information/user/edit";
 	}
 	
-	@GetMapping("/point/{id}")
-	String point(@PathVariable("id") Long id,Model model){
+	@GetMapping("/point/{uid}")
+	String point(@PathVariable("uid") Long uid,Model model){
 		
-		UsersDO user = usersService.get(id);
+		UsersDO user = usersService.get(uid);
+		user.setUid(uid);
 		List<ManagersDO> managersDO = managersService.lists();
 		
 		model.addAttribute("user", user);
@@ -109,12 +110,12 @@ public class UsersController {
 	    return "information/managerTemp/point";
 	}
 	
+	@ResponseBody
 	@GetMapping("/getfile/{name}")
 	List<ManagerTempDO> getfile(@PathVariable("name") String name){
 		
 		ManagersDO managersDO =  managertemp.getidByname(name);
 		List<ManagerTempDO> managerTempDOs = managertemp.getfile(managersDO.getMid());
-		
 	    return managerTempDOs;
 	}
 	
@@ -205,11 +206,12 @@ public class UsersController {
 	/**
 	 * 修改
 	 */
+	@PostMapping("/update")
 	@ResponseBody
-	@RequestMapping("/update")
 	@RequiresPermissions("information:user:edit")
 	public R update( UsersDO user){
 		user.setUupdatedate(new Date());
+		//user.setUfolder(user.getUimg().split(regex, limit));
 		usersService.update(user);
 		return R.ok();
 	}

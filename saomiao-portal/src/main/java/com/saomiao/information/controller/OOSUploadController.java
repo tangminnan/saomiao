@@ -1,5 +1,7 @@
 package com.saomiao.information.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +31,17 @@ public class OOSUploadController extends BaseController {
 		
 		
 		users.setMname(manager.getUsername());
-		users.setUfolder(url);
-		users.setUimg(url+"/head_sign.jpg");
+		try {
+			
+			URLEncoder.encode(url, "utf-8");
+			users.setUfolder(url);
+			users.setUimg(url+"/head_sign.jpg");
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		
 		users.setUupdatedate(new Date());
 		
 		if(oosUploadService.save(users)>0){
