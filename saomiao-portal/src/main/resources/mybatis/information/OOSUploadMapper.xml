@@ -6,7 +6,6 @@
 		SELECT username from t_managers where m_Id = #{mid}
 	</select>
 
-
 	<insert id="save" parameterType="com.saomiao.information.domain.UsersDO">
 		insert into t_user
 		(

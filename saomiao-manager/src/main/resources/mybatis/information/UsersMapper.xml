@@ -79,7 +79,8 @@
 			`u_weight`, 
 			`u_folder`, 
 			`m_name`, 
-			`u_updateDate`
+			`u_updateDate`,
+			`u_img`
 		)
 		values
 		(
@@ -95,7 +96,8 @@
 			#{uweight}, 
 			#{ufolder}, 
 			#{mname}, 
-			#{uupdatedate}
+			#{uupdatedate},
+			#{img}
 		)
 	</insert>
 	 

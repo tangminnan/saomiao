@@ -46,8 +46,8 @@
 								</div> -->
 								
 								<div class="col-sm-8" >
-									<ul name='uimg'  id="ManagerSelect"  >
-										<li name='uimg' style="list-style: none; width: 60; height: 70;"></li>
+									<ul name='uimg'  id="ManagerSelect" style="width:500px" >
+										<!-- <li name='uimg' ></li> -->
 									</ul>
 										
 								</div>
@@ -87,9 +87,9 @@
 	                //循环遍历 下拉框绑定
 	                $(data).each(function (key) {
 	　　　　　　　　　　 //添加option 对应Json对象名称
-	                    var opt = $("<ul><li></li></ul>").html("<button type='button' name='uimg' class='btn'><img width='50' height='60' overflow:'hidden' float:'left'  src='"+data[key].img+"'/></button>");
+	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].img+"' onclick='change('"+data[key].img+"')'/></button>");
 	                    ddl.append(opt);
-	                    
+	                    style="list-style: none; width: 80px; height:90px ;float:left"
 	                }); 
 	            },
 	            error: function () {
@@ -98,7 +98,9 @@
 	        });
 	       
 	    });
-		
+		function change(imgSrc){
+			console.log(imgSrc)
+		}
 		$('#btn').click(function(){//给id为btn的元素添加点击事件
 		    $(this).toggleClass('active');//每次点击的时候，将当前的元素切换active样式
 		    
