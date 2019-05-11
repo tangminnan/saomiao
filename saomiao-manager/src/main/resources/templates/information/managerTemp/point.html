@@ -21,8 +21,8 @@
 							<div class="form-group" >	
 								<label class="col-sm-3 control-label">负责人：</label>
 								<div class="col-sm-8"  >
-									<select name="mname" id="TeamSelect" class="form-control">
-							            <option th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
+									<select name="mname"  id="TeamSelect" class="form-control">
+							            <option name="mname" th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
 							        </select>
 										
 								</div>
@@ -36,6 +36,8 @@
 							        </select>
 								</div>
 							</div> -->
+							
+							<input id="imginput" name='uimg' type="hidden">
 							<div class="form-group" id="user" >	
 								<label class="col-sm-3 control-label">用户头像：</label>
 								
@@ -46,12 +48,14 @@
 								</div> -->
 								
 								<div class="col-sm-8" >
-									<ul name='uimg'  id="ManagerSelect" style="width:500px" >
+									<ul   id="ManagerSelect" style="width:500px" >
 										<!-- <li name='uimg' ></li> -->
 									</ul>
 										
 								</div>
 							</div>
+							
+							
 							<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
 									<button type="submit" class="btn btn-primary">提交</button>
@@ -80,14 +84,14 @@
 	            	
 	                 var ddl = $("#ManagerSelect");
 	　　　　　　　　	//删除节点
-	                $("#ManagerSelect option").remove();
+	                $("#ManagerSelect li").remove();
 	　　　　　　　　	
 	                 //转成Json对象
 	               /*  var result = JSON.parse(data); */
 	                //循环遍历 下拉框绑定
 	                $(data).each(function (key) {
 	　　　　　　　　　　 //添加option 对应Json对象名称
-	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].img+"' onclick='change('"+data[key].img+"')'/></button>");
+	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button  type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].img+"'  onclick='change(`${this.src}`)' /></button>");
 	                    ddl.append(opt);
 	                    style="list-style: none; width: 80px; height:90px ;float:left"
 	                }); 
@@ -96,11 +100,13 @@
 	                alert("Error");
 	            }
 	        });
-	       
+	        
 	    });
+		
 		function change(imgSrc){
-			console.log(imgSrc)
+			$('#imginput').val(imgSrc);
 		}
+		
 		$('#btn').click(function(){//给id为btn的元素添加点击事件
 		    $(this).toggleClass('active');//每次点击的时候，将当前的元素切换active样式
 		    

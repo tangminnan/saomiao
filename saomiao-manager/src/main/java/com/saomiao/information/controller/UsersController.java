@@ -209,9 +209,8 @@ public class UsersController {
 	@PostMapping("/update")
 	@ResponseBody
 	@RequiresPermissions("information:user:edit")
-	public R update( UsersDO user){
+	public R update(UsersDO user){
 		user.setUupdatedate(new Date());
-		//user.setUfolder(user.getUimg().split(regex, limit));
 		usersService.update(user);
 		return R.ok();
 	}
