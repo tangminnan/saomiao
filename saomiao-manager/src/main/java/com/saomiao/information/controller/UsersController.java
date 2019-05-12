@@ -211,6 +211,11 @@ public class UsersController {
 	@RequiresPermissions("information:user:edit")
 	public R update(UsersDO user){
 		user.setUupdatedate(new Date());
+		
+		String img = user.getUimg();
+		String file = img.substring(0, -14);
+		user.setUfolder(file);
+		
 		usersService.update(user);
 		return R.ok();
 	}
