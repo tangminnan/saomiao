@@ -126,13 +126,13 @@ function load() {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-edit"></i></a> ';
-										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-												+ row.uid
-												+ '\')"><i class="fa fa-remove"></i></a> ';
+										
 										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d +f;
+										
+										var a= '<a class="btn btn-success btn-sm" href="http://jiujiu056.oss-cn-beijing.aliyuncs.com/jingtu/3D%E6%89%AB%E6%8F%8FAPP%E4%B8%8E%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0.docx" download="folder" title="下载" ><i class="fa fa-download"></i></a>';
+										return e + f + a;
 									}
 								} ]
 					});
@@ -140,7 +140,6 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
-
 
 function add(type) {
 	if(type == 1){

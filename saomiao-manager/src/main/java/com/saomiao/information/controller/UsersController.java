@@ -214,9 +214,10 @@ public class UsersController {
 		
 		String img = user.getUimg();
 		int length = img.length();
-		String file = img.substring(0, length-14);
-		System.out.println(file);
-		user.setUfolder(file);
+		if(img != null && img !=""){
+			String file = img.substring(0, length-14);
+			user.setUfolder(file);
+		}
 		
 		usersService.update(user);
 		return R.ok();
