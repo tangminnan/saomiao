@@ -24,4 +24,7 @@ public interface OwnerUserService {
 
 	boolean exit(Map<String, Object> params);
 
+	boolean exitWechat(Map<String, Object> mapP);
+
+
 }

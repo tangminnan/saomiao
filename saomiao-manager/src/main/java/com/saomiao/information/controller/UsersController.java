@@ -213,7 +213,9 @@ public class UsersController {
 		user.setUupdatedate(new Date());
 		
 		String img = user.getUimg();
-		String file = img.substring(0, -14);
+		int length = img.length();
+		String file = img.substring(0, length-14);
+		System.out.println(file);
 		user.setUfolder(file);
 		
 		usersService.update(user);

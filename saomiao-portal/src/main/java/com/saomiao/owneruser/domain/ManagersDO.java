@@ -34,6 +34,16 @@ public class ManagersDO implements Serializable {
 	private Date mupdatedate;
 	//是否删除 0是 1否
 	private Integer deleteFlag;
+	
+	private String munionid;
+	
+	
+	public String getMunionid() {
+		return munionid;
+	}
+	public void setMunionid(String munionid) {
+		this.munionid = munionid;
+	}
 	public Long getMid() {
 		return mid;
 	}

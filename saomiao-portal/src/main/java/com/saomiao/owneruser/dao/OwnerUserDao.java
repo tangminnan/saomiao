@@ -31,4 +31,5 @@ public interface OwnerUserDao {
 	int updateFlag(ManagersDO user);
 
 
+
 }

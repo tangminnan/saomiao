@@ -116,7 +116,7 @@
 			<if test="uweight != null">`u_weight` = #{uweight}, </if>
 			<if test="ufolder != null">`u_folder` = #{ufolder}, </if>
 			<if test="mname != null">`m_name` = #{mname}, </if>
-			<if test="uupdatedate != null">`u_updateDate` = #{uupdatedate}</if>
+			<if test="uupdatedate != null">`u_updateDate` = #{uupdatedate},</if>
 			<if test="uimg != null">`u_img` = #{uimg}</if>
 		</set>
 		where u_id = #{uid}

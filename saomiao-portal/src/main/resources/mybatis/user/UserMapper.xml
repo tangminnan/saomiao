@@ -18,6 +18,7 @@
 		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
 		  		  <if test="mlevel != null and mlevel != ''"> and m_level = #{mlevel} </if>
 		  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
+		  		  <if test="munionid != null and munionid != ''"> and m_unionid = #{munionid} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
@@ -36,6 +37,11 @@
 		select m_Id,username,m_organization,m_duty,m_phone,m_level,m_updateDate,delete_flag
 		from t_managers where username = #{value}
 	</select>
+	
+	<!-- <select id="getbyunionid" resultType="com.saomiao.owneruser.domain.ManagersDO">
+		select m_Id,username,m_organization,m_duty,m_phone,m_level,m_updateDate,delete_flag
+		from t_managers where m_unionid = #{unionid}
+	</select> -->
 	
  	<select id="count" resultType="int">
 		select count(*) from t_managers

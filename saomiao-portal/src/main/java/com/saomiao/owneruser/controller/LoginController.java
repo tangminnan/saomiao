@@ -72,6 +72,9 @@ public class LoginController extends BaseController {
 	    	return message;
     }
     
+    
+    
+    
     @Log("登出")
     @GetMapping("/logout")
     Map<String, String> logout() {

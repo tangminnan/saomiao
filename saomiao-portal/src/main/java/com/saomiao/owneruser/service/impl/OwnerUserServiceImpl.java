@@ -76,4 +76,11 @@ public class OwnerUserServiceImpl implements OwnerUserService {
 		return exit;
 	}
 
+	@Override
+	public boolean exitWechat(Map<String, Object> mapP) {
+		boolean exit;
+		exit = ownerUserMapper.list(mapP).size() > 0;
+		return exit;
+	}
+
 }
