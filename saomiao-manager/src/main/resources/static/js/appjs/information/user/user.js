@@ -130,9 +130,7 @@ function load() {
 										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										var a = '<a class="btn btn-success btn-sm" href="https://facescan190509.oss-cn-beijing.aliyuncs.com/42_2019.05.14.21.10.36/3d.zip" download="张三3d.zip" title="下载"  onclick="downfile(\''
-											+ row.uid
-											+ '\')"><i class="fa fa-download"></i></a> ';
+										var a = '<a class="btn btn-success btn-sm"   title="下载"  onclick="downfile(downfile(`${row.uid},${index}`))"><i class="fa fa-download"></i></a> ';
 										
 										return e + f + a;
 									}
@@ -143,7 +141,8 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 
-function downfile(id){
+function downfile(){
+	colsole.log(arguments)
 	$.ajax({
 		url : "/ossDownload", 
 		type : "get",
@@ -151,7 +150,7 @@ function downfile(id){
 			'uid' : id
 		},
 		success : function(data) {
-			console.log(id)
+			
 		}
 	});
 }
