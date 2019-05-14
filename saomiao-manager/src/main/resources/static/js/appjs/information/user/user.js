@@ -130,7 +130,9 @@ function load() {
 										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										var a = '<a class="btn btn-success btn-sm"   title="下载"  onclick="downfile(downfile(`${row.uid},${index}`))"><i class="fa fa-download"></i></a> ';
+										var a = '<a class="btn btn-success btn-sm"   title="下载"  onclick="downfile(\''
+												+row.uid
+												+'\')"><i class="fa fa-download"></i></a> ';
 										
 										return e + f + a;
 									}
@@ -141,18 +143,27 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 
-function downfile(){
-	colsole.log(arguments)
-	$.ajax({
-		url : "/ossDownload", 
-		type : "get",
-		data : {
-			'uid' : id
-		},
-		success : function(data) {
-			
-		}
-	});
+function downfile(id){
+	console.log(id)
+		/*var arr = val.split(',')
+		var id = arr[0]
+		var index = arr[1]*/
+		$.ajax({
+			url : "/information/user/download", 
+			type : "get",
+			data : {
+				'uid' : id
+			},
+			success : function(data) {
+				console.log(data.ufolder)
+				
+				/*$('.dowmL').each(function(i){
+					if(i == index){
+						$(this).attr('href',data.....)
+					}
+				})*/
+			}
+		});
 }
 
 

@@ -75,6 +75,12 @@ public class UsersController {
 		return userList;
 	}
 	
+	@GetMapping("/download")
+	public UsersDO ossDownload(Long uid){
+	    UsersDO  usersDO= usersService.getFileByid(uid);
+		return usersDO;
+	}
+	
 	@GetMapping("/add")
 	//@RequiresPermissions("information:user:add")
 	String add(){

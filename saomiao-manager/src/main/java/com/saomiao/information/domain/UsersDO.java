@@ -151,6 +151,16 @@ public class UsersDO implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	@Override
+	public String toString() {
+		return "UsersDO [uid=" + uid + ", uname=" + uname + ", uorganization=" + uorganization + ", ugender=" + ugender
+				+ ", ugrand=" + ugrand + ", uage=" + uage + ", ubirthday=" + ubirthday + ", uidcard=" + uidcard
+				+ ", uphone=" + uphone + ", uheight=" + uheight + ", uweight=" + uweight + ", ufolder=" + ufolder
+				+ ", mname=" + mname + ", uupdatedate=" + uupdatedate + ", uimg=" + uimg + ", excelUser=" + excelUser
+				+ "]";
+	}
+	
+	
 	
 
 	
