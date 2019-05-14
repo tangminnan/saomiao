@@ -12,18 +12,27 @@ import java.util.zip.CheckedOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.OSSObject;
 
+@Controller
 public class OssDownload {
 	
-	@RequestMapping("/api/downlownd")
+	@Autowired
+	private HttpServletRequest request; 
+	@Autowired
+	private HttpServletResponse response;
+	
+	@GetMapping("/api/downlownd")
     public static String getOssFile(HttpServletRequest request, HttpServletResponse response){
  
         // endpoint以杭州为例，其它region请按实际情况填写，1改为自己的
@@ -103,7 +112,7 @@ public class OssDownload {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return "123456";
 	}
 	
 	

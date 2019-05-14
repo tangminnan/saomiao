@@ -29,4 +29,6 @@ public interface UsersService {
 	int batchRemove(Long[] uIds);
 
 	List<UsersDO> lists();
+
+	UsersDO getFileByid(Long uid);
 }

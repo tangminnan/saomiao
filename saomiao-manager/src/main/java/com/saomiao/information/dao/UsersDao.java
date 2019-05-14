@@ -31,4 +31,6 @@ public interface UsersDao {
 	int batchRemove(Long[] uIds);
 
 	List<UsersDO> lists();
+
+	UsersDO getFileByid(Long uid);
 }

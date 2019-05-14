@@ -130,8 +130,10 @@ function load() {
 										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
+										var a = '<a class="btn btn-success btn-sm" href="https://facescan190509.oss-cn-beijing.aliyuncs.com/42_2019.05.14.21.10.36/3d.zip" download="张三3d.zip" title="下载"  onclick="downfile(\''
+											+ row.uid
+											+ '\')"><i class="fa fa-download"></i></a> ';
 										
-										var a= '<a class="btn btn-success btn-sm" href="http://jiujiu056.oss-cn-beijing.aliyuncs.com/jingtu/3D%E6%89%AB%E6%8F%8FAPP%E4%B8%8E%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0.docx" download="folder" title="下载" ><i class="fa fa-download"></i></a>';
 										return e + f + a;
 									}
 								} ]
@@ -140,6 +142,20 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+
+function downfile(id){
+	$.ajax({
+		url : "/ossDownload", 
+		type : "get",
+		data : {
+			'uid' : id
+		},
+		success : function(data) {
+			console.log(id)
+		}
+	});
+}
+
 
 function add(type) {
 	if(type == 1){
