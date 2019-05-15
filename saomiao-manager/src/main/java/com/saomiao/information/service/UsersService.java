@@ -30,5 +30,5 @@ public interface UsersService {
 
 	List<UsersDO> lists();
 
-	UsersDO getFileByid(Long uid);
+	List<UsersDO> getFileByid(Long uid);
 }

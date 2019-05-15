@@ -58,7 +58,7 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public UsersDO getFileByid(Long uid) {
+	public List<UsersDO> getFileByid(Long uid) {
 		return userDao.getFileByid(uid);
 	}
 	

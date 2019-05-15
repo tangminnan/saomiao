@@ -75,9 +75,10 @@ public class UsersController {
 		return userList;
 	}
 	
+	@ResponseBody
 	@GetMapping("/download")
-	public UsersDO ossDownload(Long uid){
-	    UsersDO  usersDO= usersService.getFileByid(uid);
+	public List<UsersDO> ossDownload(Long uid){
+		List<UsersDO> usersDO= usersService.getFileByid(uid);
 		return usersDO;
 	}
 	

@@ -155,7 +155,7 @@ function downfile(id){
 				'uid' : id
 			},
 			success : function(data) {
-				console.log(data.ufolder)
+				console.log(data.msg)
 				
 				/*$('.dowmL').each(function(i){
 					if(i == index){

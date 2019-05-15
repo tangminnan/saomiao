@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="getFileByid" resultType="com.saomiao.information.domain.UsersDO">
-		select  u_folder from t_user where u_id = #{value}
+		select  u_name,u_folder from t_user where u_id = #{uid}
 	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.UsersDO">
