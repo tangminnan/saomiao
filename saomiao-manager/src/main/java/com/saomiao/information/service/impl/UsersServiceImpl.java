@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.saomiao.information.dao.UsersDao;
+import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.UsersService;
 
@@ -60,6 +61,11 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public List<UsersDO> getFileByid(Long uid) {
 		return userDao.getFileByid(uid);
+	}
+
+	@Override
+	public ManagersDO selectManById(Long userId) {
+		return userDao.selectManById(userId);
 	}
 	
 }

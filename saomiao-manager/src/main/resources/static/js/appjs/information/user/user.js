@@ -123,18 +123,23 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
+										var e = '<a class="btn btn-primary btn-xs '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-edit"></i></a> ';
 										
-										var f = '<a class="btn btn-success btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
+										var f = '<a class="btn btn-primary btn-xs" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										var a = '<a class="btn btn-success btn-sm"   title="下载"  onclick="downfile(\''
-												+row.uid
-												+'\')"><i class="fa fa-download"></i></a> ';
+										var a = '<a class="btn btn-primary btn-xs dowmL"   title="下载"  onclick="downfile(\''
+											   + `${row.uid},${index}`
+											   + '\')" ><i class="fa fa-download"></i></ a> ';
 										
-										return e + f + a;
+										if(row.ufolder === null || row.uimg === null || row.mname === null){
+											return f + a;
+										}else{
+											return e + a;
+										}
+										
 									}
 								} ]
 					});
@@ -143,11 +148,11 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 
-function downfile(id){
-	console.log(id)
-		/*var arr = val.split(',')
+function downfile(val){
+		var arr = val.split(',')
 		var id = arr[0]
-		var index = arr[1]*/
+		var index = arr[1]
+		
 		$.ajax({
 			url : "/information/user/download", 
 			type : "get",
@@ -155,13 +160,15 @@ function downfile(id){
 				'uid' : id
 			},
 			success : function(data) {
-				console.log(data.msg)
-				
-				/*$('.dowmL').each(function(i){
-					if(i == index){
-						$(this).attr('href',data.....)
-					}
-				})*/
+				$.each(data,function(i,item){
+					$('.dowmL').each(function(index1){
+						if(index1 == index){
+							$(this).attr('href',item.ufolder)
+							//i$(this).attr('download',item.uname)
+							window.open(item.ufolder,'_blank')
+						}
+					})
+				})
 			}
 		});
 }

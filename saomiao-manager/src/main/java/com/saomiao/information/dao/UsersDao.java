@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 
 /**
@@ -33,4 +34,6 @@ public interface UsersDao {
 	List<UsersDO> lists();
 
 	List<UsersDO> getFileByid(Long uid);
+
+	ManagersDO selectManById(Long userId);
 }

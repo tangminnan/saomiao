@@ -11,6 +11,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
+import com.saomiao.common.utils.ShiroUtils;
 import com.saomiao.information.domain.ManagerTempDO;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
@@ -45,6 +48,8 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
+	private static Logger logger = LoggerFactory.getLogger(UsersController.class);
+	
 	@Autowired
 	private ManagersService managersService;
 	
@@ -61,8 +66,9 @@ public class UsersController {
 	@GetMapping("/list")
 	@RequiresPermissions("information:user:user")
 	public PageUtils list(@RequestParam Map<String, Object> params){
-		//查询列表数据
+		
         Query query = new Query(params);
+        
 		List<UsersDO> userList = usersService.list(query);
 		int total = usersService.count(query);
 		PageUtils pageUtils = new PageUtils(userList, total);
@@ -78,7 +84,11 @@ public class UsersController {
 	@ResponseBody
 	@GetMapping("/download")
 	public List<UsersDO> ossDownload(Long uid){
+		
 		List<UsersDO> usersDO= usersService.getFileByid(uid);
+		
+		usersDO.get(0).setUfolder(usersDO.get(0).getUfolder()+"/3d.zip");
+		
 		return usersDO;
 	}
 	
@@ -150,7 +160,6 @@ public class UsersController {
 	@PostMapping("/batchSave")
 	@RequiresPermissions("information:user:batchAdd")
 	public R batchSave(UsersDO user){
-		System.out.println(user);
 		try {
 			XSSFWorkbook wb=null;
 			XSSFSheet sheet=null;
@@ -219,11 +228,8 @@ public class UsersController {
 	public R update(UsersDO user){
 		user.setUupdatedate(new Date());
 		
-		String img = user.getUimg();
-		int length = img.length();
-		if(img != null && img !=""){
-			String file = img.substring(0, length-14);
-			user.setUfolder(file);
+		if(user.getUfolder().isEmpty() || user.getUfolder() == null){
+			user.setUfolder(user.getUimg().substring(0, -14));
 		}
 		
 		usersService.update(user);
@@ -250,7 +256,6 @@ public class UsersController {
 	@ResponseBody
 	@RequiresPermissions("information:user:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] uIds){
-		System.out.println(uIds);
 		
 		usersService.batchRemove(uIds);
 		return R.ok();

@@ -3,6 +3,7 @@ package com.saomiao.information.service;
 import java.util.List;
 import java.util.Map;
 
+import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 
 /**
@@ -31,4 +32,6 @@ public interface UsersService {
 	List<UsersDO> lists();
 
 	List<UsersDO> getFileByid(Long uid);
+
+	ManagersDO selectManById(Long userId);
 }

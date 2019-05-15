@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
+import com.saomiao.common.utils.ShiroUtils;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagersService;
@@ -51,7 +52,12 @@ public class ManagersController {
 	@GetMapping("/list")
 	@RequiresPermissions("information:managers:managers")
 	public PageUtils list(@RequestParam Map<String, Object> params){
-		//查询列表数据
+		/*//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("userId", ShiroUtils.getUser().getUserId());
+		}*/
+		
         Query query = new Query(params);
 		List<ManagersDO> managersList = managersService.list(query);
 		int total = managersService.count(query);
@@ -129,6 +135,8 @@ public class ManagersController {
 	@RequestMapping("/update")
 	@RequiresPermissions("information:managers:edit")
 	public R update( ManagersDO managers){
+		
+		managers.setMupdatedate(new Date());
 		managersService.update(managers);
 		return R.ok();
 	}

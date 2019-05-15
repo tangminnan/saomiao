@@ -10,14 +10,15 @@
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
         <where>  
-		  		  <if test="mId != null and mId != ''"> and m_Id = #{mid} </if>
+		  		  <if test="userId != null and userId != ''"> and m_Id = #{userId} </if>
 		  		  <if test="username != null and username != ''"> and username = #{username} </if>
-		  		  <if test="mOrganization != null and mOrganization != ''"> and m_organization = #{morganization} </if>
-		  		  <if test="mDuty != null and mDuty != ''"> and m_duty = #{mduty} </if>
-		  		  <if test="mPhone != null and mPhone != ''"> and m_phone = #{mphone} </if>
-		  		  <if test="mLevel != null and mLevel != ''"> and m_level = #{mlevel} </if>
-		  		  <if test="mUpdatedate != null and mUpdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
-		  		</where>
+		  		  <if test="morganization != null and morganization != ''"> and m_organization = #{morganization} </if>
+		  		  <if test="mduty != null and mduty != ''"> and m_duty = #{mduty} </if>
+		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
+		  		  <if test="mlevel != null and mlevel != ''"> and m_level = #{mlevel} </if>
+		  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
+		  		 </where> 
+		  		
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
@@ -91,7 +92,7 @@
 			<if test="morganization != null">`m_organization` = #{morganization}, </if>
 			<if test="mduty != null">`m_duty` = #{mduty}, </if>
 			<if test="mphone != null">`m_phone` = #{mphone}, </if>
-			<if test="mlevel != null">`m_level` = #{mLevel}, </if>
+			<if test="mlevel != null">`m_level` = #{mlevel}, </if>
 			<if test="mupdatedate != null">`m_updateDate` = #{mupdatedate}</if>
 		</set>
 		where m_Id = #{mid}
