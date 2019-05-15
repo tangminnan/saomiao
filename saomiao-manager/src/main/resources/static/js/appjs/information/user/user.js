@@ -160,19 +160,68 @@ function downfile(val){
 				'uid' : id
 			},
 			success : function(data) {
+				console.log(downloads(https:\\facescan190509.oss-cn-beijing.aliyuncs.com/42_2019.05.14.21.10.36))
 				$.each(data,function(i,item){
 					$('.dowmL').each(function(index1){
 						if(index1 == index){
-							$(this).attr('href',item.ufolder)
-							//i$(this).attr('download',item.uname)
+							var url = downloads(item.ufolder,item.unmme)
+							$(this).attr('href',url)
 							window.open(item.ufolder,'_blank')
 						}
 					})
 				})
 			}
 		});
+		
+		
+}
+/** * 
+ * 获取 blob * 
+ * @param {String} url 目标文件地址 *
+ * @return {Promise} */
+function getBlob(url){
+	return new Promise(resolve =>{
+		const xhr = new XMLHttpRequest();
+		
+		xhr.open('GET',url,true);
+		xhr.responseType = 'blob';
+		xhr.onload = () => {
+			if(xhr.status === 200){
+				resolve(xhr.response);
+			}
+		};
+		xhr.send();
+	})
+}
+/** * 
+ * 保存 * 
+ * @param {Blob} blob 
+ * * @param {String} filename 想要保存的文件名称 */
+function saveAs(blob, filename) 
+{ 
+	if (window.navigator.msSaveOrOpenBlob) { 
+		navigator.msSaveBlob(blob, filename); 
+	}else{ 
+		const link = document.createElement('a'); 
+		const body = document.querySelector('body'); 
+		link.href = window.URL.createObjectURL(blob); 
+		link.download = filename; // fix Firefox link.style.display = 'none';
+		body.appendChild(link); 
+		link.click(); 
+		body.removeChild(link); 
+		window.URL.revokeObjectURL(link.href); 
+	} 
 }
 
+/** * 
+ * 下载 
+ * @param {String} url 目标文件地址 
+ * @param {String} filename 想要保存的文件名称 */
+function downloads(url, filename) { 
+	getBlob(url).then(blob => { 
+		saveAs(blob, filename); 
+	}); 
+}
 
 function add(type) {
 	if(type == 1){
