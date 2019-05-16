@@ -31,9 +31,12 @@ public interface ManagersService {
 
 	List<UsersDO> selectUserById(Long mid);
 
-	void updateMname(ManagersDO managersDO);
+	int updateMname(ManagersDO managersDO);
 	
 	List<ManagersDO> Manlist(Long mid);
 
 	List<ManagersDO> lists();
+
+	ManagersDO getIdByname(String username);
+
 }

@@ -134,7 +134,7 @@ function load() {
 											   + `${row.uid},${index}`
 											   + '\')" ><i class="fa fa-download"></i></ a> ';
 										
-										if(row.ufolder === null || row.uimg === null || row.mname === null){
+										if(row.ufolder === ""|| row.ufolder === null || row.uimg === "" || row.uimg === null || row.mname === "" || row.mname === null){
 											return f ;
 										}else{
 											return e + a;

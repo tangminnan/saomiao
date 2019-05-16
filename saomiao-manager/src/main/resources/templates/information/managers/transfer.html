@@ -9,7 +9,8 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="signupForm">
-						<input id="mid" name="mid"  type="hidden">
+						<input id="mid" name="mid" th:value="${mid}" type="hidden">
+						
 							<div class="form-group">	
 								<label class="col-sm-3 control-label">请指定其他用户：</label>
 								<div class="col-sm-8">

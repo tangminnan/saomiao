@@ -64,14 +64,19 @@ public class ManagersServiceImpl implements ManagersService {
 	}
 
 	@Override
-	public void updateMname(ManagersDO managersDO) {
+	public int updateMname(ManagersDO managersDO) {
 		
-		managersDao.updateMname(managersDO);
+		return managersDao.updateMname(managersDO);
 	}
 
 	@Override
 	public List<ManagersDO> lists() {
 		return managersDao.lists();
+	}
+
+	@Override
+	public ManagersDO getIdByname(String username) {
+		return managersDao.getIdByname(username);
 	}
 	
 }

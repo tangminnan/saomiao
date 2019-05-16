@@ -6,6 +6,11 @@
 	<select id="get" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers where m_Id = #{value}
 	</select>
+	
+	
+	<select id="getIdByname" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`from t_managers where username = #{username}
+	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
@@ -43,7 +48,7 @@
 	</select>
 	
 	<select id="selectUserById"  resultType="com.saomiao.information.domain.UsersDO">
-		SELECT u.u_name from t_user u,t_managers m where u.u_name = m.username and m.m_Id = #{mid} 
+		SELECT u.m_name from t_user u,t_managers m where u.m_name = m.username and m.m_Id = #{mid}
 	</select>
 	
  	<select id="count" resultType="int">
@@ -81,8 +86,8 @@
 	</insert>
 	 
 	
-	<update id="updateusername" parameterType="com.saomiao.information.domain.ManagersDO">
-		update t_user u,t_managers m set  u.username = #{username} where u.username = m.username and m.m_Id = #{mid}
+	<update id="updateMname" parameterType="com.saomiao.information.domain.ManagersDO">
+		update t_user u,t_managers m set u.m_name = #{username} where u.m_name = m.username and m.m_Id = #{mid}
 	</update> 
 	 
 	<update id="update" parameterType="com.saomiao.information.domain.ManagersDO">
