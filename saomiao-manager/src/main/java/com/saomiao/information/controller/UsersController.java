@@ -67,6 +67,12 @@ public class UsersController {
 	@RequiresPermissions("information:user:user")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("mname", ShiroUtils.getUser().getUsername());
+		}
+		
         Query query = new Query(params);
         
 		List<UsersDO> userList = usersService.list(query);
@@ -117,25 +123,32 @@ public class UsersController {
 	}
 	
 	@GetMapping("/point/{uid}")
-	String point(@PathVariable("uid") Long uid,Model model){
+	String point(@PathVariable("uid") Long uid,Model model,@RequestParam Map<String, Object> params){
 		
 		UsersDO user = usersService.get(uid);
+		System.out.println(uid);
 		user.setUid(uid);
-		List<ManagersDO> managersDO = managersService.lists();
+		System.out.println(user);
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("username", ShiroUtils.getUser().getUsername());
+		}
+		
+		List<ManagersDO> managersDO = managersService.list(params);
 		
 		model.addAttribute("user", user);
 		model.addAttribute("managersDO", managersDO); 
 		
-	    return "information/managerTemp/point";
+	    return "information/user/point";
 	}
 	
 	@ResponseBody
 	@GetMapping("/getfile/{name}")
-	List<ManagerTempDO> getfile(@PathVariable("name") String name){
+	List<UsersDO> getfile(@PathVariable("name") String name){
 		
-		ManagersDO managersDO =  managertemp.getidByname(name);
-		List<ManagerTempDO> managerTempDOs = managertemp.getfile(managersDO.getMid());
-	    return managerTempDOs;
+		List<UsersDO> usersDO =  usersService.getfileByname(name);
+	    return usersDO;
 	}
 	
 	/**
@@ -228,10 +241,12 @@ public class UsersController {
 	@ResponseBody
 	@RequiresPermissions("information:user:edit")
 	public R update(UsersDO user){
-		user.setUupdatedate(new Date());
 		
-		if(user.getUfolder().isEmpty() || user.getUfolder() == null){
-			user.setUfolder(user.getUimg().substring(0, -14));
+		user.setUupdatedate(new Date());
+		if(user.getUimg() != null && user.getUfolder() == null){
+			int length = user.getUimg().length();
+			
+			user.setUfolder(user.getUimg().substring(0, length-14));
 		}
 		
 		usersService.update(user);

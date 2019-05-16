@@ -52,11 +52,11 @@ public class ManagersController {
 	@GetMapping("/list")
 	@RequiresPermissions("information:managers:managers")
 	public PageUtils list(@RequestParam Map<String, Object> params){
-		/*//查询列表数据
+		//查询列表数据
 		String admin = ShiroUtils.getUser().getRoleName();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("userId", ShiroUtils.getUser().getUserId());
-		}*/
+			params.put("username", ShiroUtils.getUser().getUsername());
+		}
 		
         Query query = new Query(params);
 		List<ManagersDO> managersList = managersService.list(query);

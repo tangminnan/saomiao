@@ -100,6 +100,13 @@ public class ManagersDO implements Serializable {
 		return serialVersionUID;
 	}
 
+	@Override
+	public String toString() {
+		return "ManagersDO [mid=" + mid + ", username=" + username + ", morganization=" + morganization + ", mduty="
+				+ mduty + ", mphone=" + mphone + ", mlevel=" + mlevel + ", mupdatedate=" + mupdatedate + ", url=" + url
+				+ "]";
+	}
+
 	
 
 }

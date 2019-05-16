@@ -36,4 +36,6 @@ public interface UsersDao {
 	List<UsersDO> getFileByid(Long uid);
 
 	ManagersDO selectManById(Long userId);
+
+	List<UsersDO> getfileByname(String name);
 }

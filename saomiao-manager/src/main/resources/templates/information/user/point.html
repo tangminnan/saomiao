@@ -68,7 +68,7 @@
 	</div>
 	</div>
 	<div th:include="include::footer"></div>
-	<script type="text/javascript" src="/js/appjs/information/managerTemp/point.js">
+	<script type="text/javascript" src="/js/appjs/information/user/point.js">
 		
 	</script>
 	<script type="text/javascript">
@@ -91,7 +91,7 @@
 	                //循环遍历 下拉框绑定
 	                $(data).each(function (key) {
 	　　　　　　　　　　 //添加option 对应Json对象名称
-	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button  type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].img+"'  onclick='change(`${this.src}`)' /></button>");
+	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button  type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].uimg+"'  onclick='change(`${this.src}`)' /></button>");
 	                    ddl.append(opt);
 	                    style="list-style: none; width: 80px; height:90px ;float:left"
 	                }); 

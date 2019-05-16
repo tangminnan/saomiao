@@ -10,6 +10,10 @@
 	<select id="getFileByid" resultType="com.saomiao.information.domain.UsersDO">
 		select  u_name,u_folder from t_user where u_id = #{uid}
 	</select>
+	
+	<select id="getfileByname" resultType="com.saomiao.information.domain.UsersDO">
+		select  u_name,u_folder,u_img from t_user where m_name= #{mname}
+	</select>
 
 	<select id="selectManById"  resultType="com.saomiao.information.domain.ManagersDO">
 		select username from t_managers where m_Id = #{userId}
@@ -33,6 +37,7 @@
 		  		  <if test="username != null and username != ''"> and m_name = #{username} </if>
 		  		  <if test="uupdatedate != null and uupdatedate != ''"> and u_updateDate = #{uupdatedate} </if>
 		  		  <if test="uimg != null and uimg != ''"> and u_img= #{uimg} </if>
+		  		  <if test="mname != null and mname != ''"> and m_name= #{mname} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
@@ -105,7 +110,7 @@
 			#{ufolder}, 
 			#{mname}, 
 			#{uupdatedate},
-			#{img}
+			#{uimg}
 		)
 	</insert>
 	 

@@ -67,5 +67,11 @@ public class UsersServiceImpl implements UsersService {
 	public ManagersDO selectManById(Long userId) {
 		return userDao.selectManById(userId);
 	}
+
+	@Override
+	public List<UsersDO> getfileByname(String name) {
+		return userDao.getfileByname(name);
+	}
+
 	
 }

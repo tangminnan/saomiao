@@ -135,7 +135,7 @@ function load() {
 											   + '\')" ><i class="fa fa-download"></i></ a> ';
 										
 										if(row.ufolder === null || row.uimg === null || row.mname === null){
-											return f + a;
+											return f ;
 										}else{
 											return e + a;
 										}
@@ -157,18 +157,16 @@ function downfile(val){
 			url : "/information/user/download", 
 			type : "get",
 			data : {
-				'uid' : id
+				'uid' : id  
 			},
 			success : function(data) {
-				console.log(downloads(https:\\facescan190509.oss-cn-beijing.aliyuncs.com/42_2019.05.14.21.10.36))
-				$.each(data,function(i,item){
-					$('.dowmL').each(function(index1){
-						if(index1 == index){
-							var url = downloads(item.ufolder,item.unmme)
-							$(this).attr('href',url)
-							window.open(item.ufolder,'_blank')
-						}
-					})
+				//console.log(data);  //[{}]
+				
+				$('.dowmL').each(function(index1){
+					if(index1 == index){
+						$(this).attr('href',data[0].ufolder)
+						window.open(data[0].ufolder,'_blank')
+					}
 				})
 			}
 		});
@@ -204,8 +202,9 @@ function saveAs(blob, filename)
 	}else{ 
 		const link = document.createElement('a'); 
 		const body = document.querySelector('body'); 
-		link.href = window.URL.createObjectURL(blob); 
-		link.download = filename; // fix Firefox link.style.display = 'none';
+		link.href = window.URL.createObjectURL(blob); //他这个好像用的blob文件存储
+		link.download = filename; // 这个昨天不是用了吗？dowmLoad属性对于网络地址来说是没用的 那个是a标签的download，这个是blob文件的
+		///
 		body.appendChild(link); 
 		link.click(); 
 		body.removeChild(link); 
@@ -217,7 +216,7 @@ function saveAs(blob, filename)
  * 下载 
  * @param {String} url 目标文件地址 
  * @param {String} filename 想要保存的文件名称 */
-function downloads(url, filename) { 
+function download(url, filename) { 
 	getBlob(url).then(blob => { 
 		saveAs(blob, filename); 
 	}); 
