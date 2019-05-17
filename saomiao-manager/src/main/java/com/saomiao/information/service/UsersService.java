@@ -35,5 +35,9 @@ public interface UsersService {
 
 	ManagersDO selectManById(Long userId);
 
-	List<UsersDO> getfileByname(String name);
+	List<UsersDO> getfileByname(Map<String, Object> map);
+
+	UsersDO getNameByimg(String uimg);
+
+	int removeByimg(String uimg);
 }

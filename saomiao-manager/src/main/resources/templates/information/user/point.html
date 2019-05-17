@@ -18,40 +18,18 @@
 								</div>
 							</div>
 							
-							<div class="form-group" >	
-								<label class="col-sm-3 control-label">负责人：</label>
-								<div class="col-sm-8"  >
-									<select name="mname"  id="TeamSelect" class="form-control">
-							            <option name="mname" th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
-							        </select>
-										
-								</div>
-							</div>
-						
-							<!-- <div class="form-group"  >	
-								<label class="col-sm-3 control-label">3D扫描文件目录：</label>
-								<div class="col-sm-8" >
-									<select name="ufolder" id="ManagerSelect" class="form-control">
-							            <option></option>
-							        </select>
-								</div>
-							</div> -->
-							
 							<input id="imginput" name='uimg' type="hidden">
 							<div class="form-group" id="user" >	
 								<label class="col-sm-3 control-label">用户头像：</label>
 								
-								<!-- <div class="col-sm-8"  >
-									<select name="mname" id="TeamSelect" class="form-control">
-							            <option th:each="managerList:${managersDO}" th:value="${managerList.username}" th:text="${managerList.username}"></option>
-							        </select>
-								</div> -->
-								
 								<div class="col-sm-8" >
-									<ul   id="ManagerSelect" style="width:500px" >
-										<!-- <li name='uimg' ></li> -->
+									<ul th:each="list : ${user2}">
+											<li th:each="entry : ${list}" style="float:left;list-style: none; width: 80px; height:90px;">
+												<button  type='button' class='btn' >
+													<img width='50px' height='60px' th:src='${entry.uimg}' onclick='change(`${this.src}`)' />
+												</button>	
+											</li>
 									</ul>
-										
 								</div>
 							</div>
 							
@@ -72,42 +50,11 @@
 		
 	</script>
 	<script type="text/javascript">
-		$("#TeamSelect").change(function () {
-	
-	        var name = $("#TeamSelect option:selected").val();
-	        
-	        //var url = $("#ManagerSelect option:selected").val();
-	        $.ajax({
-	            url: "/information/user/getfile/"+name,
-	            type: "get",
-	            success: function (data) {
-	            	
-	                 var ddl = $("#ManagerSelect");
-	　　　　　　　　	//删除节点
-	                $("#ManagerSelect li").remove();
-	　　　　　　　　	
-	                 //转成Json对象
-	               /*  var result = JSON.parse(data); */
-	                //循环遍历 下拉框绑定
-	                $(data).each(function (key) {
-	　　　　　　　　　　 //添加option 对应Json对象名称
-	                    var opt = $("<li style='float:left;list-style: none; width: 80px; height:90px;'></li>").html("<button  type='button' name='uimg' class='btn' ><img width='50px' height='60px' overflow:'hidden' float:'left'  src='"+data[key].uimg+"'  onclick='change(`${this.src}`)' /></button>");
-	                    ddl.append(opt);
-	                    style="list-style: none; width: 80px; height:90px ;float:left"
-	                }); 
-	            },
-	            error: function () {
-	                alert("Error");
-	            }
-	        });
-	        
-	    });
-		
+		  
 		function change(imgSrc){
 			$('#imginput').val(imgSrc);
 		}
-		
-		$('#btn').click(function(){//给id为btn的元素添加点击事件
+		$('.btn').click(function(){//给id为btn的元素添加点击事件
 		    $(this).toggleClass('active');//每次点击的时候，将当前的元素切换active样式
 		    
 		});

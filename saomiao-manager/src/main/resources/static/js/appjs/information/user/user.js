@@ -102,7 +102,7 @@ function load() {
 									field : 'uimg', 
 									title : '用户头像',
 									formatter : function(value ,row , index){
-										if(value!=null){
+										if(value!=null && value !=""){
 											var e = '<div class="image"><img width="90" height="100" alt="image" class="img-responsive" src="' + value + '"></div>'
 											return e;
 										}
@@ -123,18 +123,18 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-xs '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
+										var e = '<a class="btn btn-primary btn-block btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.uid
-												+ '\')"><i class="fa fa-edit"></i></a> ';
+												+ '\')"><i class="fa fa-edit">修改</i></a> ';
 										
-										var f = '<a class="btn btn-primary btn-xs" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
+										var f = '<a class="btn btn-primary btn-block btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
-												+ '\')"><i class="fa fa-key"></i></a> ';
-										var a = '<a class="btn btn-primary btn-xs dowmL"   title="下载"  onclick="downfile(\''
+												+ '\')"><i class="fa fa-key">指定</i></a> ';
+										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
 											   + `${row.uid},${index}`
-											   + '\')" ><i class="fa fa-download"></i></ a> ';
+											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 										
-										if(row.ufolder === ""|| row.ufolder === null || row.uimg === "" || row.uimg === null || row.mname === "" || row.mname === null){
+										if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
 											return f ;
 										}else{
 											return e + a;

@@ -4,7 +4,7 @@
 <mapper namespace="com.saomiao.information.dao.ManagersDao">
 
 	<select id="get" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers where m_Id = #{value}
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers where m_Id = #{value}
 	</select>
 	
 	
@@ -13,14 +13,13 @@
 	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers
         <where>  
 		  		  <if test="userId != null and userId != ''"> and m_Id = #{userId} </if>
 		  		  <if test="username != null and username != ''"> and username = #{username} </if>
 		  		  <if test="morganization != null and morganization != ''"> and m_organization = #{morganization} </if>
 		  		  <if test="mduty != null and mduty != ''"> and m_duty = #{mduty} </if>
 		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
-		  		  <if test="mlevel != null and mlevel != ''"> and m_level = #{mlevel} </if>
 		  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
 		  		 </where> 
 		  		
@@ -38,11 +37,11 @@
 	</select>
 	
 	<select id="lists" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers
     </select>
 	
 	<select id="Manlist" parameterType="com.saomiao.information.domain.ManagersDO" resultType="com.saomiao.information.domain.ManagersDO">
-		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_level`,`m_updateDate` from t_managers
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers
        	where m_Id not like #{mid}
         
 	</select>
@@ -59,7 +58,6 @@
 		  		  <if test="morganization != null and morganization != ''"> and m_organization = #{morganization} </if>
 		  		  <if test="mduty != null and mduty != ''"> and m_duty = #{mduty} </if>
 		  		  <if test="mphone != null and mphone != ''"> and m_phone = #{mphone} </if>
-		  		  <if test="mlevel != null and mlevel != ''"> and m_level = #{mlevel} </if>
 		  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate = #{mupdatedate} </if>
 		  		</where>
 	</select>
@@ -71,8 +69,8 @@
 			`m_organization`, 
 			`m_duty`, 
 			`m_phone`, 
-			`m_level`, 
-			`m_updateDate`
+			`m_updateDate`,
+			`password`
 		)
 		values
 		(
@@ -80,8 +78,8 @@
 			#{morganization}, 
 			#{mduty}, 
 			#{mphone}, 
-			#{mlevel}, 
-			#{mupdatedate}
+			#{mupdatedate},
+			#{password}
 		)
 	</insert>
 	 
@@ -97,7 +95,6 @@
 			<if test="morganization != null">`m_organization` = #{morganization}, </if>
 			<if test="mduty != null">`m_duty` = #{mduty}, </if>
 			<if test="mphone != null">`m_phone` = #{mphone}, </if>
-			<if test="mlevel != null">`m_level` = #{mlevel}, </if>
 			<if test="mupdatedate != null">`m_updateDate` = #{mupdatedate}</if>
 		</set>
 		where m_Id = #{mid}

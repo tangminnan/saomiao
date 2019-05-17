@@ -12,9 +12,14 @@
 	</select>
 	
 	<select id="getfileByname" resultType="com.saomiao.information.domain.UsersDO">
-		select  u_name,u_folder,u_img from t_user where m_name= #{mname}
+		select u_img,u_folder,m_name from t_user where u_name is NULL or u_name = ''
+		<if test="username != null and username != ''"> and m_name = #{username} </if> 
 	</select>
-
+	
+	<select id="getNameByimg" resultType="com.saomiao.information.domain.UsersDO">
+		select m_name from t_user where u_img = #{uimg}
+	</select>
+	
 	<select id="selectManById"  resultType="com.saomiao.information.domain.ManagersDO">
 		select username from t_managers where m_Id = #{userId}
 	</select>
@@ -137,6 +142,10 @@
 	
 	<delete id="remove">
 		delete from t_user where u_id = #{value}
+	</delete>
+	
+	<delete id="removeByimg">
+		delete from t_user where u_img = #{uimg} and u_name is NULL or u_name = ''
 	</delete>
 	
 	<delete id="batchRemove">

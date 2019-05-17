@@ -54,4 +54,6 @@ public interface UserService {
 	 */
     Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, Long userId) throws Exception;
 
+	int saveUser(UserDO user);
+
 }

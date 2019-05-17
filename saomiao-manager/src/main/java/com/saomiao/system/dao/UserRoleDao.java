@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.saomiao.system.domain.RoleDO;
 import com.saomiao.system.domain.UserRoleDO;
 
 /**
@@ -26,6 +27,8 @@ public interface UserRoleDao {
 	int save(UserRoleDO userRole);
 
 	int update(UserRoleDO userRole);
+	
+	int updateByUserId(UserRoleDO userRole);
 
 	int remove(Long id);
 
@@ -40,4 +43,6 @@ public interface UserRoleDao {
 	int batchSave(List<UserRoleDO> list);
 
 	int batchRemoveByUserId(Long[] ids);
+
+	RoleDO selectId(RoleDO roleName);
 }

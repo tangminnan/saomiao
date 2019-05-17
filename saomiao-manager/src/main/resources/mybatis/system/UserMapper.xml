@@ -10,6 +10,14 @@
 		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where mobile = #{value}
 	</select>
 
+	<select id="getId" resultType="com.saomiao.system.domain.UserDO">
+		select  user_id from sys_user where username = #{username}
+	</select>
+	
+	<select id="selectId" resultType="com.saomiao.system.domain.RoleDO">
+		select  role_id from sys_role where role_name = #{roleName}
+	</select>
+	
 	<select id="list" resultType="com.saomiao.system.domain.UserDO">
 		select s.user_id user_id,s.username username,s.name name,s.password password,s.dept_id dept_id,s.email email,s.mobile mobile,s.status status,s.user_id_create user_id_create,s.gmt_create gmt_create ,s.gmt_create gmt_create,s.gmt_modified gmt_modified,s.sex sex,s.birth birth,s.pic_id pic_id,s.live_address live_address,s.hobby hobby,s.province province,s.city city,s.district district,r.role_name role_name
 		from sys_user s, sys_role r, sys_user_role ur
@@ -120,6 +128,51 @@
 		)
 	</insert>
 	 
+	 <insert id="saveUser" parameterType="com.saomiao.system.domain.UserDO" useGeneratedKeys="true" keyProperty="userId">
+		insert into sys_user
+		(
+			`username`, 
+			`name`, 
+			`password`, 
+			`dept_id`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`user_id_create`, 
+			`gmt_create`, 
+			`gmt_modified`, 
+			`sex`, 
+			`birth`, 
+			`pic_id`, 
+			`live_address`, 
+			`hobby`, 
+			`province`, 
+			`city`, 
+			`district`
+		)
+		values
+		(
+			#{username}, 
+			#{name}, 
+			#{password}, 
+			#{deptId}, 
+			#{email}, 
+			#{mobile}, 
+			#{status}, 
+			#{userIdCreate}, 
+			#{gmtCreate}, 
+			#{gmtModified}, 
+			#{sex}, 
+			#{birth}, 
+			#{picId}, 
+			#{liveAddress}, 
+			#{hobby}, 
+			#{province}, 
+			#{city}, 
+			#{district}
+		)
+		
+	</insert>
 	<update id="update" parameterType="com.saomiao.system.domain.UserDO">
 		update sys_user 
 		<set>
@@ -142,7 +195,11 @@
 			<if test="city != null">`city` = #{city}, </if>
 			<if test="district != null">`district` = #{district}</if>
 		</set>
-		where user_id = #{userId}
+		<where>
+			<if test="userId != null"> and user_id = #{userId}</if>
+			<if test="username != null">and `username` = #{username} </if>
+		</where>
+		 
 	</update>
 	
 	<delete id="remove">

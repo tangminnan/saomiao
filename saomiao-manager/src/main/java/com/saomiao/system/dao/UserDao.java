@@ -34,4 +34,8 @@ public interface UserDao {
 	
 	Long[] listAllDept();
 
+	int saveUser(UserDO user);
+
+	long getId(UserDO user);
+
 }

@@ -66,7 +66,7 @@ function load() {
 																{
 									field : 'mphone', 
 									title : '联系电话' 
-								},
+								},/*
 																{
 									field : 'mlevel', 
 									title : '身份 0管理员 1普通' ,
@@ -74,7 +74,7 @@ function load() {
 										if( value == 0 )  return "管理员";
 										if( value == 1 )  return "普通";
 									}
-								},
+								},*/
 																{
 									field : 'mupdatedate', 
 									title : '创建时间' 

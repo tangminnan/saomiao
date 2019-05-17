@@ -1,14 +1,9 @@
 package com.saomiao.information.controller;
 
-import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +22,13 @@ import com.saomiao.common.utils.ShiroUtils;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagersService;
+import com.saomiao.system.dao.UserDao;
+import com.saomiao.system.dao.UserRoleDao;
+import com.saomiao.system.domain.RoleDO;
+import com.saomiao.system.domain.UserDO;
+import com.saomiao.system.domain.UserRoleDO;
+import com.saomiao.system.service.UserService;
+
 
 /**
  * 
@@ -41,6 +43,15 @@ import com.saomiao.information.service.ManagersService;
 public class ManagersController {
 	@Autowired
 	private ManagersService managersService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserRoleDao roleDao;
+	
+	@Autowired
+	private UserDao userDao;
 	
 	@GetMapping()
 	@RequiresPermissions("information:managers:managers")
@@ -102,7 +113,6 @@ public class ManagersController {
 	@ResponseBody
 	@RequestMapping("/updateMname")
 	public R updateMname(Long mid , ManagersDO managersDO){
-			System.out.println(mid);
 			if(mid != null && mid != 0 && managersDO.getUsername() != null && !managersDO.getUsername().isEmpty()){
 				managersDO.setMid(mid);
 				
@@ -125,8 +135,32 @@ public class ManagersController {
 	@RequiresPermissions("information:managers:add")
 	public R save( ManagersDO managers){
 		managers.setMupdatedate(new Date());
+		
 		if(managersService.save(managers)>0){
-			return R.ok();
+			
+			UserRoleDO role = new UserRoleDO();
+			UserDO user = new UserDO();
+			user.setPassword(managers.getPassword());
+			user.setUsername(managers.getUsername());
+			user.setName(managers.getUsername());
+			user.setMobile(managers.getMphone());
+			user.setStatus(1);     //默认状态为正常
+			
+			RoleDO roleName = new RoleDO();
+			if( userService.saveUser(user) > 0 ){
+				//查询列表数据
+				String admin = ShiroUtils.getUser().getRoleName();
+				if(!"admin".equals(admin)){		//普通管理登录
+					roleName.setRoleName(ShiroUtils.getUser().getRoleName());
+				}
+				RoleDO roleId  = roleDao.selectId(roleName);
+				
+				role.setRoleId(roleId.getRoleId());
+				role.setUserId(user.getUserId());
+				
+				roleDao.save(role);
+				return R.ok();
+			}
 		}
 		return R.error();
 	}
@@ -141,8 +175,12 @@ public class ManagersController {
 	public R update( ManagersDO managers){
 		
 		managers.setMupdatedate(new Date());
-		managersService.update(managers);
-		return R.ok();
+		if(managersService.update(managers) > 0){
+			return R.ok();
+		}else{
+			return R.error();
+		}
+		
 	}
 	
 	/**

@@ -27,7 +27,6 @@ import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
 import com.saomiao.common.utils.ShiroUtils;
-import com.saomiao.information.domain.ManagerTempDO;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagerTempService;
@@ -126,31 +125,31 @@ public class UsersController {
 	String point(@PathVariable("uid") Long uid,Model model,@RequestParam Map<String, Object> params){
 		
 		UsersDO user = usersService.get(uid);
-		System.out.println(uid);
-		user.setUid(uid);
-		System.out.println(user);
+		
 		//查询列表数据
 		String admin = ShiroUtils.getUser().getRoleName();
 		if(!"admin".equals(admin)){		//普通管理登录
 			params.put("username", ShiroUtils.getUser().getUsername());
 		}
 		
-		List<ManagersDO> managersDO = managersService.list(params);
+		List<UsersDO> user2  = usersService.getfileByname(params);
 		
+		/*List<ManagersDO> managersDO = managersService.list(params);
+		model.addAttribute("managersDO", managersDO); */
 		model.addAttribute("user", user);
-		model.addAttribute("managersDO", managersDO); 
+		model.addAttribute("user2", user2);
 		
 	    return "information/user/point";
 	}
 	
-	@ResponseBody
+	/*@ResponseBody
 	@GetMapping("/getfile/{name}")
 	List<UsersDO> getfile(@PathVariable("name") String name){
 		
 		List<UsersDO> usersDO =  usersService.getfileByname(name);
 	    return usersDO;
 	}
-	
+	*/
 	/**
 	 * 保存
 	 */
@@ -158,6 +157,13 @@ public class UsersController {
 	@PostMapping("/save")
 	//@RequiresPermissions("information:user:add")
 	public R save(UsersDO user){
+		
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			user.setMname(ShiroUtils.getUser().getUsername());
+		}
+		
 		Date update = new Date();
 		user.setUupdatedate(update);
 		if(usersService.save(user)>0){
@@ -213,10 +219,12 @@ public class UsersController {
 			    		user.setUheight(row.getCell(8).getNumericCellValue());//身高
 			    	if(row.getCell(9)!=null)
 			    		user.setUweight(row.getCell(9).getNumericCellValue());//体重
-			    	if(row.getCell(10)!=null)
-						row.getCell(10).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setMname(row.getCell(10).getStringCellValue());//负责人
 			    	
+					//查询列表数据
+					String admin = ShiroUtils.getUser().getRoleName();
+					if(!"admin".equals(admin)){		//普通管理登录
+						user.setMname(ShiroUtils.getUser().getUsername());
+					}
 			    	user.setUupdatedate(new Date());
 			    	
 			    	usersService.save(user);
@@ -243,13 +251,19 @@ public class UsersController {
 	public R update(UsersDO user){
 		
 		user.setUupdatedate(new Date());
-		if(user.getUimg() != null && user.getUfolder() == null){
+		if(user.getUimg() != null && user.getUimg() != "" && (user.getUfolder() == null || user.getUfolder() == "")){
 			int length = user.getUimg().length();
-			
 			user.setUfolder(user.getUimg().substring(0, length-14));
+			
+			UsersDO userName =  usersService.getNameByimg(user.getUimg());
+			user.setMname(userName.getMname());
+			
+			if(usersService.update(user) > 0){
+				usersService.removeByimg(user.getUimg());
+			}
 		}
 		
-		usersService.update(user);
+	
 		return R.ok();
 	}
 	

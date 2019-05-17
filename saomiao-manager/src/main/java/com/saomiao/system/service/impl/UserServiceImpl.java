@@ -250,5 +250,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return result;
     }
+	@Override
+	public int saveUser(UserDO user) {
+		return userMapper.saveUser(user);
+	}
 
 }

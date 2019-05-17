@@ -69,8 +69,18 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public List<UsersDO> getfileByname(String name) {
-		return userDao.getfileByname(name);
+	public List<UsersDO> getfileByname(Map<String, Object> map) {
+		return userDao.getfileByname(map);
+	}
+
+	@Override
+	public UsersDO getNameByimg(String uimg) {
+		return userDao.getNameByimg(uimg);
+	}
+
+	@Override
+	public int removeByimg(String uimg) {
+		return userDao.removeByimg(uimg);
 	}
 
 	

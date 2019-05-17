@@ -255,4 +255,5 @@ public class UserDO implements Serializable {
                 ", district='" + district + '\'' +
                 '}';
     }
+
 }
