@@ -1,10 +1,15 @@
 package com.saomiao.information.controller;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -23,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.saomiao.common.utils.ExcelExportUtil4DIY;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
@@ -157,7 +163,6 @@ public class UsersController {
 	@PostMapping("/save")
 	//@RequiresPermissions("information:user:add")
 	public R save(UsersDO user){
-		
 		//查询列表数据
 		String admin = ShiroUtils.getUser().getRoleName();
 		if(!"admin".equals(admin)){		//普通管理登录
@@ -242,6 +247,63 @@ public class UsersController {
 		return R.error();
 	}
 	
+	
+
+	/**
+	 * 导出
+	 * */
+	@RequestMapping(value="/exportExcel")
+	public void exportExcel(@RequestParam Map<String, Object> params,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String filename = "用户信息列表"+format.format(new Date().getTime())+".xls";
+		response.setContentType("application/ms-excel;charset=UTF-8");
+		response.setHeader("Content-Disposition", "attachment;filename="+new String(filename.getBytes(),"iso-8859-1"));
+		OutputStream out = response.getOutputStream();
+	try {
+
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("mname",ShiroUtils.getUser().getUsername());
+		}
+			
+		Query query = new Query(params);
+		String type = request.getParameter("type");
+		
+		/*if(type.equals("3")){
+			List<Map<String, Object>> XxxDOs = sportsStatisticsService.exeList(query);
+			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
+		}*/
+		//导出按时间查询后的数据
+		//导出全部数据
+		if(type.equals("2")){
+			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
+			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
+		}
+		/*//导出符合条件的全部数据
+		if(type.equals("3")){
+			query.remove("offset");
+			query.remove("limit");
+			List<Map<String, Object>> XxxDOs = dataService.exeList(query);
+			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
+		}*/
+		//导选中部分
+		if(type.equals("4")){
+			query.remove("offset");
+			query.remove("limit");
+			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
+			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		logger.info("exportExcel出错"+e.getMessage());
+		}finally{
+			out.close();
+		}
+	}
+	
+	
+	
 	/**
 	 * 修改
 	 */
@@ -265,6 +327,20 @@ public class UsersController {
 		
 	
 		return R.ok();
+	}
+	
+	@PostMapping("/updateUser")
+	@ResponseBody
+	@RequiresPermissions("information:user:edit")
+	public R updateUser(UsersDO user){
+		
+		user.setUupdatedate(new Date());
+		if(usersService.update(user) > 0){
+			return R.ok();
+		}else {
+			return R.error();
+		}
+		
 	}
 	
 	/**

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.saomiao.common.utils.Query;
 import com.saomiao.information.dao.UsersDao;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
@@ -81,6 +82,11 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public int removeByimg(String uimg) {
 		return userDao.removeByimg(uimg);
+	}
+
+	@Override
+	public List<Map<String, Object>> exeList(Map<String, Object> map) {
+		return userDao.exeList(map);
 	}
 
 	

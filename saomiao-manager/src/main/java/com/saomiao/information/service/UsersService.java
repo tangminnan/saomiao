@@ -3,6 +3,7 @@ package com.saomiao.information.service;
 import java.util.List;
 import java.util.Map;
 
+import com.saomiao.common.utils.Query;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 
@@ -40,4 +41,6 @@ public interface UsersService {
 	UsersDO getNameByimg(String uimg);
 
 	int removeByimg(String uimg);
+
+	List<Map<String, Object>> exeList(Map<String, Object> map);
 }

@@ -42,4 +42,6 @@ public interface UsersDao {
 	UsersDO getNameByimg(String uimg);
 
 	int removeByimg(String uimg);
+
+	List<Map<String, Object>> exeList(Map<String, Object> map);
 }
