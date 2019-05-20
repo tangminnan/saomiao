@@ -29,7 +29,7 @@
 		select `u_id` as id,`u_name` as 用户名,`u_organization` as 单位或学校,`u_gender` as 性别0男1女,`u_grand` as 年级或职业 ,`u_age` as 年龄,`u_birthday` as 出生日期,`u_idcard` as 身份证号,`u_phone` as 联系电话,`u_height` as '身高(单位:cm)' , `u_weight` as '体重(单位:kg)' ,`u_folder` as 3D扫描数据存放目录 , `m_name` as 负责人（医生）,`u_updateDate` as 创建时间 from t_user
 
 		<where>
-			<if test="ids != null and ids != ''"> and s.id in (${ids}) </if>
+			<if test="ids != null and ids != ''"> and u_id in (${ids}) </if>
 			<if test="mname != null and mname != null">and m_name = #{mname} </if>
 		</where> 
 	</select>

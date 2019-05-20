@@ -15,7 +15,7 @@
 	</select>
 	
 	<select id="selectId" resultType="com.saomiao.system.domain.RoleDO">
-		select  role_id from sys_role where role_name = #{roleName}
+		select role_id from sys_role where role_name = #{roleName}
 	</select>
 	
 	<select id="list" resultType="com.saomiao.system.domain.UserDO">

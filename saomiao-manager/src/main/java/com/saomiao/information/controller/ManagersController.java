@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.saomiao.common.utils.MD5Utils;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
@@ -140,22 +141,21 @@ public class ManagersController {
 			
 			UserRoleDO role = new UserRoleDO();
 			UserDO user = new UserDO();
-			user.setPassword(managers.getPassword());
+			user.setPassword(MD5Utils.encrypt(managers.getUsername(), managers.getPassword()));
 			user.setUsername(managers.getUsername());
 			user.setName(managers.getUsername());
 			user.setMobile(managers.getMphone());
 			user.setStatus(1);     //默认状态为正常
 			
-			RoleDO roleName = new RoleDO();
+			//RoleDO roleName = new RoleDO();
 			if( userService.saveUser(user) > 0 ){
-				//查询列表数据
+				/*//查询列表数据
 				String admin = ShiroUtils.getUser().getRoleName();
 				if(!"admin".equals(admin)){		//普通管理登录
 					roleName.setRoleName(ShiroUtils.getUser().getRoleName());
 				}
-				RoleDO roleId  = roleDao.selectId(roleName);
-				
-				role.setRoleId(roleId.getRoleId());
+				*/
+				role.setRoleId((long) 3);
 				role.setUserId(user.getUserId());
 				
 				roleDao.save(role);

@@ -254,6 +254,7 @@ public class UsersController {
 	 * */
 	@RequestMapping(value="/exportExcel")
 	public void exportExcel(@RequestParam Map<String, Object> params,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		System.out.println(params);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String filename = "用户信息列表"+format.format(new Date().getTime())+".xls";
 		response.setContentType("application/ms-excel;charset=UTF-8");

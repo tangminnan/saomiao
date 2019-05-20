@@ -44,5 +44,5 @@ public interface UserRoleDao {
 
 	int batchRemoveByUserId(Long[] ids);
 
-	RoleDO selectId(RoleDO roleName);
+	RoleDO selectId(Long userid);
 }
