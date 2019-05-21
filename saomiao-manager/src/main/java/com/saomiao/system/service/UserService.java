@@ -56,4 +56,9 @@ public interface UserService {
 
 	int saveUser(UserDO user);
 
+	int removeUser(String username);
+
+	UserDO selectNameByid(Long id);
+
+
 }

@@ -78,6 +78,22 @@ public class ManagersController {
 	}
 	
 	@ResponseBody
+	@GetMapping("/likelist")
+	@RequiresPermissions("information:managers:managers")
+	public PageUtils likelist(@RequestParam Map<String, Object> params){
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("username", ShiroUtils.getUser().getUsername());
+		}
+        Query query = new Query(params);
+		List<ManagersDO> managersList = managersService.likelist(query);
+		int total = managersService.count(query);
+		PageUtils pageUtils = new PageUtils(managersList, total);
+		return pageUtils;
+	}
+	
+	@ResponseBody
 	@GetMapping("/lists")
 	public List<ManagersDO> lists(){
 		//查询列表数据
@@ -191,15 +207,8 @@ public class ManagersController {
 	@RequiresPermissions("information:managers:remove")
 	public R remove(Long mid){
 		
-		List<UsersDO> userList = managersService.selectUserById(mid);	//根据id查询属下user
-		if(userList != null && !userList.isEmpty()){
-			R r = new R();
-			r.put("code", 2);
-			return r; 
-		}else{
-			managersService.remove(mid);
-			return R.ok();
-		}
+		return managersService.selectUserById(mid);	//根据id查询属下user
+		
 	}
 	
 	/**

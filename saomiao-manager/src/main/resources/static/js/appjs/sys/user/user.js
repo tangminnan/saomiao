@@ -95,7 +95,13 @@ function load(deptId) {
 							var f = '<a class="btn btn-success btn-sm ' + s_resetPwd_h + '" href="#" title="重置密码"  mce_href="#" onclick="resetPwd(\''
 								+ row.userId
 								+ '\')"><i class="fa fa-key"></i></a> ';
-							return e + d + f;
+							
+							if(row.roleName == 'manager'){
+								return e + f;
+							}else{
+								return e + d + f;
+							}
+							
 						}
 					} ]
 			});

@@ -40,4 +40,8 @@ public interface ManagersDao {
 	List<ManagersDO> lists();
 
 	ManagersDO getIdByname(String username);
+
+	List<ManagersDO> likelist(Map<String, Object> map);
+
+	ManagersDO selectUsername(Long mid);
 }

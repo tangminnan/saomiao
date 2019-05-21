@@ -1,15 +1,17 @@
 package com.saomiao.information.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.saomiao.common.utils.R;
 import com.saomiao.information.dao.ManagersDao;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 import com.saomiao.information.service.ManagersService;
+import com.saomiao.system.service.UserService;
 
 
 
@@ -53,9 +55,22 @@ public class ManagersServiceImpl implements ManagersService {
 		return managersDao.batchRemove(mIds);
 	}
 
+	@Autowired
+	private UserService userService;
+	
 	@Override
-	public List<UsersDO> selectUserById(Long mid) {
-		return managersDao.selectUserById(mid);
+	public R selectUserById(Long mid) {
+		List<UsersDO> userList =  managersDao.selectUserById(mid);
+		if(userList != null && !userList.isEmpty()){
+			R r = new R();
+			r.put("code", 2);
+			return r; 
+		}else{
+			ManagersDO  managers = selectUsername(mid);
+			userService.removeUser(managers.getUsername());
+			remove(mid);
+			return R.ok();
+		}
 	}
 
 	@Override
@@ -77,6 +92,16 @@ public class ManagersServiceImpl implements ManagersService {
 	@Override
 	public ManagersDO getIdByname(String username) {
 		return managersDao.getIdByname(username);
+	}
+
+	@Override
+	public List<ManagersDO> likelist(Map<String, Object> map) {
+		return managersDao.likelist(map);
+	}
+
+	@Override
+	public ManagersDO selectUsername(Long mid) {
+		return managersDao.selectUsername(mid);
 	}
 	
 }

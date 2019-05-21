@@ -8,7 +8,7 @@
 			<div class="ibox">
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
-						<div class="columns pull-left">
+						<div class="columns pull-left ">
 								<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add(1)">
 									<i class="fa fa-plus" aria-hidden="true"></i>手动添加
 								</button>
@@ -21,8 +21,30 @@
 									onclick="batchRemove()">
 									<i class="fa fa-trash" aria-hidden="true"></i>删除
 								</button>
-							
+									  
 						</div>
+						<div class="columns pull-left">
+							<input id="uname" name="uname" type="text" style="width:100px" class="form-control" placeholder="姓名"> 
+						</div>
+						<div class="columns pull-left">
+							<input id="uorganization" name="uorganization" style="width:120px" type="text" class="form-control" placeholder="学校"> 
+						</div>
+						<div class="columns pull-left">
+							<input id="ugender" name="ugender" type="text" style="width:100px" class="form-control" placeholder="性别"> 
+						</div>
+						<div class="columns pull-left">
+							<input id="uage" name="uage" type="text" style="width:100px" class="form-control" placeholder="年龄"> 
+						</div>
+						<div class="columns pull-left">
+							<input id="mname" name="mname" type="text" style="width:100px" class="form-control" placeholder="负责医生"> 
+						</div>
+						<div class="columns pull-left">
+							<button class="btn btn-primary" onclick="selectlist()" type="button">
+								<i aria-hidden="true" class="fa fa-export"></i>查询
+							</button>
+						</div>
+						
+						
 						<div class="columns pull-right">
 								<button class="btn btn-primary" onclick="exportExcel(2)" type="button">
 									<i aria-hidden="true" class="fa fa-export"></i>导出全部列表
@@ -94,6 +116,8 @@
 			//后端导出的方法
 			document.location.href ="/information/user/exportExcel?type="+type+"&"+ data+"&ids="+ids.join(",");
 		}
+		
+		
 	</script>
 	
 	

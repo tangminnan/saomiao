@@ -26,7 +26,21 @@
 	
 	<!-- 导出列表 -->
 	<select id="exeList" resultType="java.util.Map">
-		select `u_id` as id,`u_name` as 用户名,`u_organization` as 单位或学校,`u_gender` as 性别0男1女,`u_grand` as 年级或职业 ,`u_age` as 年龄,`u_birthday` as 出生日期,`u_idcard` as 身份证号,`u_phone` as 联系电话,`u_height` as '身高(单位:cm)' , `u_weight` as '体重(单位:kg)' ,`u_folder` as 3D扫描数据存放目录 , `m_name` as 负责人（医生）,`u_updateDate` as 创建时间 from t_user
+		select 
+		IFNULL(u_id,'')  as id,
+		IFNULL(u_name,'') as 用户名,
+		IFNULL(u_organization,'') as 单位或学校,
+		IFNULL(u_gender,'') as 性别0男1女,
+		IFNULL(u_grand,'') as 年级或职业 ,
+		IFNULL(u_age,'') as 年龄,
+		IFNULL(u_birthday,'') as 出生日期,
+		IFNULL(u_idcard,'') as 身份证号,
+		IFNULL(u_phone,'') as 联系电话,
+		IFNULL(u_height,'') as '身高(单位:cm)',
+		IFNULL(u_weight,'') as '体重(单位:kg)' ,
+		IFNULL(u_folder,'') as 3D扫描数据存放目录 , 
+		IFNULL(m_name,'') as 负责人（医生）,
+		IFNULL(u_updateDate,'') as 创建时间  from t_user
 
 		<where>
 			<if test="ids != null and ids != ''"> and u_id in (${ids}) </if>
@@ -67,6 +81,42 @@
 			limit #{offset}, #{limit}
 		</if>
 	</select>
+	
+	
+	<select id="selectlist" resultType="com.saomiao.information.domain.UsersDO">
+		select `u_id`,`u_name`,`u_organization`,`u_gender`,`u_grand`,`u_age`,`u_birthday`,`u_idcard`,`u_phone`,`u_height`,`u_weight`,`u_folder`,`m_name`,`u_updateDate`,`u_img` 
+		from t_user
+        <where>  
+		  		  <if test="uid != null and uid != ''"> and u_id like '%${uid}%'</if>
+		  		  <if test="uname != null and uname != ''"> and u_name like '%${uname}%' </if>
+		  		  <if test="uorganization != null and uorganization != ''"> and u_organization like '%${uorganization}%'</if>
+		  		  <if test="ugender != null and ugender != ''"> and u_gender like '%${ugender}%'</if>
+		  		  <if test="ugrand != null and ugrand != ''"> and u_grand like '%${ugrand}%' </if>
+		  		  <if test="uage != null and uage != ''"> and u_age like '%${uage}%'</if>
+		  		  <if test="ubirthday != null and ubirthday != ''"> and u_birthday like '%${ubirthday}%'   </if>
+		  		  <if test="uidcard != null and uidcard != ''"> and u_idcard like '%${uidcard}%'</if>
+		  		  <if test="uphone != null and uphone != ''"> and u_phone like '%${uphone}%'</if>
+		  		  <if test="uheight != null and uheight != ''"> and u_height like '%${uheight}%' </if>
+		  		  <if test="uweight != null and uweight != ''"> and u_weight like '%${uweight}%' </if>
+		  		  <if test="ufolder != null and ufolder != ''"> and u_folder like '%${ufolder}%'</if>
+		  		  <if test="username != null and username != ''"> and m_name like '%${username}%'</if>
+		  		  <if test="uupdatedate != null and uupdatedate != ''"> and u_updateDate like '%${uupdatedate}%'</if>
+		  		  <if test="uimg != null and uimg != ''"> and u_img like '%${uimg}%'</if>
+		  		  <if test="mname != null and mname != ''"> and m_name like '%${mname}%'</if>
+		  </where>
+      	<choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by u_id ASC
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
 	
 	
 	<select id="lists" resultType="com.saomiao.information.domain.UsersDO">

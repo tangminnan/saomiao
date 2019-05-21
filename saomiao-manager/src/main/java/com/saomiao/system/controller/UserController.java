@@ -27,6 +27,9 @@ import com.saomiao.common.utils.MD5Utils;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
+import com.saomiao.information.controller.ManagersController;
+import com.saomiao.information.domain.ManagersDO;
+import com.saomiao.information.service.ManagersService;
 import com.saomiao.system.domain.DeptDO;
 import com.saomiao.system.domain.RoleDO;
 import com.saomiao.system.domain.UserDO;
@@ -44,6 +47,10 @@ public class UserController extends BaseController {
 	RoleService roleService;
 	@Autowired
 	DictService dictService;
+	
+	@Autowired
+	ManagersService managersService;
+	
 	@RequiresPermissions("sys:user:user")
 	@GetMapping("")
 	String user(Model model) {
@@ -157,6 +164,7 @@ public class UserController extends BaseController {
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	R batchRemove(@RequestParam("ids[]") Long[] userIds) {
+		
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}

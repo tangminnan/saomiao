@@ -89,5 +89,10 @@ public class UsersServiceImpl implements UsersService {
 		return userDao.exeList(map);
 	}
 
+	@Override
+	public List<UsersDO> selectlist(Map<String, Object> map) {
+		return userDao.selectlist(map);
+	}
+
 	
 }

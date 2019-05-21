@@ -1,5 +1,6 @@
 package com.saomiao.information.controller;
 
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
@@ -81,6 +82,24 @@ public class UsersController {
         Query query = new Query(params);
         
 		List<UsersDO> userList = usersService.list(query);
+		int total = usersService.count(query);
+		PageUtils pageUtils = new PageUtils(userList, total);
+		return pageUtils;
+	}
+	
+	
+	@ResponseBody
+	@GetMapping("/selectlist")
+	public PageUtils selectlist(@RequestParam Map<String, Object> params){
+		
+		//查询列表数据
+		String admin = ShiroUtils.getUser().getRoleName();
+		if(!"admin".equals(admin)){		//普通管理登录
+			params.put("mname", ShiroUtils.getUser().getUsername());
+		}
+		
+        Query query = new Query(params);
+		List<UsersDO> userList = usersService.selectlist(query);
 		int total = usersService.count(query);
 		PageUtils pageUtils = new PageUtils(userList, total);
 		return pageUtils;
@@ -254,44 +273,36 @@ public class UsersController {
 	 * */
 	@RequestMapping(value="/exportExcel")
 	public void exportExcel(@RequestParam Map<String, Object> params,HttpServletRequest request,HttpServletResponse response) throws Exception{
-		System.out.println(params);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = "用户信息列表"+format.format(new Date().getTime())+".xls";
+		String filename = "3D扫描用户列表"+format.format(new Date().getTime())+".xls";
 		response.setContentType("application/ms-excel;charset=UTF-8");
 		response.setHeader("Content-Disposition", "attachment;filename="+new String(filename.getBytes(),"iso-8859-1"));
 		OutputStream out = response.getOutputStream();
 	try {
-
-		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
-		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("mname",ShiroUtils.getUser().getUsername());
-		}
-			
 		Query query = new Query(params);
 		String type = request.getParameter("type");
-		
-		/*if(type.equals("3")){
-			List<Map<String, Object>> XxxDOs = sportsStatisticsService.exeList(query);
-			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
-		}*/
-		//导出按时间查询后的数据
-		//导出全部数据
-		if(type.equals("2")){
+		//导出当前页面数据
+		if(type.equals("1")){
 			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
 			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
 		}
-		/*//导出符合条件的全部数据
+		//导出全部数据
+		if(type.equals("2")){
+			List<Map<String, Object>> XxxDOs = usersService.exeList(null);
+			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
+		}
+		//导出符合条件的全部数据
 		if(type.equals("3")){
 			query.remove("offset");
 			query.remove("limit");
-			List<Map<String, Object>> XxxDOs = dataService.exeList(query);
+			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
 			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
-		}*/
+		}
 		//导选中部分
 		if(type.equals("4")){
 			query.remove("offset");
 			query.remove("limit");
+			System.out.println("ids:"+query.get("ids"));
 			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
 			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
 		}

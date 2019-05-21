@@ -38,4 +38,9 @@ public interface UserDao {
 
 	long getId(UserDO user);
 
+	int removeUser(String username);
+
+	UserDO selectNameByid(Long id);
+
+
 }

@@ -254,5 +254,12 @@ public class UserServiceImpl implements UserService {
 	public int saveUser(UserDO user) {
 		return userMapper.saveUser(user);
 	}
-
+	@Override
+	public int removeUser(String username) {
+		return userMapper.removeUser(username);
+	}
+	@Override
+	public UserDO selectNameByid(Long id) {
+		return userMapper.selectNameByid(id);
+	}
 }

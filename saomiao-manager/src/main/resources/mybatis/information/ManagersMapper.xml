@@ -11,6 +11,10 @@
 	<select id="getIdByname" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`from t_managers where username = #{username}
 	</select>
+	
+	<select id="selectUsername" resultType="com.saomiao.information.domain.ManagersDO">
+		select username from t_managers where m_Id = #{mid}
+	</select>
 
 	<select id="list" resultType="com.saomiao.information.domain.ManagersDO">
 		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers
@@ -24,6 +28,30 @@
 		  		 </where> 
 		  		
         <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by m_Id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+	
+	<select id="likelist" resultType="com.saomiao.information.domain.ManagersDO">
+		select `m_Id`,`username`,`m_organization`,`m_duty`,`m_phone`,`m_updateDate` from t_managers
+        <where> 
+	  		  <if test="userId != null and userId != ''"> and m_Id like '%${userId}%'</if>
+	  		  <if test="username != null and username != ''"> and username like '%${username}%'</if>
+	  		  <if test="morganization != null and morganization != ''"> and m_organization like '%${morganization}%' </if>
+	  		  <if test="mduty != null and mduty != ''"> and m_duty like '%${mduty}%'</if>
+	  		  <if test="mphone != null and mphone != ''"> and m_phone like '%${mphone}%'</if>
+	  		  <if test="mupdatedate != null and mupdatedate != ''"> and m_updateDate like '%${mupdatedate}%' </if>
+  		 </where> 
+		 <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
             </when>

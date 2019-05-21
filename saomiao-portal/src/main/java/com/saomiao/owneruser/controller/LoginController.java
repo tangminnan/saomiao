@@ -20,7 +20,6 @@ import com.saomiao.common.controller.BaseController;
 import com.saomiao.common.utils.ShiroUtils;
 import com.saomiao.owneruser.domain.ManagersDO;
 import com.saomiao.owneruser.service.OwnerUserService;
-import com.saomiao.smsservice.service.ISMSService;
 
 
 
@@ -31,8 +30,6 @@ public class LoginController extends BaseController {
 	   
     @Autowired
     OwnerUserService userService;
-    @Autowired
-    private ISMSService sMSService;
 	
    
     @Log("密码登录")  

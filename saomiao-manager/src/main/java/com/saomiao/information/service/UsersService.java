@@ -43,4 +43,6 @@ public interface UsersService {
 	int removeByimg(String uimg);
 
 	List<Map<String, Object>> exeList(Map<String, Object> map);
+
+	List<UsersDO> selectlist(Map<String, Object> map);
 }

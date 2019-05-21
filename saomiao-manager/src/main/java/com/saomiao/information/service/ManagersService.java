@@ -1,5 +1,7 @@
 package com.saomiao.information.service;
 
+import com.saomiao.common.utils.Query;
+import com.saomiao.common.utils.R;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
 
@@ -29,7 +31,7 @@ public interface ManagersService {
 	
 	int batchRemove(Long[] mIds);
 
-	List<UsersDO> selectUserById(Long mid);
+	R selectUserById(Long mid);
 
 	int updateMname(ManagersDO managersDO);
 	
@@ -38,5 +40,9 @@ public interface ManagersService {
 	List<ManagersDO> lists();
 
 	ManagersDO getIdByname(String username);
+
+	List<ManagersDO> likelist(Map<String, Object> map);
+
+	ManagersDO selectUsername(Long mid);
 
 }
