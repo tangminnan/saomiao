@@ -1,7 +1,7 @@
 package com.saomiao.information.controller;
 
-
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,10 +12,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,17 +27,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.saomiao.common.utils.ExcelExportUtil4DIY;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
 import com.saomiao.common.utils.ShiroUtils;
+import com.saomiao.common.utils.StringUtils;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.domain.UsersDO;
-import com.saomiao.information.service.ManagerTempService;
 import com.saomiao.information.service.ManagersService;
 import com.saomiao.information.service.UsersService;
+import com.saomiao.system.config.ExcelUtils;
 
 /**
  * 
@@ -59,8 +60,6 @@ public class UsersController {
 	@Autowired
 	private ManagersService managersService;
 	
-	@Autowired
-	private ManagerTempService managertemp;
 	
 	@GetMapping()
 	@RequiresPermissions("information:user:user")
@@ -166,15 +165,6 @@ public class UsersController {
 		
 	    return "information/user/point";
 	}
-	
-	/*@ResponseBody
-	@GetMapping("/getfile/{name}")
-	List<UsersDO> getfile(@PathVariable("name") String name){
-		
-		List<UsersDO> usersDO =  usersService.getfileByname(name);
-	    return usersDO;
-	}
-	*/
 	/**
 	 * 保存
 	 */
@@ -188,12 +178,19 @@ public class UsersController {
 			user.setMname(ShiroUtils.getUser().getUsername());
 		}
 		
-		Date update = new Date();
-		user.setUupdatedate(update);
-		if(usersService.save(user)>0){
-			return R.ok();
-		}
-		return R.error();
+		Map<String,Object> map = new HashMap<String,Object>();
+    	map.put("uname", user.getUname());
+    	map.put("uorganization", user.getUorganization());
+    	map.put("uage", user.getUage());
+    	user.setUupdatedate(new Date());
+    	if(usersService.list(map).size() == 0){
+    		usersService.save(user);
+    		return R.ok();
+    	}else if(usersService.list(map).size() > 0){
+    		return R.error("此用户已存在，请勿重复添加");
+    	}else{
+    		return R.error();
+    	}
 	}
 	
 	
@@ -204,68 +201,98 @@ public class UsersController {
 	@ResponseBody
 	@PostMapping("/batchSave")
 	@RequiresPermissions("information:user:batchAdd")
-	public R batchSave(UsersDO user){
+	public R batchSave(MultipartFile file){
+		int num = 0;
+		InputStream in=null;
+		Workbook book=null;
 		try {
-			XSSFWorkbook wb=null;
-			XSSFSheet sheet=null;
-			
-			if(user.getExcelUser()!=null && user.getExcelUser().getSize()>0){
-				wb= new XSSFWorkbook(user.getExcelUser().getInputStream());
-			    sheet=wb.getSheetAt(0);
-			    
-			    for(int rowNum=1;rowNum<=sheet.getLastRowNum();rowNum++){
-			    	
-			    	XSSFRow row = sheet.getRow(rowNum);
-			    	
-			    	if(row==null) continue;
-			    	if(row.getCell(0)!=null)
-			    		row.getCell(0).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setUname(row.getCell(0).getStringCellValue());//姓名
-			    	if(row.getCell(1)!=null)
-			    		row.getCell(1).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setUorganization(row.getCell(1).getStringCellValue());//单位或学校
-			    	if(row.getCell(2)!=null)
-			    		user.setUgender((int)row.getCell(2).getNumericCellValue());//性别（0男 1女）
-			    	if(row.getCell(3)!=null)
-						row.getCell(3).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setUgrand(row.getCell(3).getStringCellValue());//年级或职业
-			    	if(row.getCell(4)!=null)
-			    		user.setUage((int)row.getCell(4).getNumericCellValue());//年龄
-			    	if(row.getCell(5)!=null)
-			    		user.setUbirthday(row.getCell(5).getDateCellValue());//出生日期
-			    	if(row.getCell(6)!=null)
-						row.getCell(6).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setUidcard(row.getCell(6).getStringCellValue());//身份证号
-			    	if(row.getCell(7)!=null)
-			    		row.getCell(7).setCellType(Cell.CELL_TYPE_STRING);
-			    		user.setUphone(row.getCell(7).getStringCellValue());//联系电话
-			    	if(row.getCell(8)!=null)
-			    		user.setUheight(row.getCell(8).getNumericCellValue());//身高
-			    	if(row.getCell(9)!=null)
-			    		user.setUweight(row.getCell(9).getNumericCellValue());//体重
-			    	
-					//查询列表数据
-					String admin = ShiroUtils.getUser().getRoleName();
-					if(!"admin".equals(admin)){		//普通管理登录
-						user.setMname(ShiroUtils.getUser().getUsername());
+			if(file != null){
+				in = file.getInputStream();
+				book =ExcelUtils.getBook(in);
+				Sheet sheet = book.getSheetAt(0);
+				Row row=null;
+				for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
+					try {
+						row = sheet.getRow(rowNum);
+						String uname = ExcelUtils.getCellFormatValue(row.getCell((short)0));
+						String uorganization = ExcelUtils.getCellFormatValue(row.getCell((short)1));
+						String ugender = ExcelUtils.getCellFormatValue(row.getCell((short)2));
+						String ugrand = ExcelUtils.getCellFormatValue(row.getCell((short)3));
+						String uage = ExcelUtils.getCellFormatValue(row.getCell((short)4));
+						String ubirthday = ExcelUtils.getCellFormatValue(row.getCell((short)5));
+						String uidcard = ExcelUtils.getCellFormatValue(row.getCell((short)6));
+						String uphone = ExcelUtils.getCellFormatValue(row.getCell((short)7));
+						String uheight = ExcelUtils.getCellFormatValue(row.getCell((short)8));
+						String uweight = ExcelUtils.getCellFormatValue(row.getCell((short)9));
+						UsersDO user = new UsersDO();
+						if(StringUtils.isNotBlank(uname) && StringUtils.isNotBlank(uorganization)&& StringUtils.isNotBlank(uage)){
+							user.setUname(uname);
+							user.setUorganization(uorganization);
+							user.setUage(Integer.parseInt(uage));
+							if(ugender != null && ugender !=""){
+								user.setUgender(Integer.parseInt(ugender));
+							}
+							if(ugrand != null && ugrand !=""){
+								user.setUgrand(ugrand);
+							}
+							if(ubirthday != null && ubirthday !=""){
+								user.setUbirthday(new SimpleDateFormat("yyyy/MM/dd").parse(ubirthday));
+							}
+							if(uidcard != null && uidcard !=""){
+								user.setUidcard(uidcard);
+							}
+							if(uphone != null && uphone !=""){
+								user.setUphone(uphone);
+							}
+							if(uheight != null && uheight !=""){
+								user.setUheight(Double.parseDouble(uheight));
+							}
+							if(uweight != null && uweight !=""){
+								user.setUweight(Double.parseDouble(uweight));
+							}
+							//查询列表数据
+							String admin = ShiroUtils.getUser().getRoleName();
+							if(!"admin".equals(admin)){		//普通管理登录
+								user.setMname(ShiroUtils.getUser().getUsername());
+							}
+					    	user.setUupdatedate(new Date());
+					    	
+					    	Map<String,Object> map = new HashMap<String,Object>();
+					    	map.put("uname", user.getUname());
+					    	map.put("uorganization", user.getUorganization());
+					    	map.put("uage", user.getUage());
+					    	
+					    	if(usersService.list(map).size() == 0){
+					    		usersService.save(user);
+					    	}
+					    	num++;
+						}else{
+							return R.error("导入失败!姓名&年龄&学校不能为空");
+						}
+					} catch (Exception e) {
+						return R.error("导入失败！第"+rowNum+"条");
 					}
-			    	user.setUupdatedate(new Date());
-			    	
-			    	usersService.save(user);
-			    	
-			    	Map<String,Object> params = new HashMap<String,Object>();
-			    	List<UsersDO> list = usersService.list(params);
-			    	if(list.size()>0) continue;
-			    }
+				}
+				return R.ok("上传成功,共增加["+num+"]条");
+			}else{
+				return R.error("请选择导入的文件!");
 			}
-			return R.ok();
-		} catch (IOException e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		finally{
+			try {
+				if(book!=null)
+					book.close();
+				if(book!=null)
+					in.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		return R.error();
 	}
-	
+		
 	
 
 	/**
@@ -281,25 +308,29 @@ public class UsersController {
 	try {
 		Query query = new Query(params);
 		String type = request.getParameter("type");
-		//导出当前页面数据
-		if(type.equals("1")){
-			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
-			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
-		}
+		
 		//导出全部数据
 		if(type.equals("2")){
-			List<Map<String, Object>> XxxDOs = usersService.exeList(null);
+			String admin = ShiroUtils.getUser().getRoleName();
+			if(!"admin".equals(admin)){		//普通管理登录
+				params.put("mname", ShiroUtils.getUser().getUsername());
+			}
+			
+			List<Map<String, Object>> XxxDOs = usersService.exeList(params);
+			if( XxxDOs == null){
+				R.error("当前数据为空");
+			}
 			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
 		}
-		//导出符合条件的全部数据
-		if(type.equals("3")){
-			query.remove("offset");
-			query.remove("limit");
-			List<Map<String, Object>> XxxDOs = usersService.exeList(query);
-			ExcelExportUtil4DIY.exportToFile(XxxDOs,out);
-		}
+		
 		//导选中部分
 		if(type.equals("4")){
+			
+			String admin = ShiroUtils.getUser().getRoleName();
+			if(!"admin".equals(admin)){		//普通管理登录
+				params.put("mname", ShiroUtils.getUser().getUsername());
+			}
+			
 			query.remove("offset");
 			query.remove("limit");
 			System.out.println("ids:"+query.get("ids"));

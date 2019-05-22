@@ -163,14 +163,7 @@ public class ManagersController {
 			user.setMobile(managers.getMphone());
 			user.setStatus(1);     //默认状态为正常
 			
-			//RoleDO roleName = new RoleDO();
 			if( userService.saveUser(user) > 0 ){
-				/*//查询列表数据
-				String admin = ShiroUtils.getUser().getRoleName();
-				if(!"admin".equals(admin)){		//普通管理登录
-					roleName.setRoleName(ShiroUtils.getUser().getRoleName());
-				}
-				*/
 				role.setRoleId((long) 3);
 				role.setUserId(user.getUserId());
 				

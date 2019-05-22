@@ -123,7 +123,8 @@
 			<if test="morganization != null">`m_organization` = #{morganization}, </if>
 			<if test="mduty != null">`m_duty` = #{mduty}, </if>
 			<if test="mphone != null">`m_phone` = #{mphone}, </if>
-			<if test="mupdatedate != null">`m_updateDate` = #{mupdatedate}</if>
+			<if test="mupdatedate != null">`m_updateDate` = #{mupdatedate},</if>
+			<if test="password != null">`password` = #{password}</if>
 		</set>
 		where m_Id = #{mid}
 	</update>

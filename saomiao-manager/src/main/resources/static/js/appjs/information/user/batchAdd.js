@@ -8,6 +8,7 @@ $.validator.setDefaults({
 	}
 });
 function save() {
+	
 	var formData = new FormData(document.getElementById("signupForm"));
 	$.ajax({
 		cache : true,

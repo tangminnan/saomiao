@@ -62,7 +62,6 @@ public class DateUtil {
 	public static Date strToDate(String dateString){
 		if(null == dateString)
 			return new Date();
-		
 		try {
 			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateString);
 		} catch (ParseException e) {
