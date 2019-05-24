@@ -4,10 +4,16 @@
 <mapper namespace="com.saomiao.system.dao.UserDao">
 
 	<select id="get" resultType="com.saomiao.system.domain.UserDO">
-		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = #{value}
+		select `user_id`,`username`,`name`,`password`,`dept_id`,organization,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user 
+		where  user_id = #{value}
 	</select>
 	<select id="getbyphone" resultType="com.saomiao.system.domain.UserDO">
 		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where mobile = #{value}
+	</select>
+	
+	
+	<select id="getByname" resultType="com.saomiao.system.domain.UserDO">
+		select * from sys_user where username = #{username}
 	</select>
 
 	<select id="getId" resultType="com.saomiao.system.domain.UserDO">
@@ -24,8 +30,7 @@
 	
 	<select id="list" resultType="com.saomiao.system.domain.UserDO">
 		select s.user_id user_id,s.username username,s.name name,s.password password,s.dept_id dept_id,s.email email,s.mobile mobile,s.status status,s.user_id_create user_id_create,s.gmt_create gmt_create ,s.gmt_create gmt_create,s.gmt_modified gmt_modified,s.sex sex,s.birth birth,s.pic_id pic_id,s.live_address live_address,s.hobby hobby,s.province province,s.city city,s.district district,r.role_name role_name
-		from sys_user s, sys_role r, sys_user_role ur
-		
+		from sys_user s, sys_role r, sys_user_role ur 
 		<where>  
 		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
 		  		  <if test="username != null and username != ''"> and username = #{username} </if>
@@ -46,9 +51,10 @@
 		  		  <if test="province != null and province != ''"> and province = #{province} </if>
 		  		  <if test="city != null and city != ''"> and city = #{city} </if>
 		  		  <if test="district != null and district != ''"> and district = #{district} </if>
-		  		  <if test="roleName != null and roleName != ''"> and role_name = #{roleName} </if>
-		  		  and ur.role_id = r.role_id AND ur.user_id = s.user_id
+		  		  <if test="organization != null and organization != ''"> and organization = #{organization} </if>
+		  			and ur.role_id = r.role_id AND ur.user_id = s.user_id
 		  		</where>
+		  		GROUP BY user_id
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
@@ -84,6 +90,7 @@
 		  		  <if test="province != null and province != ''"> and province = #{province} </if>
 		  		  <if test="city != null and city != ''"> and city = #{city} </if>
 		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="organization != null and organization != ''"> and organization = #{organization} </if>
 		  		</where>
 	</select>
 	 
@@ -107,7 +114,8 @@
 			`hobby`, 
 			`province`, 
 			`city`, 
-			`district`
+			`district`,
+			`organization`
 		)
 		values
 		(
@@ -128,7 +136,8 @@
 			#{hobby}, 
 			#{province}, 
 			#{city}, 
-			#{district}
+			#{district},
+			#{organization}
 		)
 	</insert>
 	 
@@ -152,7 +161,9 @@
 			`hobby`, 
 			`province`, 
 			`city`, 
-			`district`
+			`district`,
+			`organization`
+			
 		)
 		values
 		(
@@ -173,7 +184,8 @@
 			#{hobby}, 
 			#{province}, 
 			#{city}, 
-			#{district}
+			#{district},
+			#{organization}
 		)
 		
 	</insert>
@@ -198,6 +210,8 @@
 			<if test="province != null">`province` = #{province}, </if>
 			<if test="city != null">`city` = #{city}, </if>
 			<if test="district != null">`district` = #{district}</if>
+			<if test="organization != null">`organization` = #{organization}</if>
+			
 		</set>
 		<where>
 			<if test="userId != null"> and user_id = #{userId}</if>

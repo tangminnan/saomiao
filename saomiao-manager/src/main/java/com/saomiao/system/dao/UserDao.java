@@ -42,5 +42,7 @@ public interface UserDao {
 
 	UserDO selectNameByid(Long id);
 
+	Map<String, Object> getByname(String username);
+
 
 }

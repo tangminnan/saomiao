@@ -66,6 +66,8 @@ public class ManagersController {
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
 		String admin = ShiroUtils.getUser().getRoleName();
+		System.out.println("=============admin======"+admin);
+		System.out.println("=============ad11111======"+(!"admin".equals(admin)));
 		if(!"admin".equals(admin)){		//普通管理登录
 			params.put("username", ShiroUtils.getUser().getUsername());
 		}
@@ -161,6 +163,7 @@ public class ManagersController {
 			user.setUsername(managers.getUsername());
 			user.setName(managers.getUsername());
 			user.setMobile(managers.getMphone());
+			user.setOrganization(managers.getMorganization());
 			user.setStatus(1);     //默认状态为正常
 			
 			if( userService.saveUser(user) > 0 ){
@@ -174,6 +177,13 @@ public class ManagersController {
 		return R.error();
 	}
 	
+	@PostMapping("/exit")
+	@ResponseBody
+	boolean exit(@RequestParam Map<String, Object> params) {
+		// 存在，不通过，false
+		return !managersService.exit(params);
+	}
+	
 	
 	/**
 	 * 修改
@@ -182,9 +192,17 @@ public class ManagersController {
 	@RequestMapping("/update")
 	@RequiresPermissions("information:managers:edit")
 	public R update( ManagersDO managers){
-		
 		managers.setMupdatedate(new Date());
 		if(managersService.update(managers) > 0){
+			ManagersDO managersDO =  managersService.get(managers.getMid());
+			
+			UserDO user = new UserDO();
+			user.setUsername(managersDO.getUsername());
+			user.setName(managersDO.getUsername());
+			user.setMobile(managersDO.getMphone());
+			user.setOrganization(managersDO.getMorganization());
+			
+			userDao.update(user);
 			return R.ok();
 		}else{
 			return R.error();

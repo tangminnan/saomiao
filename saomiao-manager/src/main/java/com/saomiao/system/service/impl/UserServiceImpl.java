@@ -262,4 +262,8 @@ public class UserServiceImpl implements UserService {
 	public UserDO selectNameByid(Long id) {
 		return userMapper.selectNameByid(id);
 	}
+	@Override
+	public Map<String, Object> getByname(String username) {
+		return userMapper.getByname(username);
+	}
 }

@@ -158,8 +158,6 @@ public class UsersController {
 		
 		List<UsersDO> user2  = usersService.getfileByname(params);
 		
-		/*List<ManagersDO> managersDO = managersService.list(params);
-		model.addAttribute("managersDO", managersDO); */
 		model.addAttribute("user", user);
 		model.addAttribute("user2", user2);
 		
@@ -357,12 +355,12 @@ public class UsersController {
 		
 		user.setUupdatedate(new Date());
 		if(user.getUimg() != null && user.getUimg() != "" && (user.getUfolder() == null || user.getUfolder() == "")){
+			
 			int length = user.getUimg().length();
 			user.setUfolder(user.getUimg().substring(0, length-14));
 			
 			UsersDO userName =  usersService.getNameByimg(user.getUimg());
 			user.setMname(userName.getMname());
-			
 			if(usersService.update(user) > 0){
 				usersService.removeByimg(user.getUimg());
 			}

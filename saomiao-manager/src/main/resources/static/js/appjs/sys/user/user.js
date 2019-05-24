@@ -70,6 +70,10 @@ function load(deptId) {
 						title : '联系方式'
 					},
 					{
+						field : 'organization',
+						title : '单位或学校'
+					},
+					{
 						field : 'status',
 						title : '状态',
 						align : 'center',
@@ -96,11 +100,7 @@ function load(deptId) {
 								+ row.userId
 								+ '\')"><i class="fa fa-key"></i></a> ';
 							
-							if(row.roleName == 'manager'){
-								return e + f;
-							}else{
 								return e + d + f;
-							}
 							
 						}
 					} ]
@@ -134,7 +134,9 @@ function remove(id) {
 				if (r.code == 0) {
 					layer.msg(r.msg);
 					reLoad();
-				} else {
+				} else if(r.code == 2){
+					layer.msg("该负责人下还有扫描用户，不允许删除或取消负责人角色！");
+				}else {
 					layer.msg(r.msg);
 				}
 			}

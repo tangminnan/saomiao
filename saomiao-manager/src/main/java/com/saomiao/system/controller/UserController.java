@@ -1,5 +1,7 @@
 package com.saomiao.system.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +29,6 @@ import com.saomiao.common.utils.MD5Utils;
 import com.saomiao.common.utils.PageUtils;
 import com.saomiao.common.utils.Query;
 import com.saomiao.common.utils.R;
-import com.saomiao.information.controller.ManagersController;
 import com.saomiao.information.domain.ManagersDO;
 import com.saomiao.information.service.ManagersService;
 import com.saomiao.system.domain.DeptDO;
@@ -76,6 +77,7 @@ public class UserController extends BaseController {
 			rname = "";
 		}
 		int total = userService.count(query);
+		System.out.println(sysUserList.size());
 		PageUtils pageUtil = new PageUtils(sysUserList, total);
 		return pageUtil;
 	}
@@ -85,6 +87,13 @@ public class UserController extends BaseController {
 	@GetMapping("/add")
 	String add(Model model) {
 		List<RoleDO> roles = roleService.list();
+		for (int i = 0; i < roles.size(); i++) { 
+			if (roles.get(i).getRoleName().equals("admin")) { 
+				roles.remove(i); 
+				i--; 
+			} 
+		}
+		
 		model.addAttribute("roles", roles);
 		return prefix + "/add";
 	}
@@ -96,6 +105,12 @@ public class UserController extends BaseController {
 		UserDO userDO = userService.get(id);
 		model.addAttribute("user", userDO);
 		List<RoleDO> roles = roleService.list(id);
+		for (int i = 0; i < roles.size(); i++) { 
+			if (roles.get(i).getRoleName().equals("admin")) { 
+				roles.remove(i); 
+				i--; 
+			} 
+		}
 		model.addAttribute("roles", roles);
 		return prefix+"/edit";
 	}
@@ -108,8 +123,23 @@ public class UserController extends BaseController {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
+		ManagersDO managers = new ManagersDO();
+		managers.setMphone(user.getMobile());
+		managers.setPassword(user.getPassword());
+		managers.setUsername(user.getUsername());
+		managers.setMorganization(user.getOrganization());
+		managers.setMupdatedate(new Date());
+		
 		user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
 		if (userService.save(user) > 0) {
+			for(int i=0; i<user.getRoleIds().size();i++){
+				if(roleService.get(user.getRoleIds().get(i)).getRoleName().equals("manager")){
+					if(managersService.save(managers) >0){
+						return R.ok();
+					}
+				}
+			}
+			
 			return R.ok();
 		}
 		return R.error();
@@ -120,10 +150,32 @@ public class UserController extends BaseController {
 	@PostMapping("/update")
 	@ResponseBody
 	R update(UserDO user) {
-		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
-			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		ManagersDO managers = new ManagersDO();
+		managers.setMphone(user.getMobile());
+		managers.setUsername(user.getUsername());
+		managers.setMorganization(user.getOrganization());
+		List<String> ls= new ArrayList<String>();
+		for(int i=0; i<user.getRoleIds().size();i++){
+				ls.add(roleService.get(user.getRoleIds().get(i)).getRoleName());
+		}
+		if(!ls.contains("manager") && managersService.getIdByname(managers.getUsername())!=null){
+			return managersService.selectUserByMid(managersService.getIdByname(managers.getUsername()).getMid());
 		}
 		if (userService.update(user) > 0) {
+			for(int i=0; i<user.getRoleIds().size();i++){
+				if(roleService.get(user.getRoleIds().get(i)).getRoleName().equals("manager")){
+					if(managersService.getIdByname(managers.getUsername())!=null){
+						if(managersService.update(managers) >0){
+							return R.ok();
+						}
+					}else{
+						if(managersService.save(managers) >0){
+							return R.ok();
+						}
+					}
+				}
+					
+			}
 			return R.ok();
 		}
 		return R.error();
@@ -138,7 +190,17 @@ public class UserController extends BaseController {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
+		ManagersDO managers = new ManagersDO();
+		managers.setMphone(user.getMobile());
+		managers.setUsername(user.getUsername());
+		managers.setMorganization(user.getOrganization());
+		
 		if (userService.updatePersonal(user) > 0) {
+			if(roleService.get(user.getRoleIds().get(0)).getRoleName().equals("manager")){
+				if(managersService.save(managers) >0){
+					return R.ok();
+				}
+			}
 			return R.ok();
 		}
 		return R.error();
@@ -153,8 +215,21 @@ public class UserController extends BaseController {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
-		if (userService.remove(id) > 0) {
-			return R.ok();
+		ManagersDO managers = new ManagersDO();
+		UserDO user = userService.get(id);
+		managers.setUsername(user.getUsername());
+		List<String> ls= new ArrayList<String>();
+		
+		for(int i=0; i<user.getRoleIds().size();i++){
+				ls.add(roleService.get(user.getRoleIds().get(i)).getRoleName());
+		}
+		//如果包含manager觉得的情况就去查询manager下是否有用户
+		if(ls.contains("manager") && managersService.getIdByname(managers.getUsername())!=null){
+			return managersService.selectUserById(managersService.getIdByname(managers.getUsername()).getMid());
+		}else{
+			if(userService.remove(id) >0){
+				return R.ok();
+			}
 		}
 		return R.error();
 	}
@@ -186,7 +261,6 @@ public class UserController extends BaseController {
 	@Log("请求更改用户密码")
 	@GetMapping("/resetPwd/{id}")
 	String resetPwd(@PathVariable("id") Long userId, Model model) {
-
 		UserDO userDO = new UserDO();
 		userDO.setUserId(userId);
 		model.addAttribute("user", userDO);
@@ -202,6 +276,7 @@ public class UserController extends BaseController {
 		}
 		try{
 			userService.resetPwd(userVO,getUser());
+			
 			return R.ok();
 		}catch (Exception e){
 			return R.error(1,e.getMessage());
@@ -218,6 +293,12 @@ public class UserController extends BaseController {
 		}
 		try{
 			userService.adminResetPwd(userVO);
+			
+			ManagersDO managersDO = new ManagersDO();
+			managersDO.setPassword(userVO.getPwdNew());
+			managersDO.setUsername(userService.get(userVO.getUserDO().getUserId()).getUsername());
+			
+			managersService.update(managersDO);
 			return R.ok();
 		}catch (Exception e){
 			return R.error(1,e.getMessage());

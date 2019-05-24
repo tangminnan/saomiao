@@ -126,7 +126,9 @@
 			<if test="mupdatedate != null">`m_updateDate` = #{mupdatedate},</if>
 			<if test="password != null">`password` = #{password}</if>
 		</set>
-		where m_Id = #{mid}
+		where 
+		<if test="mid != null and mid != ''">m_Id = #{mid}</if>
+		<if test="username != null and username != ''">username = #{username}</if>
 	</update>
 	
 	<delete id="remove">

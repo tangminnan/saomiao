@@ -32,6 +32,8 @@ public interface ManagersService {
 	int batchRemove(Long[] mIds);
 
 	R selectUserById(Long mid);
+	
+	R selectUserByMid(Long mid);
 
 	int updateMname(ManagersDO managersDO);
 	
@@ -44,5 +46,9 @@ public interface ManagersService {
 	List<ManagersDO> likelist(Map<String, Object> map);
 
 	ManagersDO selectUsername(Long mid);
+
+	boolean exit(Map<String, Object> params);
+
+	R selectUserByMId(Long mid);
 
 }

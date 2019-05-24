@@ -30,7 +30,7 @@ function save() {
 			parent.layer.alert("Connection error");
 		},
 		success : function(data) {
-			if (data.code == 0) {
+			if (data.code === 0) {
 				parent.layer.msg("操作成功");
 				parent.reLoad();
 				var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
@@ -75,7 +75,7 @@ function validateRule() {
 				equalTo : "#password"
 			},
 			mobile : {
-				required : true
+				required : true,
 			},
 			topic : {
 				required : "#newsletter:checked",

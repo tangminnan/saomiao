@@ -20,15 +20,17 @@ function update() {
 		error : function(request) {
 			alert("Connection error");
 		},
-		success : function(data) {
-			if (data.code == 0) {
-				parent.layer.msg(data.msg);
+		success : function(r) {
+			if (r.code == 0) {
+				parent.layer.msg(r.msg);
 				parent.reLoad();
 				var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
 				parent.layer.close(index);
 
-			} else {
-				parent.layer.msg(data.msg);
+			}else if(r.code == 2){
+				parent.layer.msg("该负责人下还有扫描用户，不允许删除或取消负责人角色！");
+			} else{
+				parent.layer.msg(r.msg);
 			}
 
 		}
@@ -110,16 +112,4 @@ function validateRule() {
 			//email : icon + "请输入您的E-mail",
 		}
 	})
-}
-var openDept = function(){
-	layer.open({
-		type:2,
-		title:"选择部门",
-		area : [ '300px', '450px' ],
-		content:"/system/sysDept/treeView"
-	})
-}
-function loadDept( deptId,deptName){
-	$("#deptId").val(deptId);
-	$("#deptName").val(deptName);
 }

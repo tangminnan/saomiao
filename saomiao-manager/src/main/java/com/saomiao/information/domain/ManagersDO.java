@@ -32,7 +32,6 @@ public class ManagersDO implements Serializable {
 	
 	private String password;
 	
-	
 	public String getPassword() {
 		return password;
 	}

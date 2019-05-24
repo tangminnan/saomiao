@@ -72,7 +72,20 @@ public class ManagersServiceImpl implements ManagersService {
 			return R.ok();
 		}
 	}
-
+	
+	@Override
+	public R selectUserByMid(Long mid) {
+		List<UsersDO> userList =  managersDao.selectUserById(mid);
+		if(userList.size() > 0){
+			R r = new R();
+			r.put("code", 2);
+			return r; 
+		}else{
+			remove(mid);
+			return R.ok();
+		}
+	}
+	
 	@Override
 	public List<ManagersDO> Manlist(Long mid) {
 		return managersDao.Manlist(mid);
@@ -102,6 +115,13 @@ public class ManagersServiceImpl implements ManagersService {
 	@Override
 	public ManagersDO selectUsername(Long mid) {
 		return managersDao.selectUsername(mid);
+	}
+	
+	@Override
+	public boolean exit(Map<String, Object> params) {
+		boolean exit;
+		exit = managersDao.list(params).size() > 0;
+		return exit;
 	}
 	
 }

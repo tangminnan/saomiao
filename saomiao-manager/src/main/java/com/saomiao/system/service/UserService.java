@@ -1,5 +1,6 @@
 package com.saomiao.system.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -59,6 +60,8 @@ public interface UserService {
 	int removeUser(String username);
 
 	UserDO selectNameByid(Long id);
+
+	Map<String, Object> getByname(String username);
 
 
 }

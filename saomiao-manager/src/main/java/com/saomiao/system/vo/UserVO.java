@@ -19,8 +19,20 @@ public class UserVO {
      * 新密码
      */
     private String pwdNew;
+    
+    private String roleName;
+    
+    
 
-    public UserDO getUserDO() {
+    public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public UserDO getUserDO() {
         return userDO;
     }
 
@@ -43,4 +55,11 @@ public class UserVO {
     public void setPwdNew(String pwdNew) {
         this.pwdNew = pwdNew;
     }
+
+	@Override
+	public String toString() {
+		return "UserVO [userDO=" + userDO + ", pwdOld=" + pwdOld + ", pwdNew=" + pwdNew + "]";
+	}
+    
+    
 }
