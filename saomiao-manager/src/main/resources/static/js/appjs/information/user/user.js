@@ -49,15 +49,19 @@ function load() {
 								},
 																{
 									field : 'uid', 
-									title : 'id' 
+									title : 'id' ,
+									width : 100
 								},
 																{
 									field : 'uname', 
-									title : '姓名' 
+									title : '姓名' ,
+									width : 100
+									
 								},
 																{
 									field : 'uorganization', 
-									title : '单位或学校' 
+									title : '单位或学校',
+									width : 200 
 								},
 																{
 									field : 'ugender', 
@@ -65,58 +69,72 @@ function load() {
 									formatter: function(value,row,index ){
 										if(value == 0) return "男";
 										if(value == 1) return "女";
-									}
+									},
+									width : 50
 								},
 																{
 									field : 'ugrand', 
-									title : '年级或职业' 
+									title : '年级或职业',
+									width : 100 
 								},
 																{
 									field : 'uage', 
-									title : '年龄' 
+									title : '年龄' ,
+									width : 50
 								},
 																{
 									field : 'ubirthday', 
-									title : '出生日期' 
+									title : '出生日期',
+									width : 200 
 								},
 																{
 									field : 'uidcard', 
-									title : '身份证号' 
+									title : '身份证号' ,
+									width : 200
 								},
 																{
 									field : 'uphone', 
-									title : '联系电话' 
+									title : '联系电话' ,
+									width : 150
 								},
 																{
 									field : 'uheight', 
-									title : '身高 单位cm' 
+									title : '身高(单位cm)',
+									width : 150
+										
 								},
 																{
 									field : 'uweight', 
-									title : '体重 单位kg' 
+									title : '体重(单位kg)',
+									width : 150 
 								},
 																{
 									field : 'ufolder', 
-									title : '3D扫描数据存放目录' 
+									title : '3D扫描数据存放目录',
+									width : 400 
 								},								{
 									field : 'uimg', 
 									title : '用户头像',
 									formatter : function(value ,row , index){
 										if(value!=null && value !=""){
-											var e = '<div class="image"><img width="90" height="100" alt="image" class="img-responsive" src="' + value + '"></div>'
+											var e = '<div class="image"><a class = ""  href="javascript:void(0)"><img width="90" height="100"  alt="image" class="img-responsive pimg view" src="' + value + '"></ a></div>'
 											return e;
 										}
 										else
 											return "";
-									}
+									},
+									events: 'operateEvents',
+									width : 100
 								},
 																{
 									field : 'mname', 
-									title : '负责人（医生）' 
+									title : '负责人(医生)',
+									width : 150
 								},
 																{
 									field : 'uupdatedate', 
-									title : '创建时间' 
+									title : '创建时间',
+									width : 200 
 								},
 																{
 									title : '操作',
@@ -130,6 +148,11 @@ function load() {
 										var f = '<a class="btn btn-primary btn-block btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key">指定</i></a> ';
+										
+										var d = '<a class="btn btn-primary btn-block btn-sm" href="#" title="解绑"  mce_href="#" onclick="unbind(\''
+											+ row.uid
+											+ '\')"><i class="fa fa-key">解绑</i></a> ';
+										
 										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
 											   + `${row.uid},${index}`
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
@@ -140,17 +163,82 @@ function load() {
 											
 										if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
 											return e + f + b ;
+										}else if(row.uname != null && row.ufolder != null){
+											return e + a + d;
 										}else{
-											return e + a;
+											return e + a ;
 										}
 										
-									}
+									},
+									width : 100
 								} ]
 					});
 }
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+
+window.operateEvents = {
+		    'click .view': function (e, value, row, index) {
+			 console.log(row.uimg)
+		        layer.open({
+		          type: 1,
+		          title: false,
+		          closeBtn: 0,
+				  area: 'auto',
+		          skin: 'layui-layer-nobg', //没有背景色
+		          shadeClose: true,
+		          content: '<img width="200px" height="290px" src="'+row.uimg+'"/>'
+		        });
+		  },
+};
+
+
+/*function bigger(){  
+	            var _this = $(this);//将当前的pimg元素作为_this传入函数  
+	            imgShow("#outerdiv", "#innerdiv", "#bigimg", ".pimg");  
+}*/
+/*function imgShow(outerdiv, innerdiv, bigimg, pimg){  
+	        var src = pimg[0].src;//获取当前点击的pimg元素中的src属性  
+	        $(bigimg).attr("src", src);//设置#bigimg元素的src属性  
+	      
+	            获取当前点击图片的真实大小，并显示弹出层及大图  
+			var $img = $("<img/>").attr("src", src);
+	
+	         $("<img/>").attr("src", src).load(function(){  
+	            var windowW = $(window).width();//获取当前窗口宽度  
+	            var windowH = $(window).height();//获取当前窗口高度  
+	            var realWidth = this.width;//获取图片真实宽度  
+	            var realHeight = this.height;//获取图片真实高度  
+	            var imgWidth, imgHeight;  
+	            var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放  
+	              
+	            if(realHeight>windowH*scale) {//判断图片高度  
+	                imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放  
+	                imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度  
+	                if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度  
+	                    imgWidth = windowW*scale;//再对宽度进行缩放  
+	                }  
+	            } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度  
+	                imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放  
+	                            imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度  
+	            } else {//如果图片真实高度和宽度都符合要求，高宽不变  
+	                imgWidth = realWidth;  
+	                imgHeight = realHeight;  
+	            }  
+	            $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放  
+	              
+	            var w = (windowW-imgWidth)/2;//计算图片与窗口左边距  
+	            var h = (windowH-imgHeight)/2;//计算图片与窗口上边距  
+	            $(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性  
+	            $(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg  
+	        });  
+	          
+	        $(outerdiv).click(function(){//再次点击淡出消失弹出层  
+	            $(this).fadeOut("fast");  
+	        });  
+	    }
+	*/ 
 
 function selectlist() {
 	$('#exampleTable').bootstrapTable('destroy');	//清除原来界面
@@ -290,16 +378,23 @@ function selectlist() {
 										var f = '<a class="btn btn-primary btn-block btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
 												+ row.uid
 												+ '\')"><i class="fa fa-key">指定</i></a> ';
+										var d = '<a class="btn btn-primary btn-block btn-sm" href="#" title="解绑"  mce_href="#" onclick="unbind(\''
+											+ row.uid
+											+ '\')"><i class="fa fa-key">解绑</i></a> ';
+										
 										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
 											   + `${row.uid},${index}`
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 										
-										if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
-											return e + f ;
+									   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
+										   + `${row.uid},${index}`
+										   + '\')" ><i class="fa fa-download">下载</i></ a> ';
+											
+									   if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
+											return e + f + b ;
 										}else{
-											return e + a;
+											return e + a + d;
 										}
-										
 									}
 								} ]
 					});
@@ -320,8 +415,7 @@ function downfile(val){
 			},
 			success : function(data) {
 				$('.dowmL').each(function(index1){
-					$(this).attr('href',data[0].ufolder)
-					
+					$(this).attr('href',data[0].ufolder);
 					window.open(data[0].ufolder,'_blank')
 				})
 			}
@@ -365,6 +459,23 @@ function edit(id) {
 		content : prefix + '/edit/' + id // iframe的url
 	});
 }
+
+function unbind(id){
+	$.ajax({
+		url : "/information/user/unbind", 
+		type : "get",
+		data : {
+			'uid' : id  
+		},
+		success : function(data) {
+			if (data.code==0) {
+				layer.msg(data.msg);
+				reLoad();
+			}
+		}
+	});
+}
+
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]
@@ -398,6 +509,8 @@ function resetfile(id) {
 	});
 	
 }
+
+
 function batchRemove() {
 	var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 	if (rows.length == 0) {

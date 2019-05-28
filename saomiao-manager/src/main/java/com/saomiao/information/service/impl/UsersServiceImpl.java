@@ -94,5 +94,10 @@ public class UsersServiceImpl implements UsersService {
 		return userDao.selectlist(map);
 	}
 
+	@Override
+	public int updateUser(Long uid) {
+		return userDao.updateUser(uid);
+	}
+
 	
 }

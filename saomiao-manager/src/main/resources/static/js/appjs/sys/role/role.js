@@ -33,11 +33,11 @@ function load() {
 						// sortOrder.
 						// 返回false将会终止请求
 						columns : [
-								{ // 列配置项
+								/*{ // 列配置项
 									// 数据类型，详细参数配置参见文档http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 									checkbox : true
 								// 列表中显示复选框
-								},
+								},*/
 								/*{
 									field : 'roleId', // 列字段名
 									title : '序号' // 列标题
@@ -78,7 +78,12 @@ function load() {
 														str +=' </label> ';
 											str +=' </div>';
 										str +=' </div>';
-										return str;
+										
+										if(row.roleName == 'admin'){
+											return "";
+										}else{
+											return str;
+										}
 									}
 								},
 								{
@@ -92,7 +97,12 @@ function load() {
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.roleId
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-										return e + d;
+										if(row.roleName == 'admin'){
+											return "";
+										}else{
+											return e + d;
+										}
+									
 									}
 								} ]
 					});

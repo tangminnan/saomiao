@@ -29,9 +29,8 @@
 	</select>
 	
 	<select id="list" resultType="com.saomiao.system.domain.UserDO">
-		select s.user_id user_id,s.username username,s.name name,s.password password,s.dept_id dept_id,s.email email,s.mobile mobile,s.status status,s.user_id_create user_id_create,s.gmt_create gmt_create ,s.gmt_create gmt_create,s.gmt_modified gmt_modified,s.sex sex,s.birth birth,s.pic_id pic_id,s.live_address live_address,s.hobby hobby,s.province province,s.city city,s.district district,r.role_name role_name
-		from sys_user s, sys_role r, sys_user_role ur 
-		<where>  
+		select `user_id`,`username`,organization,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user
+        <where>  
 		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
 		  		  <if test="username != null and username != ''"> and username = #{username} </if>
 		  		  <if test="name != null and name != ''"> and name = #{name} </if>
@@ -52,9 +51,7 @@
 		  		  <if test="city != null and city != ''"> and city = #{city} </if>
 		  		  <if test="district != null and district != ''"> and district = #{district} </if>
 		  		  <if test="organization != null and organization != ''"> and organization = #{organization} </if>
-		  			and ur.role_id = r.role_id AND ur.user_id = s.user_id
 		  		</where>
-		  		GROUP BY user_id
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}

@@ -53,7 +53,7 @@ function load() {
 								},
 																{
 									field : 'username', 
-									title : '姓名' 
+									title : '用户名' 
 								},
 																{
 									field : 'morganization', 

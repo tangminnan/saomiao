@@ -46,4 +46,6 @@ public interface UsersDao {
 	List<Map<String, Object>> exeList(Map<String, Object> map);
 
 	List<UsersDO> selectlist(Map<String, Object> map);
+
+	int updateUser(Long uid);
 }

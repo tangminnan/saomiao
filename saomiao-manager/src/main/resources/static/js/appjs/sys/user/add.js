@@ -69,6 +69,9 @@ function validateRule() {
 				required : true,
 				minlength : 6
 			},
+			organization : {
+				required : true
+			},
 			confirm_password : {
 				required : true,
 				minlength : 6,
@@ -92,6 +95,9 @@ function validateRule() {
 				required : icon + "请输入您的用户名",
 				minlength : icon + "用户名必须两个字符以上",
 				remote : icon + "用户名已经存在"
+			},
+			organization : {
+				required : icon + "请输入您的单位"
 			},
 			password : {
 				required : icon + "请输入您的密码",

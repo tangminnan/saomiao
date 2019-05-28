@@ -53,17 +53,17 @@ function load(deptId) {
 						field : 'userId', // 列字段名
 						title : '序号' // 列标题
 					},*/
-					{
+					/*{
 						field : 'name',
 						title : '用户名'
-					},
+					},*/
 					{
 						field : 'roleName',
 						title : '角色分类'
 					},
 					{
 						field : 'username',
-						title : '登录账号'
+						title : '用户名'
 					},
 					{
 						field : 'mobile',
@@ -100,8 +100,11 @@ function load(deptId) {
 								+ row.userId
 								+ '\')"><i class="fa fa-key"></i></a> ';
 							
+							if(row.username === 'admin'){
+								return "";
+							}else{
 								return e + d + f;
-							
+							}
 						}
 					} ]
 			});

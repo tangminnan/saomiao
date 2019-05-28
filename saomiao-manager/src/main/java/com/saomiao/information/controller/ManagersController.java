@@ -65,13 +65,12 @@ public class ManagersController {
 	@RequiresPermissions("information:managers:managers")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
-		System.out.println("=============admin======"+admin);
-		System.out.println("=============ad11111======"+(!"admin".equals(admin)));
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("username", ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				params.put("username", ShiroUtils.getUser().getUsername());
+			}
 		}
-		
         Query query = new Query(params);
 		List<ManagersDO> managersList = managersService.list(query);
 		int total = managersService.count(query);
@@ -84,9 +83,11 @@ public class ManagersController {
 	@RequiresPermissions("information:managers:managers")
 	public PageUtils likelist(@RequestParam Map<String, Object> params){
 		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("username", ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				params.put("username", ShiroUtils.getUser().getUsername());
+			}
 		}
         Query query = new Query(params);
 		List<ManagersDO> managersList = managersService.likelist(query);

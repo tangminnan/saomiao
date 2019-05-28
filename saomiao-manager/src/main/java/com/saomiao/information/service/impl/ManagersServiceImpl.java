@@ -72,7 +72,7 @@ public class ManagersServiceImpl implements ManagersService {
 			return R.ok();
 		}
 	}
-	
+
 	@Override
 	public R selectUserByMid(Long mid) {
 		List<UsersDO> userList =  managersDao.selectUserById(mid);
@@ -123,5 +123,8 @@ public class ManagersServiceImpl implements ManagersService {
 		exit = managersDao.list(params).size() > 0;
 		return exit;
 	}
+
+	
+
 	
 }

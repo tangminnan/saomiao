@@ -49,6 +49,5 @@ public interface ManagersService {
 
 	boolean exit(Map<String, Object> params);
 
-	R selectUserByMId(Long mid);
 
 }

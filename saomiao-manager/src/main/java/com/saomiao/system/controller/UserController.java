@@ -159,6 +159,7 @@ public class UserController extends BaseController {
 				ls.add(roleService.get(user.getRoleIds().get(i)).getRoleName());
 		}
 		if(!ls.contains("manager") && managersService.getIdByname(managers.getUsername())!=null){
+			userService.update(user);
 			return managersService.selectUserByMid(managersService.getIdByname(managers.getUsername()).getMid());
 		}
 		if (userService.update(user) > 0) {

@@ -72,10 +72,11 @@ public class UsersController {
 	@RequiresPermissions("information:user:user")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		
-		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("mname", ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				params.put("mname", ShiroUtils.getUser().getUsername());
+			}
 		}
 		
         Query query = new Query(params);
@@ -91,10 +92,11 @@ public class UsersController {
 	@GetMapping("/selectlist")
 	public PageUtils selectlist(@RequestParam Map<String, Object> params){
 		
-		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("mname", ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				params.put("mname", ShiroUtils.getUser().getUsername());
+			}
 		}
 		
         Query query = new Query(params);
@@ -119,6 +121,27 @@ public class UsersController {
 		usersDO.get(0).setUfolder(usersDO.get(0).getUfolder()+"/3d.zip");
 		
 		return usersDO;
+	}
+	
+	
+	//解绑
+	@ResponseBody
+	@GetMapping("/unbind")
+	public R unbind(Long uid){
+		
+		System.out.println("==============uid==========="+uid);
+		UsersDO oldusers =  usersService.get(uid);
+		System.out.println("==============================="+oldusers.getUimg());
+		UsersDO newusers = new UsersDO();
+		newusers.setUfolder(oldusers.getUfolder());
+		newusers.setMname(oldusers.getMname());
+		newusers.setUimg(oldusers.getUimg());
+		newusers.setUupdatedate(new Date());
+		
+		if(usersService.save(newusers) >0){
+			usersService.updateUser(uid);
+		}
+		return R.ok();
 	}
 	
 	
@@ -150,10 +173,11 @@ public class UsersController {
 		
 		UsersDO user = usersService.get(uid);
 		
-		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			params.put("username", ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				params.put("username", ShiroUtils.getUser().getUsername());
+			}
 		}
 		
 		List<UsersDO> user2  = usersService.getfileByname(params);
@@ -170,10 +194,12 @@ public class UsersController {
 	@PostMapping("/save")
 	//@RequiresPermissions("information:user:add")
 	public R save(UsersDO user){
-		//查询列表数据
-		String admin = ShiroUtils.getUser().getRoleName();
+
+		String admin = ShiroUtils.getUser().getUsername();
 		if(!"admin".equals(admin)){		//普通管理登录
-			user.setMname(ShiroUtils.getUser().getUsername());
+			if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+				user.setMname(ShiroUtils.getUser().getUsername());
+			}
 		}
 		
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -248,10 +274,13 @@ public class UsersController {
 							if(uweight != null && uweight !=""){
 								user.setUweight(Double.parseDouble(uweight));
 							}
-							//查询列表数据
-							String admin = ShiroUtils.getUser().getRoleName();
+							
+							
+							String admin = ShiroUtils.getUser().getUsername();
 							if(!"admin".equals(admin)){		//普通管理登录
-								user.setMname(ShiroUtils.getUser().getUsername());
+								if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+									user.setMname(ShiroUtils.getUser().getUsername());
+								}
 							}
 					    	user.setUupdatedate(new Date());
 					    	
@@ -309,11 +338,13 @@ public class UsersController {
 		
 		//导出全部数据
 		if(type.equals("2")){
-			String admin = ShiroUtils.getUser().getRoleName();
-			if(!"admin".equals(admin)){		//普通管理登录
-				params.put("mname", ShiroUtils.getUser().getUsername());
-			}
 			
+			String admin = ShiroUtils.getUser().getUsername();
+			if(!"admin".equals(admin)){		//普通管理登录
+				if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+					params.put("mname", ShiroUtils.getUser().getUsername());
+				}
+			}
 			List<Map<String, Object>> XxxDOs = usersService.exeList(params);
 			if( XxxDOs == null){
 				R.error("当前数据为空");
@@ -324,11 +355,12 @@ public class UsersController {
 		//导选中部分
 		if(type.equals("4")){
 			
-			String admin = ShiroUtils.getUser().getRoleName();
+			String admin = ShiroUtils.getUser().getUsername();
 			if(!"admin".equals(admin)){		//普通管理登录
-				params.put("mname", ShiroUtils.getUser().getUsername());
+				if(managersService.getIdByname(ShiroUtils.getUser().getUsername()) != null){
+					params.put("mname", ShiroUtils.getUser().getUsername());
+				}
 			}
-			
 			query.remove("offset");
 			query.remove("limit");
 			System.out.println("ids:"+query.get("ids"));
