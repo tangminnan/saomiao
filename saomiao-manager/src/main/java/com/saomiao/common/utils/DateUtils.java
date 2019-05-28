@@ -23,7 +23,7 @@ public class DateUtils {
     public static String format(Date date) {
         return format(date, DATE_PATTERN);
     }
-
+    
     public static String format(Date date, String pattern) {
         if (date != null) {
             SimpleDateFormat df = new SimpleDateFormat(pattern);

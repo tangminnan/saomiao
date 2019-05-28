@@ -28,6 +28,7 @@ function load() {
 						//search : true, // 是否显示搜索框
 						showColumns : false, // 是否显示内容下拉框（选择显示的列）
 						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
+						
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
@@ -49,60 +50,91 @@ function load() {
 								},
 																{
 									field : 'uid', 
-									title : 'id' 
+									title : '<strong>id</strong>',
+									align : 'center',
+									width :  50
 								},
 																{
 									field : 'uname', 
-									title : '姓名'
+									title : '姓名',
+									align : 'center',
+									width :  50
 									
 								},
 																{
 									field : 'uorganization', 
-									title : '单位或学校'
+									title : '单位/学校',
+									align : 'center',
+									width : 65
 								},
 																{
 									field : 'ugender', 
 									title : '性别',
+									width : 60,
 									formatter: function(value,row,index ){
 										if(value == 0) return "男";
 										if(value == 1) return "女";
-									}
+									},
+									align : 'center'
 								},
 																{
 									field : 'ugrand', 
-									title : '年级或职业'
+									title : '年级/职业',
+									width : 65,
+									align : 'center'
 								},
 																{
 									field : 'uage', 
-									title : '年龄' 
+									title : '年龄' ,
+									width : 40,
+									align : 'center'
 								},
 																{
 									field : 'ubirthday', 
-									title : '出生日期'
+									title : '出生日期',
+									align : 'center',
+									width : 65,
+									formatter: function (value, row, index) {
+										if(value != null){
+											return value.split(' ')[0]
+										}
+					                }
 								},
 																{
 									field : 'uidcard', 
-									title : '身份证号' 
+									title : '身份证号',
+									width : 80,
+									align : 'center' 
 								},
 																{
 									field : 'uphone', 
-									title : '联系电话' 
+									title : '联系电话',
+									width : 65,
+									align : 'center' 
 								},
 																{
 									field : 'uheight', 
-									title : '身高cm'
+									title : '身高cm',
+									width : 60,
+									align : 'center'
 										
 								},
 																{
 									field : 'uweight', 
-									title : '体重kg'
+									title : '体重kg',
+									width : 60,
+									align : 'center'
 								},
 																{
 									field : 'ufolder', 
-									title : '3D扫描数据目录'
+									title : '3D扫描数据目录',
+									width : 200,
+									align : 'center',
+									
 								},								{
 									field : 'uimg', 
 									title : '用户头像',
+									width : 65,
 									formatter : function(value ,row , index){
 										if(value!=null && value !=""){
 											var e = '<div class="image"><a class = ""  href="javascript:void(0)"><img width="90" height="120"  alt="image" class="img-responsive pimg view" src="' + value + '"></ a></div>'
@@ -111,20 +143,26 @@ function load() {
 										else
 											return "";
 									},
-									events: 'operateEvents'
+									events: 'operateEvents',
+									align : 'center'
 								},
 																{
 									field : 'mname', 
-									title : '负责人'
+									title : '负责人',
+									width : 60,
+									align : 'center'
 								},
 																{
 									field : 'uupdatedate', 
-									title : '创建时间'
+									title : '创建时间',
+									width : 65,
+									align : 'center'
 								},
 																{
 									title : '操作',
 									field : 'id',
 									align : 'center',
+									width : 60,
 									formatter : function(value, row, index) {
 										var e = '<a class="btn btn-primary btn-block btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.uid
@@ -158,6 +196,17 @@ function load() {
 								} ]
 					});
 }
+
+/*function getData(date){
+	
+	var y = (date.getFullYear() + '').padStart(2, '0') // 年
+	var m = (date.getMonth() + 1 + '').padStart(2, '0') // 月
+	var d = (date.getDate() + '').padStart(2, '0') // 日
+	return y + '-' + m + '-' + d
+}*/
+(function (){
+	console.log('fixed-table-body',$('.fixed-table-body'))
+})()
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
@@ -177,52 +226,6 @@ window.operateEvents = {
 		  },
 };
 
-
-/*function bigger(){  
-	            var _this = $(this);//将当前的pimg元素作为_this传入函数  
-	            imgShow("#outerdiv", "#innerdiv", "#bigimg", ".pimg");  
-}*/
-/*function imgShow(outerdiv, innerdiv, bigimg, pimg){  
-	        var src = pimg[0].src;//获取当前点击的pimg元素中的src属性  
-	        $(bigimg).attr("src", src);//设置#bigimg元素的src属性  
-	      
-	            获取当前点击图片的真实大小，并显示弹出层及大图  
-			var $img = $("<img/>").attr("src", src);
-	
-	         $("<img/>").attr("src", src).load(function(){  
-	            var windowW = $(window).width();//获取当前窗口宽度  
-	            var windowH = $(window).height();//获取当前窗口高度  
-	            var realWidth = this.width;//获取图片真实宽度  
-	            var realHeight = this.height;//获取图片真实高度  
-	            var imgWidth, imgHeight;  
-	            var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放  
-	              
-	            if(realHeight>windowH*scale) {//判断图片高度  
-	                imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放  
-	                imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度  
-	                if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度  
-	                    imgWidth = windowW*scale;//再对宽度进行缩放  
-	                }  
-	            } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度  
-	                imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放  
-	                            imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度  
-	            } else {//如果图片真实高度和宽度都符合要求，高宽不变  
-	                imgWidth = realWidth;  
-	                imgHeight = realHeight;  
-	            }  
-	            $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放  
-	              
-	            var w = (windowW-imgWidth)/2;//计算图片与窗口左边距  
-	            var h = (windowH-imgHeight)/2;//计算图片与窗口上边距  
-	            $(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性  
-	            $(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg  
-	        });  
-	          
-	        $(outerdiv).click(function(){//再次点击淡出消失弹出层  
-	            $(this).fadeOut("fast");  
-	        });  
-	    }
-	*/ 
 
 function selectlist() {
 	$('#exampleTable').bootstrapTable('destroy');	//清除原来界面
@@ -276,111 +279,138 @@ function selectlist() {
 						// sortOrder.
 						// 返回false将会终止请求
 						columns : [
-								{
-									checkbox : true
-								},
-																{
-									field : 'uid', 
-									title : 'id' 
-								},
-																{
-									field : 'uname', 
-									title : '姓名' 
-								},
-																{
-									field : 'uorganization', 
-									title : '单位或学校' 
-								},
-																{
-									field : 'ugender', 
-									title : '性别',
-									formatter: function(value,row,index ){
-										if(value == 0) return "男";
-										if(value == 1) return "女";
-									}
-								},
-																{
-									field : 'ugrand', 
-									title : '年级或职业' 
-								},
-																{
-									field : 'uage', 
-									title : '年龄' 
-								},
-																{
-									field : 'ubirthday', 
-									title : '出生日期' 
-								},
-																{
-									field : 'uidcard', 
-									title : '身份证号' 
-								},
-																{
-									field : 'uphone', 
-									title : '联系电话' 
-								},
-																{
-									field : 'uheight', 
-									title : '身高 单位cm' 
-								},
-																{
-									field : 'uweight', 
-									title : '体重 单位kg' 
-								},
-																{
-									field : 'ufolder', 
-									title : '3D扫描数据存放目录' 
-								},								{
-									field : 'uimg', 
-									title : '用户头像',
-									formatter : function(value ,row , index){
-										if(value!=null && value !=""){
-											var e = '<div class="image"><img width="90" height="100" alt="image" class="img-responsive" src="' + value + '"></div>'
-											return e;
-										}
-										else
-											return "";
-									}
-								},
-																{
-									field : 'mname', 
-									title : '负责人（医生）' 
-								},
-																{
-									field : 'uupdatedate', 
-									title : '创建时间' 
-								},
-																{
-									title : '操作',
-									field : 'id',
-									align : 'center',
-									formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-block btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.uid
-												+ '\')"><i class="fa fa-edit">修改</i></a> ';
+									{
+										checkbox : true
+									},
+																	{
+										field : 'uid', 
+										title : 'id',
+										align : 'center'
+									},
+																	{
+										field : 'uname', 
+										title : '姓名',
+										align : 'center'
 										
-										var f = '<a class="btn btn-primary btn-block btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
+									},
+																	{
+										field : 'uorganization', 
+										title : '单位或学校',
+										align : 'center'
+									},
+																	{
+										field : 'ugender', 
+										title : '性别',
+										formatter: function(value,row,index ){
+											if(value == 0) return "男";
+											if(value == 1) return "女";
+										},
+										align : 'center'
+									},
+																	{
+										field : 'ugrand', 
+										title : '年级或职业',
+										align : 'center'
+									},
+																	{
+										field : 'uage', 
+										title : '年龄' ,
+										align : 'center'
+									},
+																	{
+										field : 'ubirthday', 
+										title : '出生日期',
+										align : 'center',
+										formatter: function (value, row, index) {
+											if(value != null){
+												return value.split(' ')[0]
+											}
+						                }
+									},
+																	{
+										field : 'uidcard', 
+										title : '身份证号',
+										align : 'center' 
+									},
+																	{
+										field : 'uphone', 
+										title : '联系电话',
+										align : 'center' 
+									},
+																	{
+										field : 'uheight', 
+										title : '身高cm',
+										align : 'center'
+											
+									},
+																	{
+										field : 'uweight', 
+										title : '体重kg',
+										align : 'center'
+									},
+																	{
+										field : 'ufolder', 
+										title : '3D扫描数据目录',
+										align : 'center'
+									},								{
+										field : 'uimg', 
+										title : '用户头像',
+										formatter : function(value ,row , index){
+											if(value!=null && value !=""){
+												var e = '<div class="image"><a class = ""  href="javascript:void(0)"><img width="90" height="120"  alt="image" class="img-responsive pimg view" src="' + value + '"></ a></div>'
+												return e;
+											}
+											else
+												return "";
+										},
+										events: 'operateEvents',
+										align : 'center'
+									},
+																	{
+										field : 'mname', 
+										title : '负责人',
+										align : 'center'
+									},
+																	{
+										field : 'uupdatedate', 
+										title : '创建时间',
+										align : 'center'
+									},
+																	{
+										title : '操作',
+										field : 'id',
+										align : 'center',
+										formatter : function(value, row, index) {
+											var e = '<a class="btn btn-primary btn-block btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
+													+ row.uid
+													+ '\')"><i class="fa fa-edit">修改</i></a> ';
+											
+											var f = '<a class="btn btn-primary btn-block btn-sm" href="#" title="指定"  mce_href="#" onclick="resetfile(\''
+													+ row.uid
+													+ '\')"><i class="fa fa-key">指定</i></a> ';
+											
+											var d = '<a class="btn btn-primary btn-block btn-sm" href="#" title="解绑"  mce_href="#" onclick="unbind(\''
 												+ row.uid
-												+ '\')"><i class="fa fa-key">指定</i></a> ';
-										var d = '<a class="btn btn-primary btn-block btn-sm" href="#" title="解绑"  mce_href="#" onclick="unbind(\''
-											+ row.uid
-											+ '\')"><i class="fa fa-key">解绑</i></a> ';
-										
-										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
+												+ '\')"><i class="fa fa-key">解绑</i></a> ';
+											
+											var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
+												   + `${row.uid},${index}`
+												   + '\')" ><i class="fa fa-download">下载</i></ a> ';
+											
+										   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
 											   + `${row.uid},${index}`
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
-										
-									   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
-										   + `${row.uid},${index}`
-										   + '\')" ><i class="fa fa-download">下载</i></ a> ';
+												
+											if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
+												return e + f + b ;
+											}else if(row.uname != null && row.ufolder != null){
+												return e + a + d;
+											}else{
+												return e + a ;
+											}
 											
-									   if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
-											return e + f + b ;
-										}else{
-											return e + a + d;
 										}
-									}
-								} ]
+									} ]
 					});
 }
 

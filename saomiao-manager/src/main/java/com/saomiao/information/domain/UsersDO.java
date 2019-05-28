@@ -1,6 +1,7 @@
 package com.saomiao.information.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -48,7 +49,10 @@ public class UsersDO implements Serializable {
 	
 	private String uimg;
 	
-	
+	public String formateTime(Date date) {
+    	SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+    	return df.format(date);
+    }
 	public String getUimg() {
 		return uimg;
 	}
@@ -103,8 +107,8 @@ public class UsersDO implements Serializable {
 	public Date getUbirthday() {
 		return ubirthday;
 	}
-	public void setUbirthday(Date ubirthday) {
-		this.ubirthday = ubirthday;
+	public void setUbirthday(Date date) {
+		this.ubirthday = date;
 	}
 	public String getUidcard() {
 		return uidcard;

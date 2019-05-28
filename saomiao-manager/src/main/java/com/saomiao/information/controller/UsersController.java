@@ -3,6 +3,7 @@ package com.saomiao.information.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -82,6 +83,18 @@ public class UsersController {
         Query query = new Query(params);
         
 		List<UsersDO> userList = usersService.list(query);
+		
+		/*for(int i = 0; i<userList.size() ; i++){
+			if(userList.get(i).getUbirthday() !=null){
+				SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd ");
+				try {
+					Date date = sdf2.parse(sdf2.format(userList.get(i).getUbirthday()));
+					userList.get(i).setUbirthday(date);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+			}	
+		}*/
 		int total = usersService.count(query);
 		PageUtils pageUtils = new PageUtils(userList, total);
 		return pageUtils;
