@@ -54,14 +54,12 @@ function load() {
 								},
 																{
 									field : 'uname', 
-									title : '姓名' ,
-									width : 100
+									title : '姓名'
 									
 								},
 																{
 									field : 'uorganization', 
-									title : '单位或学校',
-									width : 200 
+									title : '单位或学校'
 								},
 																{
 									field : 'ugender', 
@@ -69,72 +67,60 @@ function load() {
 									formatter: function(value,row,index ){
 										if(value == 0) return "男";
 										if(value == 1) return "女";
-									},
-									width : 50
+									}
 								},
 																{
 									field : 'ugrand', 
-									title : '年级或职业',
-									width : 100 
+									title : '年级或职业'
 								},
 																{
 									field : 'uage', 
-									title : '年龄' ,
-									width : 50
+									title : '年龄' 
 								},
 																{
 									field : 'ubirthday', 
-									title : '出生日期',
-									width : 200 
+									title : '出生日期'
 								},
 																{
 									field : 'uidcard', 
-									title : '身份证号' ,
-									width : 200
+									title : '身份证号' 
 								},
 																{
 									field : 'uphone', 
-									title : '联系电话' ,
-									width : 150
+									title : '联系电话' 
 								},
 																{
 									field : 'uheight', 
-									title : '身高(单位cm)',
-									width : 150
+									title : '身高(单位cm)'
 										
 								},
 																{
 									field : 'uweight', 
-									title : '体重(单位kg)',
-									width : 150 
+									title : '体重(单位kg)'
 								},
 																{
 									field : 'ufolder', 
-									title : '3D扫描数据存放目录',
-									width : 400 
+									title : '3D扫描数据存放目录'
 								},								{
 									field : 'uimg', 
 									title : '用户头像',
 									formatter : function(value ,row , index){
 										if(value!=null && value !=""){
-											var e = '<div class="image"><a class = ""  href="javascript:void(0)"><img width="90" height="100"  alt="image" class="img-responsive pimg view" src="' + value + '"></ a></div>'
+											var e = '<div class="image"><a class = ""  href="javascript:void(0)"><img width="90" height="120"  alt="image" class="img-responsive pimg view" src="' + value + '"></ a></div>'
 											return e;
 										}
 										else
 											return "";
 									},
-									events: 'operateEvents',
-									width : 100
+									events: 'operateEvents'
 								},
 																{
 									field : 'mname', 
-									title : '负责人(医生)',
-									width : 150
+									title : '负责人(医生)'
 								},
 																{
 									field : 'uupdatedate', 
-									title : '创建时间',
-									width : 200 
+									title : '创建时间'
 								},
 																{
 									title : '操作',
@@ -169,8 +155,7 @@ function load() {
 											return e + a ;
 										}
 										
-									},
-									width : 100
+									}
 								} ]
 					});
 }
@@ -188,7 +173,7 @@ window.operateEvents = {
 				  area: 'auto',
 		          skin: 'layui-layer-nobg', //没有背景色
 		          shadeClose: true,
-		          content: '<img width="200px" height="290px" src="'+row.uimg+'"/>'
+		          content: '<img width="300px" height="400px" src="'+row.uimg+'"/>'
 		        });
 		  },
 };
