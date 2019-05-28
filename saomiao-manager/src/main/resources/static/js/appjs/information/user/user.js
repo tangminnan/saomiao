@@ -49,8 +49,7 @@ function load() {
 								},
 																{
 									field : 'uid', 
-									title : 'id' ,
-									width : 100
+									title : 'id' 
 								},
 																{
 									field : 'uname', 
@@ -91,16 +90,16 @@ function load() {
 								},
 																{
 									field : 'uheight', 
-									title : '身高(单位cm)'
+									title : '身高cm'
 										
 								},
 																{
 									field : 'uweight', 
-									title : '体重(单位kg)'
+									title : '体重kg'
 								},
 																{
 									field : 'ufolder', 
-									title : '3D扫描数据存放目录'
+									title : '3D扫描数据目录'
 								},								{
 									field : 'uimg', 
 									title : '用户头像',
@@ -116,7 +115,7 @@ function load() {
 								},
 																{
 									field : 'mname', 
-									title : '负责人(医生)'
+									title : '负责人'
 								},
 																{
 									field : 'uupdatedate', 
