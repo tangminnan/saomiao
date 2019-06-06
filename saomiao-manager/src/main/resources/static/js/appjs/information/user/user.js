@@ -439,6 +439,7 @@ function downfile(val){
 }
 
 function add(type) {
+	console.log(type)
 	if(type == 1){
 		layer.open({
 			type : 2,
@@ -457,8 +458,17 @@ function add(type) {
 			area : [ '800px', '520px' ],
 			content : prefix + '/batchAdd' // iframe的url
 		});
+	}else if(type == 3){
+		layer.open({
+			type : 2,
+			title : '导入扫描数据',
+			maxmin : true,
+			shadeClose : false, // 点击遮罩关闭层
+			area : [ '800px', '520px' ],
+			content : prefix + '/batchAdds' // iframe的url
+		});
 	}else{
-		alert("请输入type1或2")
+		alert("请输入type1或2或3")
 	}
 	
 }

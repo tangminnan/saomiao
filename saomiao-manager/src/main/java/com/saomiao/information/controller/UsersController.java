@@ -171,6 +171,12 @@ public class UsersController {
 	    return "information/user/batchAdd";
 	}
 	
+	@GetMapping("/batchAdds")
+	@RequiresPermissions("information:user:batchAdd")
+	String batchAdds(){
+	    return "information/user/batchAdds";
+	}
+	
 	@GetMapping("/edit/{uid}")
 	@RequiresPermissions("information:user:edit")
 	String edit(@PathVariable("uid") Long uid,Model model){
@@ -308,6 +314,74 @@ public class UsersController {
 					    	num++;
 						}else{
 							return R.error("导入失败!姓名&年龄&学校不能为空");
+						}
+					} catch (Exception e) {
+						return R.error("导入失败！第"+rowNum+"条");
+					}
+				}
+				return R.ok("上传成功,共增加["+num+"]条");
+			}else{
+				return R.error("请选择导入的文件!");
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(book!=null)
+					book.close();
+				if(book!=null)
+					in.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return R.error();
+	}
+	
+	
+	
+	
+	/**
+	 * 批量保存
+	 */
+	@ResponseBody
+	@PostMapping("/batchSaves")
+	public R batchSaves(MultipartFile file){
+		int num = 0;
+		InputStream in=null;
+		Workbook book=null;
+		try {
+			if(file != null){
+				in = file.getInputStream();
+				book =ExcelUtils.getBook(in);
+				Sheet sheet = book.getSheetAt(0);
+				Row row=null;
+				for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
+					try {
+						row = sheet.getRow(rowNum);
+						String ufolder = ExcelUtils.getCellFormatValue(row.getCell((short)0));
+						String uimg = ExcelUtils.getCellFormatValue(row.getCell((short)1));
+						String mname = ExcelUtils.getCellFormatValue(row.getCell((short)2));
+						UsersDO user = new UsersDO();
+						if(StringUtils.isNotBlank(ufolder) && StringUtils.isNotBlank(ufolder)&& StringUtils.isNotBlank(mname)){
+							user.setUfolder(ufolder);
+							user.setUimg(uimg);
+							user.setMname(mname);
+							
+					    	user.setUupdatedate(new Date());
+					    	
+					    	Map<String,Object> map = new HashMap<String,Object>();
+					    	map.put("ufolder", user.getUfolder());
+					    	map.put("uimg", user.getUimg());
+					    	map.put("mname", user.getMname());
+					    	
+					    	if(usersService.list(map).size() == 0){
+					    		usersService.save(user);
+					    	}
+					    	num++;
+						}else{
+							return R.error("导入失败!文件路径&头像路径&负责人不允许为空");
 						}
 					} catch (Exception e) {
 						return R.error("导入失败！第"+rowNum+"条");

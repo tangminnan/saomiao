@@ -13,9 +13,12 @@
 									<i class="fa fa-plus" aria-hidden="true"></i>手动添加
 								</button>
 								<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add(2)">
-									<i class="fa fa-plus" aria-hidden="true"></i>批量添加
+									<i class="fa fa-plus" aria-hidden="true"></i>批量添加用户
 								</button>
 								
+								<button shiro:hasPermission="information:user:add" type="button" class="btn  btn-primary" onclick="add(3)">
+									<i class="fa fa-plus" aria-hidden="true"></i>导入扫描数据
+								</button>
 								
 								<button shiro:hasPermission="information:user:batchRemove" type="button" class="btn  btn-danger"
 									onclick="batchRemove()">
