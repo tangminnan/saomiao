@@ -177,11 +177,11 @@ function load() {
 											+ '\')"><i class="fa fa-key">解绑</i></a> ';
 										
 										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
-											   + `${row.uid},${index}`
+											   + `${row.uid}`
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 										
 									   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
-										   + `${row.uid},${index}`
+										   + `${row.uid}`
 										   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 											
 										if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
@@ -394,11 +394,11 @@ function selectlist() {
 												+ '\')"><i class="fa fa-key">解绑</i></a> ';
 											
 											var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
-												   + `${row.uid},${index}`
+												   + `${row.uid}`
 												   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 											
 										   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
-											   + `${row.uid},${index}`
+											   + `${row.uid}`
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 												
 											if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
@@ -416,11 +416,7 @@ function selectlist() {
 
 
 
-function downfile(val){
-		var arr = val.split(',')
-		var id = arr[0]
-		var index = arr[1]
-		
+function downfile(id){
 		$.ajax({
 			url : "/information/user/download", 
 			type : "get",
@@ -428,10 +424,7 @@ function downfile(val){
 				'uid' : id  
 			},
 			success : function(data) {
-				$('.dowmL').each(function(index1){
-					$(this).attr('href',data[0].ufolder);
-					window.open(data[0].ufolder,'_blank')
-				})
+					window.open(data[0].ufolder)
 			}
 		});
 		
