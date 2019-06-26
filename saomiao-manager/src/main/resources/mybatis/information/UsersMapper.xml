@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="getfileByname" resultType="com.saomiao.information.domain.UsersDO">
-		select u_img,u_folder,m_name from t_user where u_name is NULL or u_name = ''
+		select u_img,u_folder,m_name from t_user where (u_name is NULL or u_name = '')
 		<if test="username != null and username != ''"> and m_name = #{username} </if> 
 	</select>
 	
@@ -203,7 +203,7 @@
 	
 	<update id="updateUser" parameterType="com.saomiao.information.domain.UsersDO">
 		update t_user 
-		set u_folder = NULL ,u_img = NULL ,m_name = NULL 
+		set u_folder = NULL ,u_img = NULL
 		where u_id = #{uid}
 	</update>
 	

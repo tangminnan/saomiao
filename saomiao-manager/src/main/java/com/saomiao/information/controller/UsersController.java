@@ -142,9 +142,8 @@ public class UsersController {
 	@GetMapping("/unbind")
 	public R unbind(Long uid){
 		
-		System.out.println("==============uid==========="+uid);
 		UsersDO oldusers =  usersService.get(uid);
-		System.out.println("==============================="+oldusers.getUimg());
+		
 		UsersDO newusers = new UsersDO();
 		newusers.setUfolder(oldusers.getUfolder());
 		newusers.setMname(oldusers.getMname());
@@ -377,7 +376,11 @@ public class UsersController {
 					    	map.put("mname", user.getMname());
 					    	
 					    	if(usersService.list(map).size() == 0){
-					    		usersService.save(user);
+					    		if(managersService.getIdByname(mname) != null && !managersService.getIdByname(mname).equals("")){
+					    			usersService.save(user);
+					    		}else{
+					    			return R.error("第"+rowNum+"行输入的负责人名字不存在，请重新输入！");
+					    		}
 					    	}
 					    	num++;
 						}else{
@@ -483,9 +486,10 @@ public class UsersController {
 			if(usersService.update(user) > 0){
 				usersService.removeByimg(user.getUimg());
 			}
+		}else{
+			usersService.update(user);
 		}
 		
-	
 		return R.ok();
 	}
 	
