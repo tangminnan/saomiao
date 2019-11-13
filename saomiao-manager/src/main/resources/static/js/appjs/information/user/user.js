@@ -177,11 +177,11 @@ function load() {
 											+ '\')"><i class="fa fa-key">解绑</i></a> ';
 										
 										var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
-											   + `${row.uid}`
+											   + row.uid
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 										
 									   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
-										   + `${row.uid}`
+										   + row.uid
 										   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 											
 										if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
@@ -394,11 +394,11 @@ function selectlist() {
 												+ '\')"><i class="fa fa-key">解绑</i></a> ';
 											
 											var a = '<a class="btn btn-primary btn-block btn-sm dowmL"   title="下载"  onclick="downfile(\''
-												   + `${row.uid}`
+												   + row.uid
 												   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 											
 										   var b = '<a class="btn btn-primary btn-block btn-sm dowmL" style="display:none"   title="下载"  onclick="downfile(\''
-											   + `${row.uid}`
+											   + row.uid
 											   + '\')" ><i class="fa fa-download">下载</i></ a> ';
 												
 											if((row.ufolder ===null || row.ufolder === "") && (row.uimg === "" || row.uimg === null)){
